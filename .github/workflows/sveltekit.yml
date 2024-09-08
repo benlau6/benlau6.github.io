@@ -22,18 +22,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/configure-pages@v1
+      - uses: actions/checkout@v4
+
+      - uses: actions/configure-pages@v3
         id: pages
-      - uses: pnpm/action-setup@v2
+
+      - uses: pnpm/action-setup@v4
+        name: Install npm
         with:
-          version: 7.26.2
-      - uses: actions/setup-node@v3
+          version: 9
+          run_install: false
+
+      - uses: actions/setup-node@v4
+        name: Install Node.js
         with:
-          node-version: 18
-          cache: 'pnpm'
+          node-version: 20
+          cache: "pnpm"
+
       - run: pnpm install --frozen-lockfile
-      - run: pnpm build
+      - run: pnpm run build
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
