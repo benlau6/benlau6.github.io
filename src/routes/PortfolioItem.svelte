@@ -4,10 +4,10 @@
 	export let imgSrc: string;
 </script>
 
-<form method="get" action={href}>
+<a {href}>
 	<span>{title}</span>
-	<button type="submit" class="card" style="background-image: url({imgSrc});" />
-</form>
+	<button class="card" style="background-image: url({imgSrc});" />
+</a>
 
 <style>
 	span {
