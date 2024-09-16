@@ -53,10 +53,11 @@ const descYearKeys = Object.keys(groupedByYear).sort((a, b) => +b - +a);
 				descYearKeys.map((yearKey) => (
 					<>
 						<h2 class="title text-lg">{yearKey}</h2>
-						<ul class="mb-8 mt-6 space-y-8 text-start">
+            <hr />
+						<ul class="mb-8 mt-6 space-y-8 text-start xl:space-y-0 xl:divide-y xl:*:py-4 xl:first:*:pt-0 xl:last:*:pb-0 2xl:text-lg">
 							{groupedByYear[yearKey]?.map((p) => (
-								<li class="grid gap-2 sm:grid-cols-[auto_1fr] sm:[&_q]:col-start-2">
-          <PostPreview post={p} withDesc={true} />
+								<li class="grid gap-2 sm:grid-cols-[auto_1fr] sm:[&_q]:col-start-2 xl:grid-cols-[auto_2fr_1fr]">
+          <PostPreview post={p} withDesc={true} withCover={true} />
 								</li>
 							))}
 						</ul>
@@ -88,7 +89,7 @@ const descYearKeys = Object.keys(groupedByYear).sort((a, b) => +b - +a);
 						Tags
 					</h2>
 					<!-- grid-cols-2 will lead to text exceeding the width of the container -->
-					<ul class="grid grid-cols-1 gap-2 text-bgColor 2xl:grid-cols-2">
+					<ul class="grid grid-cols-1 gap-2 text-bgColor">
 						{uniqueTags.map((tag) => (
 							<li>
 								<a

@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 import { getPostSortDate } from "@/data/post";
 import type { HTMLTag, Polymorphic } from "astro/types";
@@ -7,17 +8,35 @@ import FormattedDate from "../FormattedDate.astro";
 type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }> & {
 	post: CollectionEntry<"blog" | "projects">;
 	withDesc?: boolean;
+	withCover?: boolean;
 };
 
-const { as: Tag = "div", post, withDesc = false } = Astro.props;
+const { as: Tag = "div", post, withDesc = false, withCover = false } = Astro.props;
 const postDate = getPostSortDate(post);
 ---
 
-<FormattedDate class="min-w-[120px] text-gray-600 dark:text-gray-400" date={postDate} />
+<FormattedDate class="text-gray-600 dark:text-gray-400 min-w-[120px]" date={postDate} />
 <Tag>
 	{post.data.draft && <span class="text-red-500">(Draft) </span>}
 	<a class="cactus-link" data-astro-prefetch href={`/${post.collection}/${post.slug}/`}>
 		{post.data.title}
 	</a>
+	{withDesc && <q class="line-clamp-3 hidden italic sm:block">{post.data.description}</q>}
 </Tag>
-{withDesc && <q class="line-clamp-3 italic">{post.data.description}</q>}
+{
+	withCover && post.data.coverImage && (
+		<a
+			data-astro-prefetch
+			href={`/${post.collection}/${post.slug}/`}
+			class="aspect-h-9 aspect-w-16 hidden xl:block"
+		>
+			<Image
+				alt={post.data.coverImage.alt}
+				class="object-cover"
+				fetchpriority="high"
+				loading="eager"
+				src={post.data.coverImage.src}
+			/>
+		</a>
+	)
+}
