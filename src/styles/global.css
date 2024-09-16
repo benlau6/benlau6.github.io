@@ -13,6 +13,7 @@
 		--theme-accent: 351deg 66% 48%;
 		--theme-accent-2: 0deg 0% 7%;
 		--theme-quote: 351deg 66% 48%;
+    --theme-gray: 0deg 0% 87%;
 	}
 
 	:root[data-theme="dark"] {
@@ -23,5 +24,6 @@
 		--theme-accent: 159deg 64% 45%;
 		--theme-accent-2: 0deg 0% 93%;
 		--theme-quote: 102deg 100% 86%;
+    --theme-gray: 0deg 0% 30%;
 	}
 }

@@ -40,6 +40,7 @@ export default {
   theme: {
     extend: {
       colors: {
+        gray: "hsl(var(--theme-gray) / <alpha-value>)",
         accent: "hsl(var(--theme-accent) / <alpha-value>)",
         "accent-2": "hsl(var(--theme-accent-2) / <alpha-value>)",
         bgColor: "hsl(var(--theme-bg) / <alpha-value>)",
