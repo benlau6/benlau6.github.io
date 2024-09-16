@@ -12,10 +12,6 @@ const {
 } = Astro.props;
 
 const { remarkPluginFrontmatter } = await render();
-
-const dateTimeOptions: Intl.DateTimeFormatOptions = {
-	month: "long",
-};
 ---
 
 {
@@ -37,13 +33,14 @@ const dateTimeOptions: Intl.DateTimeFormatOptions = {
 </h1>
 <div class="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2">
 	<p class="font-semibold">
-		<FormattedDate date={data.publishDate} dateTimeOptions={dateTimeOptions} /> /{" "}
+		<FormattedDate date={data.publishDate} /> /{" "}
 		{remarkPluginFrontmatter.minutesRead}
 	</p>
 	{
 		data.updatedDate && (
 			<span class="rounded-lg bg-quote/10 px-2 py-1 text-quote">
-				Updated:<FormattedDate class="ms-1" date={data.updatedDate} dateTimeOptions={dateTimeOptions} />
+				Updated:
+				<FormattedDate class="ms-1" date={data.updatedDate} />
 			</span>
 		)
 	}
