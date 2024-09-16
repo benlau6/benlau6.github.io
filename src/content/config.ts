@@ -29,6 +29,8 @@ const blog = defineCollection({
         .string()
         .optional()
         .transform((str) => (str ? new Date(str) : undefined)),
+      github: z.string().url().optional(),
+      demo: z.string().url().optional(),
     }),
   type: "content",
 });
