@@ -20,8 +20,9 @@ const {
 	<head>
 		<BaseHead articleDate={articleDate} description={description} ogImage={ogImage} title={title} />
 	</head>
+	<!-- increase max website width to xl (1280px) to match markdown content width -->
 	<body
-		class="mx-auto flex min-h-screen max-w-3xl flex-col bg-bgColor px-4 pt-16 font-normal text-textColor antialiased sm:px-8"
+		class="mx-auto flex min-h-screen max-w-3xl flex-col bg-bgColor px-4 pt-16 font-normal text-textColor antialiased sm:px-8 xl:max-w-screen-lg 2xl:max-w-screen-xl"
 	>
 		<ThemeProvider />
 		<SkipLink />
