@@ -7,7 +7,7 @@ function removeDupsAndLowerCase(array: string[]) {
 	return Array.from(distinctItems);
 }
 
-const post = defineCollection({
+const blog = defineCollection({
 	schema: ({ image }) =>
 		z.object({
 			coverImage: z
@@ -33,4 +33,6 @@ const post = defineCollection({
 	type: "content",
 });
 
-export const collections = { post };
+export const collections = {
+  blog,
+};
