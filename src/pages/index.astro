@@ -1,0 +1,53 @@
+---
+import SocialList from "@/components/SocialList.astro";
+import PostPreview from "@/components/blog/PostPreview.astro";
+import { getAllPosts, sortMDByDate } from "@/data/post";
+import PageLayout from "@/layouts/Base.astro";
+
+const MAX_POSTS = 10;
+// const allPosts = await getAllPosts();
+// const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
+
+const allProjects = await getAllPosts("projects");
+const allProjectsByDate = sortMDByDate(allProjects).slice(0, MAX_POSTS);
+---
+
+<PageLayout meta={{ title: "Home" }}>
+	<section>
+		<p class="mb-4">My name is Ben, and I am a Hongkonger.</p>
+		<p class="mb-4">
+			My passion is to solve difficult problems with data science. I am also interested in designing
+			and implementing complex and antifragile software systems. Moreover, I like to uncover the
+			hidden insights or truth in data, and present them in a clear and concise way.
+		</p>
+		<p class="mb-4">
+			In addition, I am seeking for opportunities to make the Hong Kong society better. Welcome to
+			contact me if you are doing so and need a hand from a data scientist or an software engineer.
+		</p>
+		<SocialList />
+	</section>
+	<!-- <section aria-label="Blog post list" class="mt-12"> -->
+	<!-- 	<h2 class="title mb-4 text-xl">Blog</h2> -->
+	<!-- 	<ul class="space-y-4"> -->
+	<!-- 		{ -->
+	<!-- 			allPostsByDate.map((p) => ( -->
+	<!-- 				<li class="grid gap-2 sm:grid-cols-[auto_1fr] sm:[&_q]:col-start-2"> -->
+	<!-- 					<PostPreview post={p} /> -->
+	<!-- 				</li> -->
+	<!-- 			)) -->
+	<!-- 		} -->
+	<!-- 	</ul> -->
+	<!-- </section> -->
+	<section aria-label="Blog post list" class="mt-12">
+		<h2 class="title mb-4 text-xl">Projects</h2>
+		<ul class="space-y-4">
+			{
+				allProjectsByDate.map((p) => (
+					<li class="grid gap-2 sm:grid-cols-[auto_1fr] sm:[&_q]:col-start-2">
+						<PostPreview post={p} />
+					</li>
+				))
+			}
+		</ul>
+	</section>
+</PageLayout>
