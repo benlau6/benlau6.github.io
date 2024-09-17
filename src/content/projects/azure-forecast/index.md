@@ -7,9 +7,10 @@ coverImage:
   alt: "Azure Forecast Pipeline"
 github: "https://github.com/benlau6/amazon-forecast-pipeline"
 tags:
-  - "azure"
-  - "cloud"
   - "forecasting"
+  - "azure"
+  - "python"
+  - "cloud"
 ---
 
 A pipeline for forecasting with Azure Machine Learning.

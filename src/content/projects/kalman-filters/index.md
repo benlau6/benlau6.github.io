@@ -8,8 +8,9 @@ coverImage:
 demo: "https://github.com/benlau6/hierarchy-bayesian-modeling-time-series-sensor/blob/main/kalman_filter.ipynb"
 github: "https://github.com/benlau6/hierarchy-bayesian-modeling-time-series-sensor"
 tags:
-  - "synthetic-data"
   - "kalman-filter"
+  - "synthetic-data"
+  - "python"
 ---
 
 A Kalman filter implementation on synthetic data.

@@ -8,8 +8,11 @@ coverImage:
 demo: "https://github.com/benlau6/hierarchy-bayesian-modeling-time-series-sensor/blob/main/gaussian_process.ipynb"
 github: "https://github.com/benlau6/hierarchy-bayesian-modeling-time-series-sensor"
 tags:
-  - "bayesian"
   - "forecasting"
+  - "bayesian"
+  - "gaussian-processes"
+  - "python"
+  - "pymc"
 ---
 
 A Bayesian approach to time series forecasting using Gaussian Processes.

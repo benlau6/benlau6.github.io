@@ -9,10 +9,9 @@ demo: "https://routing-visualization.vercel.app/"
 github: "https://github.com/benlau6/routing-visualization"
 tags:
   - "vrp"
-  - "visualization"
   - "routing"
-  - "operations research"
-  - "mathematical optimization"
+  - "mathematical-optimization"
+  - "visualization"
 ---
 
 - Build a workflow in Python to solve daily scheduling problem with hundreds of daily vehicle requests

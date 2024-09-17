@@ -8,8 +8,10 @@ coverImage:
 demo: "https://github.com/benlau6/hierarchy-bayesian-modeling-time-series-sensor/blob/main/demonstration.ipynb"
 github: "https://github.com/benlau6/hierarchy-bayesian-modeling-time-series-sensor/"
 tags:
+  - "anomaly-detection"
   - "bayesian"
-  - "change-point-detection"
+  - "python"
+  - "pymc"
 ---
 
 - Implemented a hierarchical Bayesian model to detect changepoints in time series data

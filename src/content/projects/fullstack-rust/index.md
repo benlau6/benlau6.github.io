@@ -8,9 +8,11 @@ coverImage:
 demo: "https://pokemon-auth.shuttleapp.rs/"
 github: "https://github.com/benlau6/fullstack-rust"
 tags:
+  - "frontend"
+  - "backend"
   - "rust"
   - "htmx"
-  - "full-stack"
+  - "axum"
 ---
 
 - Built an API in Rust and a website in HTMX and tailwindcss

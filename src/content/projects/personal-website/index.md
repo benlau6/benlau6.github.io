@@ -5,6 +5,8 @@ publishDate: "2024-09-17"
 github: "https://github.com/benlau6/benlau6.github.io"
 tags:
   - "frontend"
+  - "typescript"
+  - "astro"
 ---
 
 ## Minimalistic design

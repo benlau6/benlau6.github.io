@@ -8,6 +8,7 @@ coverImage:
 demo: "https://colab.research.google.com/github/benlau6/probml-notebooks/blob/discretized-ssm-patch/notebooks/discretized_ssm.ipynb"
 tags:
   - "state-space-model"
+  - "python"
 ---
 
 A implementation of a novel state space model.
