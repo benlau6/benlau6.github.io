@@ -28,7 +28,7 @@ const { headings } = await post.render();
 			<div id="blog-hero"><Masthead content={post} /></div>
 			<!-- increase max markdown content width to lg (1024px) -->
 			<div
-				class="prose prose-cactus mt-12 prose-headings:font-semibold prose-headings:text-accent-2 prose-headings:before:absolute prose-headings:before:-ms-4 prose-headings:before:text-accent sm:prose-th:before:content-none lg:max-w-screen-md xl:max-w-screen-lg"
+				class="prose prose-cactus mt-12 max-w-screen-lg prose-headings:font-semibold prose-headings:text-accent-2 prose-headings:before:absolute prose-headings:before:-ms-4 prose-headings:before:text-accent sm:prose-th:before:content-none"
 			>
 				<slot />
 				<WebMentions />
