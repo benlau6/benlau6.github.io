@@ -8,6 +8,7 @@ import FormattedDate from "../FormattedDate.astro";
 type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }> & {
 	post: CollectionEntry<"blog" | "projects">;
 	withDesc?: boolean;
+	withTags?: boolean;
 	withCover?: boolean;
 	enlargeHeader?: boolean;
 };
@@ -17,6 +18,7 @@ const {
 	post,
 	withDesc = false,
 	withCover = false,
+	withTags = false,
 	enlargeHeader = false,
 } = Astro.props;
 const postDate = getPostSortDate(post);
@@ -36,6 +38,17 @@ const postDate = getPostSortDate(post);
 		</a>
 	</div>
 	{withDesc && <q class="line-clamp-3 hidden italic sm:block">{post.data.description}</q>}
+	{
+		withTags && post.data.tags && (
+			<div class="mt-1 hidden flex-wrap gap-x-2 gap-y-1 xl:flex">
+				{post.data.tags.map((tag: string) => (
+					<a class="underline" data-astro-prefetch href={`/tags/${tag}/`}>
+						#{tag}
+					</a>
+				))}
+			</div>
+		)
+	}
 </Tag>
 {
 	withCover && post.data.coverImage && (
