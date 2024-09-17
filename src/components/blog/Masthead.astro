@@ -70,16 +70,17 @@ const { remarkPluginFrontmatter } = await render();
 </div>
 {
 	!!data.tags?.length && (
-		<div class="mt-2">
+		<div class="mt-2 flex gap-1">
 			{data.tags.map((tag, i) => (
-				<>
-					<a
-						aria-label={`View more blogs with the tag ${tag}`}
-						class="cactus-link inline-block before:content-['#']"
-						data-pagefind-filter="tag"
-						href={`/tags/${tag}/`}
-					>{tag}</a>{i < data.tags.length - 1 && ", "}
-				</>
+        <a
+          aria-label={`View more blogs with the tag ${tag}`}
+          class="cactus-link"
+          data-pagefind-filter="tag"
+          href={`/tags/${tag}/`}
+        >
+          #{tag}
+        </a>
+        <span>{i < data.tags.length - 1 && <>&middot;</>}</span>
 			))}
 		</div>
 	)
