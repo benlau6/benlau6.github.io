@@ -1,11 +1,11 @@
 {
-	"name": "Astro Theme Cactus Demo",
-	"short_name": "Astro_Cactus",
-	"description": "Starter blog site for Astro",
+	"name": "Ben Lau Personal Website",
+	"short_name": "Ben_Lau",
+	"description": "Ben Lau's personal website",
 	"icons": [
 		{
-			"src": "/192x192.png",
-			"sizes": "192x192",
+			"src": "/256x256.png",
+			"sizes": "256x256",
 			"type": "image/png"
 		},
 		{
