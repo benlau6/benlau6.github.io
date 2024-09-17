@@ -42,7 +42,7 @@ const postDate = getPostSortDate(post);
 		withTags && post.data.tags && (
 			<div class="mt-1 hidden flex-wrap gap-x-2 gap-y-1 xl:flex">
 				{post.data.tags.map((tag: string) => (
-					<a class="underline" data-astro-prefetch href={`/tags/${tag}/`}>
+					<a class="cactus-link opacity-70" data-astro-prefetch href={`/tags/${tag}/`}>
 						#{tag}
 					</a>
 				))}
