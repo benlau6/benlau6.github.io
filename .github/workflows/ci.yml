@@ -39,13 +39,21 @@ jobs:
           node-version: 20
           cache: "pnpm"
 
-      - run: pnpm install --frozen-lockfile
-      - run: pnpm run build
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+        # use astro check for issues
+      - name: Run check
+        run: pnpm astro check
+
+        # ensure build works
+      - name: Run build
+        run: pnpm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: ./build
+          path: ./dist
 
   deploy:
     runs-on: ubuntu-latest
