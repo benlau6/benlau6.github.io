@@ -20,6 +20,7 @@ interface Props {
 }
 
 const { page, allTags } = Astro.props;
+const withItemDivider = false;
 
 const meta = {
 	description: "Check my projects",
@@ -53,7 +54,15 @@ const descYearKeys = Object.keys(groupedByYear).sort((a, b) => +b - +a);
 				descYearKeys.map((yearKey) => (
 					<>
 						<h2 class="title text-lg xl:border-b">{yearKey}</h2>
-						<ul class="mb-8 mt-6 space-y-8 text-start xl:space-y-0 xl:divide-y xl:*:py-4 xl:first:*:pt-0 xl:last:*:pb-0">
+						<ul
+							class="mb-8 mt-6 space-y-8 text-start"
+							class:list={[
+								{
+									"xl:space-y-0 xl:divide-y xl:*:py-4 xl:first:*:pt-0 xl:last:*:pb-0":
+										withItemDivider,
+								},
+							]}
+						>
 							{groupedByYear[yearKey]?.map((p) => (
 								<li class="grid gap-2 sm:grid-cols-[auto_1fr] xl:grid-cols-[auto_1fr_0.5fr]">
 									<PostPreview
