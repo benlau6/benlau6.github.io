@@ -16,11 +16,13 @@ const postDate = getPostSortDate(post);
 ---
 
 <FormattedDate class="text-gray-600 dark:text-gray-400 min-w-[120px]" date={postDate} />
-<Tag>
-	{post.data.draft && <span class="text-red-500">(Draft) </span>}
-	<a class="cactus-link" data-astro-prefetch href={`/${post.collection}/${post.slug}/`}>
-		{post.data.title}
-	</a>
+<Tag class="flex flex-col gap-1">
+	<div>
+		{post.data.draft && <span class="text-red-500">(Draft) </span>}
+		<a class="cactus-link" data-astro-prefetch href={`/${post.collection}/${post.slug}/`}>
+			{post.data.title}
+		</a>
+	</div>
 	{withDesc && <q class="line-clamp-3 hidden italic sm:block">{post.data.description}</q>}
 </Tag>
 {
