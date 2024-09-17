@@ -10,13 +10,13 @@ export const getStaticPaths = (async ({ paginate }) => {
 	const MAX_POSTS_PER_PAGE = 10;
 	const allPosts = await getAllPosts("projects");
 	const allPostsByDate = sortMDByDate(allPosts);
-  const allTags = getUniqueTagsWithCount(allPosts);
+	const allTags = getUniqueTagsWithCount(allPosts);
 	return paginate(allPostsByDate, { pageSize: MAX_POSTS_PER_PAGE, props: { allTags } });
 }) satisfies GetStaticPaths;
 
 interface Props {
-  page: Page<CollectionEntry<"projects">>;
-  allTags: [string, number][];
+	page: Page<CollectionEntry<"projects">>;
+	allTags: [string, number][];
 }
 
 const { page, allTags } = Astro.props;
@@ -47,7 +47,7 @@ const descYearKeys = Object.keys(groupedByYear).sort((a, b) => +b - +a);
 
 <PageLayout meta={meta}>
 	<h1 class="title mb-6">Projects</h1>
-  <div class="grid gap-y-16 sm:gap-x-8 sm:grid-flow-col sm:auto-cols-auto">
+	<div class="grid gap-y-16 sm:auto-cols-auto sm:grid-flow-col sm:gap-x-8">
 		<section aria-label="Blog post list">
 			{
 				descYearKeys.map((yearKey) => (
@@ -56,7 +56,13 @@ const descYearKeys = Object.keys(groupedByYear).sort((a, b) => +b - +a);
 						<ul class="mb-8 mt-6 space-y-8 text-start xl:space-y-0 xl:divide-y xl:*:py-4 xl:first:*:pt-0 xl:last:*:pb-0">
 							{groupedByYear[yearKey]?.map((p) => (
 								<li class="grid gap-2 sm:grid-cols-[auto_1fr] xl:grid-cols-[auto_1fr_0.8fr]">
-          <PostPreview post={p} withDesc={true} withCover={true} withTags={true} enlargeHeader={true} />
+									<PostPreview
+										post={p}
+										withDesc={true}
+										withCover={true}
+										withTags={true}
+										enlargeHeader={true}
+									/>
 								</li>
 							))}
 						</ul>
@@ -87,16 +93,15 @@ const descYearKeys = Object.keys(groupedByYear).sort((a, b) => +b - +a);
 						</svg>
 						Most Used Tags
 					</h2>
-					<!-- grid-cols-2 will lead to text exceeding the width of the container -->
 					<ul class="grid grid-cols-1 gap-2 text-bgColor">
-        {allTags.slice(0, 10).map(([tag, val]) => (
+						{allTags.slice(0, 10).map(([tag, val]) => (
 							<li>
 								<a
 									aria-label={`View all posts with the tag: ${tag}`}
 									class="block rounded-lg bg-accent bg-opacity-90 p-1 px-4"
 									href={`/tags/${tag}/`}
 								>
-            #{tag} <sup class="text-gray">{val}</sup>
+									#{tag} <sup class="text-gray">{val}</sup>
 								</a>
 							</li>
 						))}
