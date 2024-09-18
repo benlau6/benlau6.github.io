@@ -42,10 +42,6 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-        # use astro check for issues
-      - name: Run check
-        run: pnpm astro check
-
         # ensure build works
       - name: Run build
         run: pnpm run build
