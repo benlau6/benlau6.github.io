@@ -15,6 +15,7 @@ tags:
 ---
 
 - Implemented several hierarchical Bayesian models to detect change points in time series data
+- Tried linear regression, Gaussian processes, Kalman filter, Gaussian mixture, and Student's t mixture models
 
 ## Baseline Model
 
