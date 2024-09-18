@@ -31,6 +31,12 @@ export default {
 					},
 					"@apply underline underline-offset-2": {},
 				},
+				".colored-link": {
+					"&:hover": {
+						"@apply decoration-2": {},
+					},
+					"@apply underline underline-offset-2": {},
+				},
 				".title": {
 					"@apply text-2xl font-semibold text-accent-2": {},
 				},
