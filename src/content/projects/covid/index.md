@@ -3,7 +3,7 @@ title: "Covid Bayesian Analysis"
 description: "A Bayesian analysis on COVID-19 pandemic in Hong Kong"
 publishDate: "2024-09-13"
 coverImage:
-  src: "./rt.png"
+  src: "./rt.svg"
   alt: "Effective Reproduction Rate"
 github: "https://github.com/benlau6/covid"
 tags:
@@ -17,10 +17,8 @@ This project uses Bayesian methods and probabilistic programming to analyze the 
 
 The main idea is based on rtlive and k-sys/covid-19 by Thomas Wiecki and Kevin Systrom. The model is a State Space Model with Gaussian random walk prior, implemented in PyMC.
 
-A few plots are generated to visualize the results.
+A few plots are generated to visualize the results. Note that time series plots are mostly in aspect ratio 21:9 for better visualization.[<sup>[1]</sup>](http://vis.stanford.edu/files/2006-Banking-InfoVis.pdf)[<sup>[2]</sup>](http://vis.stanford.edu/files/2012-SlopeComparison-InfoVis.pdf)
 
-![Daily New Cases](./ts_new_cases.png)
-<p class="text-center">Daily new cases</p>
+![Daily New Cases](./ts_new_cases.svg)
 
 ![trace plot](./trace.png)
-<p class="text-center">Trace plot</p>
