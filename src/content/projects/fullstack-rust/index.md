@@ -1,7 +1,8 @@
 ---
 title: "Full Stack Web Development in Rust"
 description: "A full stack web development project using Rust and HTMX"
-publishDate: "2024-09-08"
+publishDate: "2024-09-02"
+updatedDate: "2024-09-08"
 coverImage:
   src: "./cover.png"
   alt: "Full Stack Web Development in Rust"

@@ -1,7 +1,8 @@
 ---
 title: "Personal Website"
 description: "A research on personal websites to build this website"
-publishDate: "2024-09-17"
+publishDate: "2024-09-16"
+updatedDate: "2024-09-18"
 github: "https://github.com/benlau6/benlau6.github.io"
 tags:
   - "frontend"

@@ -1,7 +1,8 @@
 ---
 title: "Routing Optimization using OR-Tools with Visualization"
 description: "Used constraint programming to solve vehicle routing problem with time window and capacity constraints in Python using OR-Tools"
-publishDate: "2024-09-07"
+publishDate: "2024-08-15"
+updatedDate: "2024-09-08"
 coverImage:
   src: "./cover.png"
   alt: "Routing Visualization on Hong Kong Map"
