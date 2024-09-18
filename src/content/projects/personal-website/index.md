@@ -58,6 +58,7 @@ tags:
 
 ## Visualization
 
+- [Italia Personal Finance](https://www.italiapersonalfinance.it/) -- great design, layout, use of colors, blog list
 - [hakim.se](https://hakim.se/)
 - [lynnandtonic.com](https://lynnandtonic.com/)
 - [Not a Number](https://www.nan.fyi/)
