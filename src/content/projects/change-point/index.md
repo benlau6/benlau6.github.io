@@ -1,6 +1,6 @@
 ---
-title: "Bayesian Changepoint Detection"
-description: "A Bayesian approach to detecting changepoints in time series data"
+title: "Bayesian Change Point Detection"
+description: "A Bayesian approach to detecting change points in time series data"
 publishDate: "2021-08-25"
 coverImage:
   src: "./cover.png"
@@ -14,7 +14,7 @@ tags:
   - "pymc"
 ---
 
-- Implemented several hierarchical Bayesian model to detect changepoints in time series data
+- Implemented several hierarchical Bayesian models to detect change points in time series data
 
 ## Baseline Model
 
