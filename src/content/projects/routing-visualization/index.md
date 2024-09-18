@@ -4,7 +4,7 @@ description: "Used constraint programming to solve vehicle routing problem with 
 publishDate: "2024-08-15"
 updatedDate: "2024-09-08"
 coverImage:
-  src: "./cover.png"
+  src: "./cover.webp"
   alt: "Routing Visualization on Hong Kong Map"
 demo: "https://routing-visualization.vercel.app/"
 github: "https://github.com/benlau6/routing-visualization"
