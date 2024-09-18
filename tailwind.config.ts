@@ -45,6 +45,10 @@ export default {
 	],
 	theme: {
 		extend: {
+			aspectRatio: {
+				21: "21",
+				22: "22",
+			},
 			colors: {
 				gray: "hsl(var(--theme-gray) / <alpha-value>)",
 				accent: "hsl(var(--theme-accent) / <alpha-value>)",
