@@ -12,6 +12,7 @@ import remarkDirective from "remark-directive"; /* Handle ::: directives as node
 import remarkUnwrapImages from "remark-unwrap-images";
 import { remarkAdmonitions } from "./src/plugins/remark-admonitions"; /* Add admonitions */
 import { remarkReadingTime } from "./src/plugins/remark-reading-time";
+import { remarkUpdatedDate } from "./src/plugins/remark-updated-date";
 import { remarkH1ToTitle } from "./src/plugins/remark-h1-to-title";
 import remarkMath from "remark-math";
 // @ts-ignore
@@ -54,6 +55,7 @@ export default defineConfig({
 			remarkAdmonitions,
 			remarkMath,
 			remarkH1ToTitle,
+			remarkUpdatedDate,
 			[
 				RemarkLinkRewrite,
 				{

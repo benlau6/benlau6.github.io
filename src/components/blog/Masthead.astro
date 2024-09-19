@@ -37,12 +37,15 @@ const { remarkPluginFrontmatter } = await render();
 		{remarkPluginFrontmatter.minutesRead}
 	</p>
 	{
-		data.updatedDate && (
+		(data.updatedDate ?? remarkPluginFrontmatter.updatedDate) && (
 			<>
 				&middot;
 				<span class="text-quote">
 					Updated:
-					<FormattedDate class="ms-1" date={data.updatedDate} />
+					<FormattedDate
+						class="ms-1"
+						date={data.updatedDate ?? remarkPluginFrontmatter.updatedDate}
+					/>
 				</span>
 			</>
 		)
