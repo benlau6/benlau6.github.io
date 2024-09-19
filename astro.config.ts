@@ -12,8 +12,10 @@ import remarkDirective from "remark-directive"; /* Handle ::: directives as node
 import remarkUnwrapImages from "remark-unwrap-images";
 import { remarkAdmonitions } from "./src/plugins/remark-admonitions"; /* Add admonitions */
 import { remarkReadingTime } from "./src/plugins/remark-reading-time";
+import remarkMath from "remark-math";
 
 // Rehype plugins
+import rehypeKatex from "rehype-katex";
 import rehypeExternalLinks from "rehype-external-links";
 
 // https://astro.build/config
@@ -40,8 +42,15 @@ export default defineConfig({
 					target: "_blank",
 				},
 			],
+			[rehypeKatex, {}],
 		],
-		remarkPlugins: [remarkUnwrapImages, remarkReadingTime, remarkDirective, remarkAdmonitions],
+		remarkPlugins: [
+			remarkUnwrapImages,
+			remarkReadingTime,
+			remarkDirective,
+			remarkAdmonitions,
+			remarkMath,
+		],
 		remarkRehype: {
 			footnoteLabelProperties: {
 				className: [""],
