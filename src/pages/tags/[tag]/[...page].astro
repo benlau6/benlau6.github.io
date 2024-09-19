@@ -7,7 +7,7 @@ import PageLayout from "@/layouts/Base.astro";
 import type { GetStaticPaths, Page } from "astro";
 
 export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
-	const allPosts = await getAllPosts();
+	const allPosts = await getAllPosts("blog");
 	const allProjects = await getAllPosts("projects");
 	const allEntries = [...allPosts, ...allProjects];
 	const allPostsByDate = sortMDByDate(allEntries);

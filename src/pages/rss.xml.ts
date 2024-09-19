@@ -3,7 +3,7 @@ import { siteConfig } from "@/site-config";
 import rss from "@astrojs/rss";
 
 export const GET = async () => {
-	const posts = await getAllPosts();
+	const posts = await getAllPosts("blog");
 
 	return rss({
 		title: siteConfig.title,
@@ -13,7 +13,7 @@ export const GET = async () => {
 			title: post.data.title,
 			description: post.data.description,
 			pubDate: post.data.publishDate,
-			link: `posts/${post.slug}`,
+			link: `blog/${post.slug}`,
 		})),
 	});
 };
