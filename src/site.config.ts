@@ -28,6 +28,7 @@ export const siteConfig: SiteConfig = {
 		link: "",
 	},
 	spotlight: false,
+	centerPost: true,
 };
 
 // Used to generate links in both the Header & Footer.
@@ -47,10 +48,6 @@ export const menuLinks: { path: string; title: string }[] = [
 	{
 		path: "/tags/",
 		title: "Tags",
-	},
-	{
-		path: "/documents/resume.pdf",
-		title: "Resume",
 	},
 ];
 

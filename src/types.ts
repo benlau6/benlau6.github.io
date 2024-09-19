@@ -14,6 +14,7 @@ export interface SiteConfig {
 		pingback?: string;
 	};
 	spotlight: boolean;
+	centerPost: boolean;
 }
 
 export interface PaginationLink {
