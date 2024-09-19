@@ -6,7 +6,6 @@
 			<a href="/#about">About</a>
 			<a href="/#portfolio">Portfolio</a>
 			<!-- <a href="/blog">Blog</a> -->
-			<a href="/resume.pdf">Resume</a>
 		</nav>
 	</div>
 </header>
