@@ -22,10 +22,10 @@ const { headings } = await post.render();
 ---
 
 <BaseLayout meta={{ articleDate, description, ogImage: socialImage, title }}>
-	<div class="gap-x-10 lg:flex lg:items-start">
-		{!!headings.length && <TOC headings={headings} />}
 		<article class="flex-grow break-words" data-pagefind-body>
 			<div id="blog-hero"><Masthead content={post} /></div>
+		<div class="gap-x-10 lg:flex lg:items-start lg:justify-between">
+			{!!headings.length && <TOC headings={headings} />}
 			<!-- increase max markdown content width to lg (1024px) -->
 			<div
 				class="prose prose-cactus mt-12 max-w-screen-lg prose-headings:font-semibold prose-headings:text-accent-2 prose-headings:before:absolute prose-headings:before:-ms-4 prose-headings:before:text-accent sm:prose-th:before:content-none"
@@ -33,8 +33,8 @@ const { headings } = await post.render();
 				<slot />
 				<WebMentions />
 			</div>
-		</article>
-	</div>
+		</div>
+	</article>
 	<button
 		aria-label="Back to Top"
 		class="z-90 fixed bottom-8 end-4 flex h-10 w-10 translate-y-28 items-center justify-center rounded-full border-2 border-transparent bg-zinc-200 text-3xl opacity-0 transition-all duration-300 hover:border-zinc-400 data-[show=true]:translate-y-0 data-[show=true]:opacity-100 dark:bg-zinc-700 sm:end-8 sm:h-12 sm:w-12"
