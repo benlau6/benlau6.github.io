@@ -9,19 +9,19 @@ import { expressiveCodeOptions } from "./src/site.config";
 
 // Remark plugins
 import remarkDirective from "remark-directive"; /* Handle ::: directives as nodes */
-import remarkUnwrapImages from "remark-unwrap-images";
-import { remarkAdmonitions } from "./src/plugins/remark-admonitions"; /* Add admonitions */
-import { remarkReadingTime } from "./src/plugins/remark-reading-time";
-import { remarkUpdatedDate } from "./src/plugins/remark-updated-date";
-import { remarkH1ToTitle } from "./src/plugins/remark-h1-to-title";
-import wikiLinkPlugin from "remark-wiki-link";
-import remarkMath from "remark-math";
 // @ts-ignore
 import RemarkLinkRewrite from "remark-link-rewrite";
+import remarkMath from "remark-math";
+import remarkUnwrapImages from "remark-unwrap-images";
+import wikiLinkPlugin from "remark-wiki-link";
+import { remarkAdmonitions } from "./src/plugins/remark-admonitions"; /* Add admonitions */
+import { remarkH1ToTitle } from "./src/plugins/remark-h1-to-title";
+import { remarkReadingTime } from "./src/plugins/remark-reading-time";
+import { remarkUpdatedDate } from "./src/plugins/remark-updated-date";
 
+import rehypeExternalLinks from "rehype-external-links";
 // Rehype plugins
 import rehypeKatex from "rehype-katex";
-import rehypeExternalLinks from "rehype-external-links";
 
 // https://astro.build/config
 export default defineConfig({
@@ -68,8 +68,10 @@ export default defineConfig({
 					replacer: (url: string) => {
 						// it replaces markdown internal links with the correct path
 						if (url.endsWith(".md")) {
-							let parts = url.split("/");
-							return parts[0] + "/notes/" + parts.slice(1).join("/").replace(".md", "");
+							const parts = url.split("/");
+							const prefix = `${parts[0]}/notes`;
+							const path = parts.slice(1).join("/").replace(".md", "");
+							return `${prefix}/${path}`;
 						}
 						return url;
 					},

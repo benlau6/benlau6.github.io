@@ -1,11 +1,13 @@
-import { visit } from "unist-util-visit";
+import type { Root } from "mdast";
+import { toString as mdastToString } from "mdast-util-to-string";
+import type { Node } from "unist";
 import { remove } from "unist-util-remove";
-import { toString } from "mdast-util-to-string";
+import { visit } from "unist-util-visit";
+import type { VFile } from "vfile";
 
 export function remarkH1ToTitle() {
-	// @ts-expect-error:next-line
-	return function (tree, file) {
-		let node;
+	return (tree: Root, file: VFile) => {
+		let node: Node | null = null;
 		visit(tree, "heading", (n) => {
 			if (n.depth === 1) {
 				// found the first h1
@@ -15,7 +17,8 @@ export function remarkH1ToTitle() {
 		});
 
 		if (node) {
-			file.data.astro.frontmatter.title = toString(node);
+			// @ts-expect-error:next-line
+			file.data.astro.frontmatter.title = mdastToString(node);
 		}
 	};
 }

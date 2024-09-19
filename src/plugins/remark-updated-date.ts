@@ -1,12 +1,12 @@
-import { execSync } from "child_process";
+import { execSync } from "node:child_process";
 
 // NOTE: it does not replace the data specified in zod.
 // So it does not affect preview list. It only affects markdown rendering
 // So applying the same logic for publishDate does not help.
 export function remarkUpdatedDate() {
 	// @ts-expect-error:next-line
-	return function (_tree, file) {
-		if (file.data.astro.frontmatter.updatedDate == undefined) {
+	return (_tree, file) => {
+		if (file.data.astro.frontmatter.updatedDate === undefined) {
 			const filepath = file.history[0];
 			// https://git-scm.com/docs/pretty-formats
 			// %cI
