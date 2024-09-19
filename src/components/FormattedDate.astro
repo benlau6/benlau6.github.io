@@ -12,4 +12,4 @@ const { date, dateTimeOptions, ...attrs } = Astro.props;
 const postDate = getFormattedDate(date, dateTimeOptions).replaceAll("/", "-");
 ---
 
-<time datetime={date.toISOString()} {...attrs}>{postDate}</time>
+<time datetime={new Date(date).toISOString()} {...attrs}>{postDate}</time>
