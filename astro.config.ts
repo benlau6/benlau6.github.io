@@ -12,6 +12,7 @@ import remarkDirective from "remark-directive"; /* Handle ::: directives as node
 import remarkUnwrapImages from "remark-unwrap-images";
 import { remarkAdmonitions } from "./src/plugins/remark-admonitions"; /* Add admonitions */
 import { remarkReadingTime } from "./src/plugins/remark-reading-time";
+import { remarkH1ToTitle } from "./src/plugins/remark-h1-to-title";
 import remarkMath from "remark-math";
 
 // Rehype plugins
@@ -50,6 +51,7 @@ export default defineConfig({
 			remarkDirective,
 			remarkAdmonitions,
 			remarkMath,
+			remarkH1ToTitle,
 		],
 		remarkRehype: {
 			footnoteLabelProperties: {
