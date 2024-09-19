@@ -37,18 +37,31 @@ const blog = defineCollection({
 
 const notes = defineCollection({
 	// NOTE: it is not frontmatter and frontmatter will not change any of the data
-	schema: z.object({
-		tags: z.array(z.string()).default([]).transform(removeDupsAndLowerCase),
-		title: z.string().max(80),
-		publishDate: z
-			.string()
-			.or(z.date())
-			.transform((val) => new Date(val)),
-		updatedDate: z
-			.string()
-			.optional()
-			.transform((str) => (str ? new Date(str) : undefined)),
-	}),
+	// some dummy fields are added to allow layout reuse, e.g. Masthead.astro
+	schema: ({ image }) =>
+		z.object({
+			coverImage: z
+				.object({
+					alt: z.string(),
+					src: image(),
+				})
+				.optional(),
+			description: z.string().min(50).max(160).optional(),
+			draft: z.boolean().default(false),
+			ogImage: z.string().optional(),
+			tags: z.array(z.string()).default([]).transform(removeDupsAndLowerCase),
+			title: z.string().max(80),
+			publishDate: z
+				.string()
+				.or(z.date())
+				.transform((val) => new Date(val)),
+			updatedDate: z
+				.string()
+				.optional()
+				.transform((str) => (str ? new Date(str) : undefined)),
+			github: z.string().url().optional(),
+			demo: z.string().url().optional(),
+		}),
 	type: "content",
 });
 

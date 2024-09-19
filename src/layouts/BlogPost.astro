@@ -9,7 +9,7 @@ import WebMentions from "@/components/blog/webmentions/index.astro";
 import BaseLayout from "./Base.astro";
 
 interface Props {
-	post: CollectionEntry<"blog" | "projects">;
+	post: CollectionEntry<"blog" | "projects" | "notes">;
 }
 
 const { post } = Astro.props;
