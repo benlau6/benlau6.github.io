@@ -25,7 +25,7 @@ const { headings } = await post.render();
 <BaseLayout meta={{ articleDate, description, ogImage: socialImage, title }}>
 	<article
 		class="flex-grow flex-col break-words"
-		class:list={[{ "lg:flex lg:items-center": siteConfig.centerPost }]}
+		class:list={[{ "flex items-center": siteConfig.centerPost }]}
 		data-pagefind-body
 	>
 		<div
@@ -34,7 +34,8 @@ const { headings } = await post.render();
 		>
 			<Masthead content={post} />
 		</div>
-		<div class="gap-x-10 lg:flex lg:items-start lg:justify-between">
+		<!-- pre tag (code block) needs setting max-width and overflow-x-auto to be responsive -->
+		<div class="max-w-full gap-x-10 overflow-x-auto lg:flex lg:items-start lg:justify-between">
 			{!!headings.length && <TOC headings={headings} />}
 			<!-- increase max markdown content width to lg (1024px) -->
 			<div
