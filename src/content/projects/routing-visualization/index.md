@@ -15,7 +15,7 @@ tags:
   - "visualization"
 ---
 
-## Works done
+## Brief description
 
 - Build a workflow in Python to solve daily scheduling problem with hundreds of daily vehicle requests
 - Conducted extensive literature reviews on mathematical programming and vehicle routing problem (VRP)
@@ -85,15 +85,15 @@ Every row of the input data represents a request for a trip. The data includes t
 
 1. date: date of the trip
 2. boardTime: the time when the passenger boards the vehicle
-9. boardlng: longitude of the boarding location
-10. boardlat: latitude of the boarding location
-6. alightTime: the time when the passenger alights the vehicle
-7. alightlng: longitude of the alighting location
-8. alightlat: latitude of the alighting location
-3. wheelchair: whether the passenger is a wheelchair user
-4. passenger: the number of normal passengers
-5. partner_cnt: the number of partners
-4. purpose: the purpose of the trip
+3. boardlng: longitude of the boarding location
+4. boardlat: latitude of the boarding location
+5. alightTime: the time when the passenger alights the vehicle
+6. alightlng: longitude of the alighting location
+7. alightlat: latitude of the alighting location
+8. wheelchair: whether the passenger is a wheelchair user
+9. passenger: the number of normal passengers
+10. partner_cnt: the number of partners
+11. purpose: the purpose of the trip
 
 ### Technical Details of OR-Tools Model
 
@@ -227,10 +227,10 @@ Some readings to enhance the understanding of break time
 Alternatives
 
 1. Don't add `routing.AddDisjunction` on high priority nodes
-    1. NOTE: it is likely that the solver will become unfeasible
-3. [Add a penalty to the start-time of a priority job](https://groups.google.com/g/or-tools-discuss/c/E72WBNacKv4/m/Ki2YDdLnAwAJ)
-4. [Find solution for high priority nodes first](https://groups.google.com/g/or-tools-discuss/c/HsioeGr8DyA/m/7sWkGMSmDAAJ)
-5. [SetCumulVarSoftUpperBOund](https://github.com/google/or-tools/discussions/2274)
+   1. NOTE: it is likely that the solver will become unfeasible
+2. [Add a penalty to the start-time of a priority job](https://groups.google.com/g/or-tools-discuss/c/E72WBNacKv4/m/Ki2YDdLnAwAJ)
+3. [Find solution for high priority nodes first](https://groups.google.com/g/or-tools-discuss/c/HsioeGr8DyA/m/7sWkGMSmDAAJ)
+4. [SetCumulVarSoftUpperBOund](https://github.com/google/or-tools/discussions/2274)
 
 ### Recommended Readings
 
@@ -245,37 +245,37 @@ Alternatives
 
 ## References
 
-- Armbrust, Philipp, Philipp Hungerländer, Kerstin Maier, and Veronika Pachatz. “Case Study of Dial-a-Ride Problems Arising in Austrian Rural Regions.” Transportation Research Procedia 62 (2022): 197–204. https://doi.org/10.1016/j.trpro.2022.02.025.
-- Baita, F., R. Pesenti, W. Ukovich, and D. Favaretto. “A Comparison of Different Solution Approaches to the Vehicle Scheduling Problem in a Practical Case.” Computers & Operations Research 27, no. 13 (November 2000): 1249–69. https://doi.org/10.1016/S0305-0548(99)00073-8.
-- Brandão, José, and Alan Mercer. “A Tabu Search Algorithm for the Multi-Trip Vehicle Routing and Scheduling Problem.” European Journal of Operational Research 100, no. 1 (July 1997): 180–91. https://doi.org/10.1016/S0377-2217(97)00010-6.
-- Bunte, Stefan, and Natalia Kliewer. “An Overview on Vehicle Scheduling Models.” Public Transport 1, no. 4 (November 2009): 299–317. https://doi.org/10.1007/s12469-010-0018-5.
-- Cordeau, Jean-François, and Gilbert Laporte. “The Dial-a-Ride Problem: Models and Algorithms.” Annals of Operations Research 153, no. 1 (June 6, 2007): 29–46. https://doi.org/10.1007/s10479-007-0170-8.
-- Dong, Sharon. “New Formulations and Solution Methods for the Dial-a-Ride Problem.” UNSW Sydney, 2022. https://doi.org/10.26190/UNSWORKS/24100.
-- Foster, B. A., and D. M. Ryan. “An Integer Programming Approach to the Vehicle Scheduling Problem.” Operational Research Quarterly (1970-1977) 27, no. 2 (1976): 367. https://doi.org/10.2307/3009018.
-- Gaul, Daniela, Kathrin Klamroth, and Michael Stiglmayr. “Solving the Dynamic Dial-a-Ride Problem Using a Rolling-Horizon Event-Based Graph.” Application/pdf. OASIcs, Volume 96, ATMOS 2021 96 (2021): 8:1-8:16. https://doi.org/10.4230/OASICS.ATMOS.2021.8.
-- Gkiotsalitis, K., and A. Nikolopoulou. “The Multi-Vehicle Dial-a-Ride Problem with Interchange and Perceived Passenger Travel Times.” Transportation Research Part C: Emerging Technologies 156 (November 2023): 104353. https://doi.org/10.1016/j.trc.2023.104353.
-- Haghani, Ali, Mohamadreza Banihashemi, and Kun-Hung Chiang. “A Comparative Analysis of Bus Transit Vehicle Scheduling Models.” Transportation Research Part B: Methodological 37, no. 4 (May 2003): 301–22. https://doi.org/10.1016/S0191-2615(02)00007-3.
-- Häll, Carl H., Henrik Andersson, Jan T. Lundgren, and Peter Värbrand. “The Integrated Dial-a-Ride Problem.” Public Transport 1, no. 1 (May 2009): 39–54. https://doi.org/10.1007/s12469-008-0006-1.
-- Hassold, Stephan, and Avishai (Avi) Ceder. “Public Transport Vehicle Scheduling Featuring Multiple Vehicle Types.” Transportation Research Part B: Methodological 67 (September 2014): 129–43. https://doi.org/10.1016/j.trb.2014.04.009.
-- Hill, Arthur V., and W. C. Benton. “Modelling Intra-City Time-Dependent Travel Speeds for Vehicle Scheduling Problems.” Journal of the Operational Research Society 43, no. 4 (April 1992): 343–51. https://doi.org/10.1057/jors.1992.49.
-- Ho, Sin C., W.Y. Szeto, Yong-Hong Kuo, Janny M.Y. Leung, Matthew Petering, and Terence W.H. Tou. “A Survey of Dial-a-Ride Problems: Literature Review and Recent Developments.” Transportation Research Part B: Methodological 111 (May 2018): 395–421. https://doi.org/10.1016/j.trb.2018.02.001.
-- Hungerländer, Philipp, Kerstin Maier, Veronika Pachatz, and Christian Truden. “Improving Sharing Rates of a Dial-a-Ride Problem Implemented for an Austrian Mobility Provider.” Transportation Research Procedia 52 (2021): 525–32. https://doi.org/10.1016/j.trpro.2021.01.062.
-- Johnsen, Lennart C., and Frank Meisel. “Interrelated Trips in the Rural Dial-a-Ride Problem with Autonomous Vehicles.” European Journal of Operational Research 303, no. 1 (November 2022): 201–19. https://doi.org/10.1016/j.ejor.2022.02.021.
-- Liang, Xiao, Gonçalo Homem De Almeida Correia, Kun An, and Bart Van Arem. “Automated Taxis’ Dial-a-Ride Problem with Ride-Sharing Considering Congestion-Based Dynamic Travel Times.” Transportation Research Part C: Emerging Technologies 112 (March 2020): 260–81. https://doi.org/10.1016/j.trc.2020.01.024.
-- Lim, Andrew, Zhenzhen Zhang, and Hu Qin. “Pickup and Delivery Service with Manpower Planning in Hong Kong Public Hospitals.” Transportation Science 51, no. 2 (May 2017): 688–705. https://doi.org/10.1287/trsc.2015.0611.
-- Malheiros, Igor, Rodrigo Ramalho, Bruno Passeti, Teobaldo Bulhões, and Anand Subramanian. “A Hybrid Algorithm for the Multi-Depot Heterogeneous Dial-a-Ride Problem.” Computers & Operations Research 129 (May 2021): 105196. https://doi.org/10.1016/j.cor.2020.105196.
-- Masson, Renaud, Fabien Lehuédé, and Olivier Péton. “The Dial-A-Ride Problem with Transfers.” Computers & Operations Research 41 (January 2014): 12–23. https://doi.org/10.1016/j.cor.2013.07.020.
-- Molenbruch, Yves, Kris Braekers, and An Caris. “Typology and Literature Review for Dial-a-Ride Problems.” Annals of Operations Research 259, no. 1–2 (December 2017): 295–325. https://doi.org/10.1007/s10479-017-2525-0.
-- Molenbruch, Yves, Kris Braekers, An Caris, and Greet Vanden Berghe. “Multi-Directional Local Search for a Bi-Objective Dial-a-Ride Problem in Patient Transportation.” Computers & Operations Research 77 (January 2017): 58–71. https://doi.org/10.1016/j.cor.2016.07.020.
-- Parragh, Sophie N., Jorge Pinho De Sousa, and Bernardo Almada-Lobo. “The Dial-a-Ride Problem with Split Requests and Profits.” Transportation Science 49, no. 2 (May 2015): 311–34. https://doi.org/10.1287/trsc.2014.0520.
-- Pfeiffer, Christian, and Arne Schulz. “An ALNS Algorithm for the Static Dial-a-Ride Problem with Ride and Waiting Time Minimization.” OR Spectrum 44, no. 1 (March 2022): 87–119. https://doi.org/10.1007/s00291-021-00656-7.
-- Posada, Marcus, Henrik Andersson, and Carl H. Häll. “The Integrated Dial-a-Ride Problem with Timetabled Fixed Route Service.” Public Transport 9, no. 1–2 (July 2017): 217–41. https://doi.org/10.1007/s12469-016-0128-9.
-- Rist, Yannik, and Michael A. Forbes. “A New Formulation for the Dial-a-Ride Problem.” Transportation Science 55, no. 5 (September 2021): 1113–35. https://doi.org/10.1287/trsc.2021.1044.
-- Ritzinger, Ulrike, Jakob Puchinger, Christian Rudloff, and Richard F. Hartl. “Comparison of Anticipatory Algorithms for a Dial-a-Ride Problem.” European Journal of Operational Research 301, no. 2 (September 2022): 591–608. https://doi.org/10.1016/j.ejor.2021.10.060.
-- Schulz, Arne, and Christian Pfeiffer. “A Branch-and-Cut Algorithm for the Dial-a-Ride Problem with Incompatible Customer Types.” Transportation Research Part E: Logistics and Transportation Review 181 (January 2024): 103394. https://doi.org/10.1016/j.tre.2023.103394.
-- Sharif Azadeh, Sh., Bilge Atasoy, Moshe E. Ben-Akiva, M. Bierlaire, and M.Y. Maknoon. “Choice-Driven Dial-a-Ride Problem for Demand Responsive Mobility Service.” Transportation Research Part B: Methodological 161 (July 2022): 128–49. https://doi.org/10.1016/j.trb.2022.04.008.
-- Su, Yue, Nicolas Dupin, and Jakob Puchinger. “A Deterministic Annealing Local Search for the Electric Autonomous Dial-a-Ride Problem.” European Journal of Operational Research 309, no. 3 (September 2023): 1091–1111. https://doi.org/10.1016/j.ejor.2023.02.012.
-- Vallee, S., A. Oulamara, and W. Ramdane Cherif-Khettaf. “New Online Reinsertion Approaches for a Dynamic Dial-a-Ride Problem.” Journal of Computational Science 47 (November 2020): 101199. https://doi.org/10.1016/j.jocs.2020.101199.
-- Wassan, Naveed, Niaz Wassan, Gábor Nagy, and Saïd Salhi. “The Multiple Trip Vehicle Routing Problem with Backhauls: Formulation and a Two-Level Variable Neighbourhood Search.” Computers & Operations Research 78 (February 2017): 454–67. https://doi.org/10.1016/j.cor.2015.12.017.
-- Yao, Enjian, Tong Liu, Tianwei Lu, and Yang Yang. “Optimization of Electric Vehicle Scheduling with Multiple Vehicle Types in Public Transport.” Sustainable Cities and Society 52 (January 2020): 101862. https://doi.org/10.1016/j.scs.2019.101862.
-- Zhang, Zhenzhen, Mengyang Liu, and Andrew Lim. “A Memetic Algorithm for the Patient Transportation Problem.” Omega 54 (July 2015): 60–71. https://doi.org/10.1016/j.omega.2015.01.011.
+- Armbrust, Philipp, Philipp Hungerländer, Kerstin Maier, and Veronika Pachatz. “Case Study of Dial-a-Ride Problems Arising in Austrian Rural Regions.” Transportation Research Procedia 62 (2022): 197–204. <https://doi.org/10.1016/j.trpro.2022.02.025>.
+- Baita, F., R. Pesenti, W. Ukovich, and D. Favaretto. “A Comparison of Different Solution Approaches to the Vehicle Scheduling Problem in a Practical Case.” Computers & Operations Research 27, no. 13 (November 2000): 1249–69. <https://doi.org/10.1016/S0305-0548(99)00073-8>.
+- Brandão, José, and Alan Mercer. “A Tabu Search Algorithm for the Multi-Trip Vehicle Routing and Scheduling Problem.” European Journal of Operational Research 100, no. 1 (July 1997): 180–91. <https://doi.org/10.1016/S0377-2217(97)00010-6>.
+- Bunte, Stefan, and Natalia Kliewer. “An Overview on Vehicle Scheduling Models.” Public Transport 1, no. 4 (November 2009): 299–317. <https://doi.org/10.1007/s12469-010-0018-5>.
+- Cordeau, Jean-François, and Gilbert Laporte. “The Dial-a-Ride Problem: Models and Algorithms.” Annals of Operations Research 153, no. 1 (June 6, 2007): 29–46. <https://doi.org/10.1007/s10479-007-0170-8>.
+- Dong, Sharon. “New Formulations and Solution Methods for the Dial-a-Ride Problem.” UNSW Sydney, 2022. <https://doi.org/10.26190/UNSWORKS/24100>.
+- Foster, B. A., and D. M. Ryan. “An Integer Programming Approach to the Vehicle Scheduling Problem.” Operational Research Quarterly (1970-1977) 27, no. 2 (1976): 367. <https://doi.org/10.2307/3009018>.
+- Gaul, Daniela, Kathrin Klamroth, and Michael Stiglmayr. “Solving the Dynamic Dial-a-Ride Problem Using a Rolling-Horizon Event-Based Graph.” Application/pdf. OASIcs, Volume 96, ATMOS 2021 96 (2021): 8:1-8:16. <https://doi.org/10.4230/OASICS.ATMOS.2021.8>.
+- Gkiotsalitis, K., and A. Nikolopoulou. “The Multi-Vehicle Dial-a-Ride Problem with Interchange and Perceived Passenger Travel Times.” Transportation Research Part C: Emerging Technologies 156 (November 2023): 104353. <https://doi.org/10.1016/j.trc.2023.104353>.
+- Haghani, Ali, Mohamadreza Banihashemi, and Kun-Hung Chiang. “A Comparative Analysis of Bus Transit Vehicle Scheduling Models.” Transportation Research Part B: Methodological 37, no. 4 (May 2003): 301–22. <https://doi.org/10.1016/S0191-2615(02)00007-3>.
+- Häll, Carl H., Henrik Andersson, Jan T. Lundgren, and Peter Värbrand. “The Integrated Dial-a-Ride Problem.” Public Transport 1, no. 1 (May 2009): 39–54. <https://doi.org/10.1007/s12469-008-0006-1>.
+- Hassold, Stephan, and Avishai (Avi) Ceder. “Public Transport Vehicle Scheduling Featuring Multiple Vehicle Types.” Transportation Research Part B: Methodological 67 (September 2014): 129–43. <https://doi.org/10.1016/j.trb.2014.04.009>.
+- Hill, Arthur V., and W. C. Benton. “Modelling Intra-City Time-Dependent Travel Speeds for Vehicle Scheduling Problems.” Journal of the Operational Research Society 43, no. 4 (April 1992): 343–51. <https://doi.org/10.1057/jors.1992.49>.
+- Ho, Sin C., W.Y. Szeto, Yong-Hong Kuo, Janny M.Y. Leung, Matthew Petering, and Terence W.H. Tou. “A Survey of Dial-a-Ride Problems: Literature Review and Recent Developments.” Transportation Research Part B: Methodological 111 (May 2018): 395–421. <https://doi.org/10.1016/j.trb.2018.02.001>.
+- Hungerländer, Philipp, Kerstin Maier, Veronika Pachatz, and Christian Truden. “Improving Sharing Rates of a Dial-a-Ride Problem Implemented for an Austrian Mobility Provider.” Transportation Research Procedia 52 (2021): 525–32. <https://doi.org/10.1016/j.trpro.2021.01.062>.
+- Johnsen, Lennart C., and Frank Meisel. “Interrelated Trips in the Rural Dial-a-Ride Problem with Autonomous Vehicles.” European Journal of Operational Research 303, no. 1 (November 2022): 201–19. <https://doi.org/10.1016/j.ejor.2022.02.021>.
+- Liang, Xiao, Gonçalo Homem De Almeida Correia, Kun An, and Bart Van Arem. “Automated Taxis’ Dial-a-Ride Problem with Ride-Sharing Considering Congestion-Based Dynamic Travel Times.” Transportation Research Part C: Emerging Technologies 112 (March 2020): 260–81. <https://doi.org/10.1016/j.trc.2020.01.024>.
+- Lim, Andrew, Zhenzhen Zhang, and Hu Qin. “Pickup and Delivery Service with Manpower Planning in Hong Kong Public Hospitals.” Transportation Science 51, no. 2 (May 2017): 688–705. <https://doi.org/10.1287/trsc.2015.0611>.
+- Malheiros, Igor, Rodrigo Ramalho, Bruno Passeti, Teobaldo Bulhões, and Anand Subramanian. “A Hybrid Algorithm for the Multi-Depot Heterogeneous Dial-a-Ride Problem.” Computers & Operations Research 129 (May 2021): 105196. <https://doi.org/10.1016/j.cor.2020.105196>.
+- Masson, Renaud, Fabien Lehuédé, and Olivier Péton. “The Dial-A-Ride Problem with Transfers.” Computers & Operations Research 41 (January 2014): 12–23. <https://doi.org/10.1016/j.cor.2013.07.020>.
+- Molenbruch, Yves, Kris Braekers, and An Caris. “Typology and Literature Review for Dial-a-Ride Problems.” Annals of Operations Research 259, no. 1–2 (December 2017): 295–325. <https://doi.org/10.1007/s10479-017-2525-0>.
+- Molenbruch, Yves, Kris Braekers, An Caris, and Greet Vanden Berghe. “Multi-Directional Local Search for a Bi-Objective Dial-a-Ride Problem in Patient Transportation.” Computers & Operations Research 77 (January 2017): 58–71. <https://doi.org/10.1016/j.cor.2016.07.020>.
+- Parragh, Sophie N., Jorge Pinho De Sousa, and Bernardo Almada-Lobo. “The Dial-a-Ride Problem with Split Requests and Profits.” Transportation Science 49, no. 2 (May 2015): 311–34. <https://doi.org/10.1287/trsc.2014.0520>.
+- Pfeiffer, Christian, and Arne Schulz. “An ALNS Algorithm for the Static Dial-a-Ride Problem with Ride and Waiting Time Minimization.” OR Spectrum 44, no. 1 (March 2022): 87–119. <https://doi.org/10.1007/s00291-021-00656-7>.
+- Posada, Marcus, Henrik Andersson, and Carl H. Häll. “The Integrated Dial-a-Ride Problem with Timetabled Fixed Route Service.” Public Transport 9, no. 1–2 (July 2017): 217–41. <https://doi.org/10.1007/s12469-016-0128-9>.
+- Rist, Yannik, and Michael A. Forbes. “A New Formulation for the Dial-a-Ride Problem.” Transportation Science 55, no. 5 (September 2021): 1113–35. <https://doi.org/10.1287/trsc.2021.1044>.
+- Ritzinger, Ulrike, Jakob Puchinger, Christian Rudloff, and Richard F. Hartl. “Comparison of Anticipatory Algorithms for a Dial-a-Ride Problem.” European Journal of Operational Research 301, no. 2 (September 2022): 591–608. <https://doi.org/10.1016/j.ejor.2021.10.060>.
+- Schulz, Arne, and Christian Pfeiffer. “A Branch-and-Cut Algorithm for the Dial-a-Ride Problem with Incompatible Customer Types.” Transportation Research Part E: Logistics and Transportation Review 181 (January 2024): 103394. <https://doi.org/10.1016/j.tre.2023.103394>.
+- Sharif Azadeh, Sh., Bilge Atasoy, Moshe E. Ben-Akiva, M. Bierlaire, and M.Y. Maknoon. “Choice-Driven Dial-a-Ride Problem for Demand Responsive Mobility Service.” Transportation Research Part B: Methodological 161 (July 2022): 128–49. <https://doi.org/10.1016/j.trb.2022.04.008>.
+- Su, Yue, Nicolas Dupin, and Jakob Puchinger. “A Deterministic Annealing Local Search for the Electric Autonomous Dial-a-Ride Problem.” European Journal of Operational Research 309, no. 3 (September 2023): 1091–1111. <https://doi.org/10.1016/j.ejor.2023.02.012>.
+- Vallee, S., A. Oulamara, and W. Ramdane Cherif-Khettaf. “New Online Reinsertion Approaches for a Dynamic Dial-a-Ride Problem.” Journal of Computational Science 47 (November 2020): 101199. <https://doi.org/10.1016/j.jocs.2020.101199>.
+- Wassan, Naveed, Niaz Wassan, Gábor Nagy, and Saïd Salhi. “The Multiple Trip Vehicle Routing Problem with Backhauls: Formulation and a Two-Level Variable Neighbourhood Search.” Computers & Operations Research 78 (February 2017): 454–67. <https://doi.org/10.1016/j.cor.2015.12.017>.
+- Yao, Enjian, Tong Liu, Tianwei Lu, and Yang Yang. “Optimization of Electric Vehicle Scheduling with Multiple Vehicle Types in Public Transport.” Sustainable Cities and Society 52 (January 2020): 101862. <https://doi.org/10.1016/j.scs.2019.101862>.
+- Zhang, Zhenzhen, Mengyang Liu, and Andrew Lim. “A Memetic Algorithm for the Patient Transportation Problem.” Omega 54 (July 2015): 60–71. <https://doi.org/10.1016/j.omega.2015.01.011>.
