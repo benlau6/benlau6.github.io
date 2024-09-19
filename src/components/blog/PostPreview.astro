@@ -6,7 +6,7 @@ import type { HTMLTag, Polymorphic } from "astro/types";
 import FormattedDate from "../FormattedDate.astro";
 
 type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }> & {
-	post: CollectionEntry<"blog" | "projects">;
+	post: CollectionEntry<"blog" | "projects" | "notes">;
 	withDesc?: boolean;
 	withTags?: boolean;
 	withCover?: boolean;

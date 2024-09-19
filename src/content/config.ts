@@ -35,7 +35,25 @@ const blog = defineCollection({
 	type: "content",
 });
 
+const notes = defineCollection({
+	// NOTE: it is not frontmatter and frontmatter will not change any of the data
+	schema: z.object({
+		tags: z.array(z.string()).default([]).transform(removeDupsAndLowerCase),
+		title: z.string().max(80),
+		publishDate: z
+			.string()
+			.or(z.date())
+			.transform((val) => new Date(val)),
+		updatedDate: z
+			.string()
+			.optional()
+			.transform((str) => (str ? new Date(str) : undefined)),
+	}),
+	type: "content",
+});
+
 export const collections = {
 	blog,
 	projects: blog,
+	notes,
 };
