@@ -1,0 +1,10 @@
+---
+title: "Hong Kong"
+publishDate: "2024-09-19"
+---
+
+# Hong Kong
+
+## Data
+
+- [香港學童自殺率 -- 香港撒瑪利亞防止自殺會](https://std.stheadline.com/realtime/article/2007820/%E5%8D%B3%E6%99%82-%E6%B8%AF%E8%81%9E-%E9%A6%99%E6%B8%AF%E5%AD%B8%E7%AB%A5%E8%87%AA%E6%AE%BA%E7%8E%87%E4%B8%8A%E5%8D%87-10%E8%87%B319%E6%AD%B2%E8%87%AA%E6%AE%BA%E7%8E%87%E8%BF%918%E5%B9%B4%E4%BE%86%E6%9C%80%E9%AB%98-%E6%92%92%E7%91%AA%E5%88%A9%E4%BA%9E%E6%9C%83%E7%B1%B2%E5%AD%B8%E6%A0%A1%E7%82%BA%E5%AD%B8%E7%94%9F%E6%8F%90%E4%BE%9B%E6%94%AF%E6%8F%B4)
