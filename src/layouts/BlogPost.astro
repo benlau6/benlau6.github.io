@@ -28,7 +28,7 @@ const { headings } = await post.render();
 			{!!headings.length && <TOC headings={headings} />}
 			<!-- increase max markdown content width to lg (1024px) -->
 			<div
-				class="prose prose-cactus mt-12 max-w-screen-lg prose-headings:font-semibold prose-headings:text-accent-2 prose-headings:before:absolute prose-headings:before:-ms-4 prose-headings:before:text-accent sm:prose-th:before:content-none"
+				class="prose prose-cactus mt-12 max-w-screen-md md:prose-lg prose-headings:font-semibold prose-headings:text-accent-2 prose-headings:before:absolute prose-headings:before:-ms-4 prose-headings:before:text-accent sm:prose-th:before:content-none"
 			>
 				<slot />
 				<WebMentions />
