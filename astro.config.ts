@@ -14,6 +14,8 @@ import { remarkAdmonitions } from "./src/plugins/remark-admonitions"; /* Add adm
 import { remarkReadingTime } from "./src/plugins/remark-reading-time";
 import { remarkH1ToTitle } from "./src/plugins/remark-h1-to-title";
 import remarkMath from "remark-math";
+// @ts-ignore
+import RemarkLinkRewrite from "remark-link-rewrite";
 
 // Rehype plugins
 import rehypeKatex from "rehype-katex";
@@ -52,6 +54,19 @@ export default defineConfig({
 			remarkAdmonitions,
 			remarkMath,
 			remarkH1ToTitle,
+			[
+				RemarkLinkRewrite,
+				{
+					replacer: (url: string) => {
+						// it replaces markdown internal links with the correct path
+						if (url.endsWith(".md")) {
+							let parts = url.split("/");
+							return parts[0] + "/notes/" + parts.slice(1).join("/").replace(".md", "");
+						}
+						return url;
+					},
+				},
+			],
 		],
 		remarkRehype: {
 			footnoteLabelProperties: {
