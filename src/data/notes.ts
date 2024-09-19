@@ -36,6 +36,24 @@ export function groupPostsByYear(posts: CollectionEntry<"notes">[]) {
 	}, {});
 }
 
+/** sort post by initial , asc.*/
+export function sortMDByInitial(posts: CollectionEntry<"notes">[]) {
+	return posts.sort((a, b) => {
+		return a.data.title.localeCompare(b.data.title);
+	});
+}
+
+export function groupPostsByInitial(posts: CollectionEntry<"notes">[]) {
+	return posts.reduce<Record<string, CollectionEntry<"notes">[]>>((acc, post) => {
+		const initial = post.data.title.charAt(0);
+		if (!acc[initial]) {
+			acc[initial] = [];
+		}
+		acc[initial]?.push(post);
+		return acc;
+	}, {});
+}
+
 /** returns all tags created from posts (inc duplicate tags)
  *  Note: This function doesn't filter draft posts, pass it the result of getAllPosts above to do so.
  *  */
