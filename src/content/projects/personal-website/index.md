@@ -10,7 +10,19 @@ tags:
   - "astro"
 ---
 
-## Minimalistic design
+This website was built in [Sveltekit](https://github.com/benlau6/benlau6.github.io/tree/archive-sveltekit), then migrated to Astro for better performance and layout dedicated for static website.
+
+## References
+
+Several days were spent to conduct a research on how to build a good personal website. Here are the websites that I found inspiring.
+
+### Collections
+
+- [What's the best portfolio website you've ever seen? -- Reddit](https://www.reddit.com/r/webdev/comments/112r7m5/whats_the_best_portfolio_website_youve_ever_seen/) -- great discussion and honest votes
+- [awesome-dev-websites](https://github.com/amitozdeol/awesome-dev-websites) -- really awesome list of dev websites
+- [Astro Themes](https://astro.build/themes/?search=&categories%5B%5D=blog&categories%5B%5D=portfolio) -- checked all 14 pages of themes with blog and portfolio categories as of 2024-09-17
+
+### Minimalistic design
 
 - [Astro Cactus](https://astro-theme-cactus.netlify.app/) -- design, main template
 - [astro-blog-zozo](https://astro-blog-zozo.pages.dev/) -- dark mode, design, list style, tag page, font
@@ -37,13 +49,13 @@ tags:
 - [saastar](https://saastar.netlify.app/#use-cases) -- design, list style
 - [Youssouf](https://elazizi.com/posts/add-comments-section-to-your-astro-blog/)
 
-
-## Academic
+### Academic
 
 - [TK Kinoshita](https://www.iamtk.co/) -- minimalistic design, list style, font, content, tags
 - [dennybritz](https://dennybritz.com/): Great articles on AI, rust, gaming, visualization, minimalistic design, content
   - [poe-crafting](https://dennybritz.com/posts/poe-crafting/) -- rust, ai, visualization
   - [Deep Learning ideas that have stood the test of time](https://dennybritz.com/posts/deep-learning-ideas-that-stood-the-test-of-time/)
+- [distill.pub](https://distill.pub/) -- content, design, list style
 - [Amit Chaudhary](https://amitness.com/) -- blog content, list style with photos, one-liner, tag filter
 - [Andrew M. Webb](http://www.awebb.info/) -- minimalistic design, list style with photos, one-liner
 - [Cameron Raymond](https://cameronraymond.me/) -- tag filter
@@ -51,14 +63,24 @@ tags:
 - [Chip Huyen](https://huyenchip.com/) -- blog content
 - [otoro.net](https://otoro.net/ml/) -- home page, list style with gifs, blog content
 
-## Linux OS alike
+### Data journalism
+
+- [New York Times Graphics](https://www.nytimes.com/spotlight/graphics)
+  - [2023 year in graphics](https://www.nytimes.com/interactive/2023/us/2023-year-in-graphics.html)
+- [Bloomberg Graphics](https://www.nytimes.com/spotlight/graphics)
+  - [2023 in graphics](https://www.bloomberg.com/graphics/2023-in-graphics/)
+- [Washington Post Graphics](https://www.washingtonpost.com/media/interactive/2022/2022-year-graphics/)
+- [FiveThirtyEight](https://fivethirtyeight.com/)
+- [The Pudding](https://pudding.cool/)
+
+### Linux OS alike
 
 - [vivek9patel](https://vivek9patel.github.io/)
 - [dustinbrett](https://dustinbrett.com/)
 
-## Visualization
+### Visualization
 
-- [Italia Personal Finance](https://www.italiapersonalfinance.it/) -- great design, layout, use of colors, blog list
+- [Italia Personal Finance](https://www.italiapersonalfinance.it/) -- great design, layout, use of colors, blog list, preview photo aspect ratio
 - [hakim.se](https://hakim.se/)
 - [lynnandtonic.com](https://lynnandtonic.com/)
 - [Not a Number](https://www.nan.fyi/)
@@ -66,19 +88,14 @@ tags:
 - [adamhartwig](https://www.adamhartwig.co.uk/work-and-play)
 - [robbowen](https://robbowen.digital/)
 
-## Typography
+### Typography
 
 - [rauno.me](https://rauno.me/craft/interaction-design#spatial-consistency) -- typography, side nav
 - [shud.in](https://shud.in/)
 
-## Useful Plugins
+### Useful Plugins
 
 - pagefind -- search for pages in your static site
 - [Giscus](https://elazizi.com/posts/add-comments-section-to-your-astro-blog/) -- comments for your static site
 - [quarto](https://quarto.org/) -- An open-source scientific and technical publishing system
-
-## References
-
-- [What's the best portfolio website you've ever seen? -- Reddit](https://www.reddit.com/r/webdev/comments/112r7m5/whats_the_best_portfolio_website_youve_ever_seen/) -- great discussion and honest votes
-- [awesome-dev-websites](https://github.com/amitozdeol/awesome-dev-websites) -- really awesome list of dev websites
-- [Astro Themes](https://astro.build/themes/?search=&categories%5B%5D=blog&categories%5B%5D=portfolio) -- checked all 14 pages of themes with blog and portfolio categories as of 2024-09-17
+- [Intersection Observer API](https://billyle.dev/posts/highlight-table-of-content-items-using-intersection-observer) -- for highlighting current section in table of contents
