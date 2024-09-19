@@ -14,6 +14,7 @@ import { remarkAdmonitions } from "./src/plugins/remark-admonitions"; /* Add adm
 import { remarkReadingTime } from "./src/plugins/remark-reading-time";
 import { remarkUpdatedDate } from "./src/plugins/remark-updated-date";
 import { remarkH1ToTitle } from "./src/plugins/remark-h1-to-title";
+import wikiLinkPlugin from "remark-wiki-link";
 import remarkMath from "remark-math";
 // @ts-ignore
 import RemarkLinkRewrite from "remark-link-rewrite";
@@ -56,6 +57,11 @@ export default defineConfig({
 			remarkMath,
 			remarkH1ToTitle,
 			remarkUpdatedDate,
+			[
+				wikiLinkPlugin,
+				// TODO: replace all markdown filename separators with hyphens
+				{ hrefTemplate: (link: string) => `/notes/${link}`.replaceAll("-", "_") },
+			],
 			[
 				RemarkLinkRewrite,
 				{
