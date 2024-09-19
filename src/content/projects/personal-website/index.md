@@ -8,9 +8,17 @@ tags:
   - "frontend"
   - "typescript"
   - "astro"
+  - "tailwindcss"
 ---
 
+## Brief Description
+
 This website was built in [Sveltekit](https://github.com/benlau6/benlau6.github.io/tree/archive-sveltekit), then migrated to Astro for better performance and layout dedicated for static website.
+
+- Implemented a static website with minimalistic design in Typescript and tailwindcss to showcase my portfolio including projects and notes.
+- Implemented a [Rust program](https://github.com/benlau6/markdown-frontmatter) to extract the first heading, last modified date, and creation date of markdown files and use them as frontmatters in Astro.
+- Implemented a remark plugin `remark-h1-to-title.ts` to extract the first heading of a markdown file and use it as the title of the page.
+- Implemented a remark plugin `remark-updated-date.ts` to extract the last modified date of a markdown file in git commit history and use it as the updated date of the page.
 
 ## References
 
