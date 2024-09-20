@@ -47,26 +47,28 @@ const { remarkPluginFrontmatter } = await render();
 			</>
 		)
 	}
-	{
-		data.demo && (
-			<>
-				{/* prettier-ignore */}
-				<span>
+	<span class="flex *:after:mx-3 *:after:content-['·'] last:*:after:content-['']">
+		{
+			data.demo && (
+				<>
+					{/* prettier-ignore */}
+					<span>
 					<a href={data.demo} class="colored-link text-quote">
 						Demo</a></span>
-			</>
-		)
-	}
-	{
-		data.github && (
-			<>
-				{/* prettier-ignore */}
-				<span>
+				</>
+			)
+		}
+		{
+			data.github && (
+				<>
+					{/* prettier-ignore */}
+					<span>
 					<a href={data.github} class="colored-link text-quote">
 						Code</a></span>
-			</>
-		)
-	}
+				</>
+			)
+		}
+	</span>
 </div>
 {
 	!!data.tags?.length && (
