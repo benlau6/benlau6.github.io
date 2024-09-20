@@ -5,16 +5,6 @@ publishDate: 2024-09-20
 
 # Rust
 
-<!--toc:start-->
-- [Rust](#rust)
-  - [trait object vs enum](#trait-object-vs-enum)
-  - [static dispatch vs dynamic dispatch](#static-dispatch-vs-dynamic-dispatch)
-  - [trait object vs generic trait bound / impl Trait](#trait-object-vs-generic-trait-bound-impl-trait)
-  - [Why slice is DST but not the vector](#why-slice-is-dst-but-not-the-vector)
-<!--toc:end-->
-
-clarify the differences, maybe make some blogs
-
 ## Error handling
 
 - [A Simpler Way to See Results](https://www.youtube.com/watch?v=s5S2Ed5T-dc)
@@ -41,7 +31,7 @@ clarify the differences, maybe make some blogs
 
 - “When you’re given the choice between static and dynamic dispatch, there is rarely a clear-cut right answer. Broadly speaking, though, you’ll want to use static dispatch in your libraries and dynamic dispatch in your binaries. In a library, you want to allow your users to decide what kind of dispatch is best for them, since you don’t know what their needs are. If you use dynamic dispatch, they’re forced to do the same, whereas if you use static dispatch, they can choose whether to use dynamic dispatch or not.” - Rust for Ruataceans
 
-## trait object vs generic trait bound / impl Trait
+## trait object vs generic trait bound or impl Trait
 
 - It is mostly just static dispatch vs dynamic dispatch
 - [a function that accepts a trait object doesn't need to be generic and doesn't need monomorphization: the programmer writes a function using trait objects, and the compiler outputs only a single version of that function, which can accept trait objects that come from multiple input types](https://www.lurklurk.org/effective-rust/generics.html)

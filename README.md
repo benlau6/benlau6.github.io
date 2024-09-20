@@ -10,7 +10,7 @@ Astro Cactus is a simple opinionated starter built with the Astro framework. Use
 ## Table Of Contents
 
 1. [Key Features](#key-features)
-2. [Demo](#demo-💻)
+2. [Demo](#demo)
 3. [Quick start](#quick-start)
 4. [Preview](#preview)
 5. [Commands](#commands)
@@ -43,7 +43,7 @@ Astro Cactus is a simple opinionated starter built with the Astro framework. Use
 - [Astro Icon](https://github.com/natemoo-re/astro-icon) svg icon component
 - [Expressive Code](https://expressive-code.com/) source code and syntax highlighter
 
-## Demo 💻
+## Demo
 
 Check out the [Demo](https://astro-cactus.chriswilliams.dev/), hosted on Netlify
 
