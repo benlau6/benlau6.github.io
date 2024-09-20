@@ -69,9 +69,9 @@ export default defineConfig({
 						// it replaces markdown internal links with the correct path
 						// NOTE: url.includes(".md") would break external links with ".md" in them
 						if (url.includes(".md")) {
-							const parts = url.split("/");
+							const parts = url.replace(".md", "").split("/");
 							const prefix = `${parts[0]}/notes`;
-							const path = parts.slice(1).join("/").replace(".md", "");
+							const path = parts.slice(1).join("/");
 							return `${prefix}/${path}`;
 						}
 						return url;
