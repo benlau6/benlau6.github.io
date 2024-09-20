@@ -183,7 +183,7 @@ export async function GET(context: APIContext) {
 }
 
 export async function getStaticPaths() {
-	const posts = await getAllPosts("blog");
+	const posts = await getAllPosts("projects");
 	return posts
 		.filter(({ data }) => !data.ogImage)
 		.map((post) => ({
