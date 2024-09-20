@@ -20,6 +20,21 @@ This website was built in [Sveltekit](https://github.com/benlau6/benlau6.github.
 - Implemented a remark plugin `remark-h1-to-title.ts` to extract the first heading of a markdown file and use it as the title of the page.
 - Implemented a remark plugin `remark-updated-date.ts` to extract the last modified date of a markdown file in git commit history and use it as the updated date of the page.
 
+## Technical Details
+
+### How does flex wrap work?
+
+- [flex-wrap](https://stackoverflow.com/questions/42613359/how-does-flex-wrap-work-with-align-self-align-items-and-align-content)
+
+### Centering a flex container with left-aligned items
+
+- [grid-template-columns with auto-fill seems feasible but not working](https://stackoverflow.com/questions/52764726/css-grid-auto-fit-with-max-content/53725944#53725944)
+- `grid-auto-flow: column` seems feasible but somehow not working (20 minutes spent)
+- ghost element seems to be the only way to center a flex container with left-aligned items
+  - [empty cells](https://codepen.io/airen/pen/ZZjWRv)
+  - [fillers](https://stackoverflow.com/questions/39537413/how-to-center-a-flex-list-container-with-wrap-and-justify-to-flex-start-elements)
+- [How to center a flex container but left-align flex items](https://stackoverflow.com/questions/32802202/how-to-center-a-flex-container-but-left-align-flex-items)
+
 ## References
 
 Several days were spent to conduct a research on how to build a good personal website. Here are the websites that I found inspiring.
