@@ -1,6 +1,6 @@
 ---
-title: "Power Analysis"
-publishDate: "2024-09-19"
+title: Power Analysis
+publishDate: 2024-09-20
 ---
 
 # Power Analysis

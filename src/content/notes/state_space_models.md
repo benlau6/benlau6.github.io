@@ -1,6 +1,6 @@
 ---
-title: "State Space Models"
-publishDate: "2024-09-19"
+title: State Space Models
+publishDate: 2024-09-20
 ---
 
 # State Space Models

@@ -1,6 +1,6 @@
 ---
-title: "Data Structures"
-publishDate: "2024-09-19"
+title: Data Structures
+publishDate: 2024-09-20
 ---
 
 # Data Structures

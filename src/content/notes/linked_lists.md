@@ -1,6 +1,6 @@
 ---
-title: "Linked Lists"
-publishDate: "2024-09-19"
+title: Linked Lists
+publishDate: 2024-09-20
 ---
 
 # Linked Lists

@@ -1,6 +1,6 @@
 ---
-title: "Neural Networks"
-publishDate: "2024-09-19"
+title: Neural Networks
+publishDate: 2024-09-20
 ---
 
 # Neural Networks

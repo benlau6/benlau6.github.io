@@ -1,6 +1,6 @@
 ---
-title: "Online Retail Analytics"
-publishDate: "2024-09-19"
+title: Online Retail Analytics
+publishDate: 2024-09-20
 ---
 
 # Online Retail Analytics

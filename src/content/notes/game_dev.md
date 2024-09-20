@@ -1,6 +1,6 @@
 ---
-title: "Game Dev"
-publishDate: "2024-09-19"
+title: Game Dev
+publishDate: 2024-09-20
 ---
 
 # Game Dev

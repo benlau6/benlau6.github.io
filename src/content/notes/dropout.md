@@ -1,6 +1,6 @@
 ---
-title: "Dropout"
-publishDate: "2024-09-19"
+title: Dropout
+publishDate: 2024-09-20
 ---
 
 # Dropout

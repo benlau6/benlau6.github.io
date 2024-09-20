@@ -1,6 +1,6 @@
 ---
-title: "Programming"
-publishDate: "2024-09-19"
+title: Programming
+publishDate: 2024-09-20
 ---
 
 # Programming

@@ -1,6 +1,6 @@
 ---
-title: "Go"
-publishDate: "2024-09-19"
+title: Go
+publishDate: 2024-09-20
 ---
 
 # Go

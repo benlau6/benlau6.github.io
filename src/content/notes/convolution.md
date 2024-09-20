@@ -1,6 +1,6 @@
 ---
-title: "Convolution"
-publishDate: "2024-09-19"
+title: Convolution
+publishDate: 2024-09-20
 ---
 
 # Convolution

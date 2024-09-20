@@ -1,6 +1,6 @@
 ---
-title: "Bayesian Statistics"
-publishDate: "2024-09-19"
+title: Bayesian Statistics
+publishDate: 2024-09-20
 ---
 
 # Bayesian Statistics

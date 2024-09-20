@@ -1,6 +1,6 @@
 ---
-title: "Confidence Intervals"
-publishDate: "2024-09-19"
+title: Confidence Intervals
+publishDate: 2024-09-20
 ---
 
 # Confidence Intervals

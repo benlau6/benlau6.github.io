@@ -1,9 +1,9 @@
 ---
-title: "Memory Management of Languages"
-publishDate: "2024-09-19"
+title: Memory Management
+publishDate: 2024-09-20
 ---
 
-# Memory Management of Languages
+# Memory Management
 
 ## Python Memory Management
 

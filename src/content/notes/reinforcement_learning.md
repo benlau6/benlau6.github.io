@@ -1,6 +1,6 @@
 ---
-title: "Reinforcement Learning"
-publishDate: "2024-09-19"
+title: Reinforcement Learning
+publishDate: 2024-09-20
 ---
 
 # Reinforcement Learning

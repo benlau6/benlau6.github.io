@@ -1,6 +1,6 @@
 ---
-title: "Entity Component System (ECS)"
-publishDate: "2024-09-19"
+title: Entity Component System (ECS)
+publishDate: 2024-09-20
 ---
 
 # Entity Component System (ECS)

@@ -1,6 +1,6 @@
 ---
-title: "Statistics Fundamentals"
-publishDate: "2024-09-19"
+title: Statistics Fundamentals
+publishDate: 2024-09-20
 ---
 
 # Statistics Fundamentals

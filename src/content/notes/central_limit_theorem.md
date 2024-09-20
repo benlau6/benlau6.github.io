@@ -1,6 +1,6 @@
 ---
-title: "Central Limit Theorem"
-publishDate: "2024-09-19"
+title: Central Limit Theorem
+publishDate: 2024-09-20
 ---
 
 # Central Limit Theorem

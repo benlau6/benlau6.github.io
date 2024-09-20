@@ -1,6 +1,6 @@
 ---
-title: "R-squared"
-publishDate: "2024-09-19"
+title: R-squared
+publishDate: 2024-09-20
 ---
 
 # R-squared

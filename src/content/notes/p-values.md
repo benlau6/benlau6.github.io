@@ -1,6 +1,6 @@
 ---
-title: "P-values"
-publishDate: "2024-09-19"
+title: P-values
+publishDate: 2024-09-20
 ---
 
 # P-values

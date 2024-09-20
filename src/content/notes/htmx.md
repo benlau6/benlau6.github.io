@@ -1,6 +1,6 @@
 ---
-title: "HTMX Tech Stack"
-publishDate: "2024-09-19"
+title: HTMX Tech Stack
+publishDate: 2024-09-20
 ---
 
 # HTMX Tech Stack

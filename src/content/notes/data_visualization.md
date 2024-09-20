@@ -1,6 +1,6 @@
 ---
-title: "Data visualization"
-publishDate: "2024-09-19"
+title: Data visualization
+publishDate: 2024-09-20
 ---
 
 # Data visualization

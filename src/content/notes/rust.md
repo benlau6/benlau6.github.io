@@ -1,6 +1,6 @@
 ---
-title: "Rust"
-publishDate: "2024-09-19"
+title: Rust
+publishDate: 2024-09-20
 ---
 
 # Rust
@@ -51,6 +51,4 @@ clarify the differences, maybe make some blogs
 
 ## Why slice is DST but not the vector
 
-[Note](/memory_management.md#dynamically-sized-type-dst-in-rust)
-[[memory-management-of-languages#Dynamically sized type (DST) in rust]]
-[[#Why slice is DST but not the vector]]
+[memory-management#Dynamically sized type (DST) in rust](/memory_management.md#dynamically-sized-type-dst-in-rust)

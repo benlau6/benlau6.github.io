@@ -1,6 +1,6 @@
 ---
-title: "Git"
-publishDate: "2024-09-19"
+title: Git
+publishDate: 2024-09-20
 ---
 
 # Git

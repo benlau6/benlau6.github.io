@@ -1,6 +1,6 @@
 ---
-title: "Gaussian Processes"
-publishDate: "2024-09-19"
+title: Gaussian Processes
+publishDate: 2024-09-20
 ---
 
 # Gaussian Processes

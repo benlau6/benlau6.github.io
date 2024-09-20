@@ -1,6 +1,6 @@
 ---
-title: "Enterprise Case Studies"
-publishDate: "2024-09-19"
+title: Enterprise Case Studies
+publishDate: 2024-09-20
 ---
 
 # Enterprise Case Studies

@@ -1,6 +1,6 @@
 ---
-title: "Statistical Inference"
-publishDate: "2024-09-19"
+title: Statistical Inference
+publishDate: 2024-09-20
 ---
 
 # Statistical Inference

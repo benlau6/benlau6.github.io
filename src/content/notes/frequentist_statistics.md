@@ -1,6 +1,6 @@
 ---
-title: "Frequentist Statistics"
-publishDate: "2024-09-19"
+title: Frequentist Statistics
+publishDate: 2024-09-20
 ---
 
 # Frequentist Statistics

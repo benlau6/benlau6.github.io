@@ -1,6 +1,6 @@
 ---
-title: "Iterator"
-publishDate: "2024-09-19"
+title: Iterator
+publishDate: 2024-09-20
 ---
 
 # Iterator

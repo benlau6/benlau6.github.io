@@ -1,6 +1,6 @@
 ---
-title: "Reading and Implementation of The Nature of Code by Daniel Shiffman"
-publishDate: "2024-09-19"
+title: Reading and Implementation of The Nature of Code by Daniel Shiffman
+publishDate: 2024-09-20
 ---
 
 # Reading and Implementation of The Nature of Code by Daniel Shiffman

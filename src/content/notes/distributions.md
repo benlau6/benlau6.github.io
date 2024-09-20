@@ -1,6 +1,6 @@
 ---
-title: "Distributions"
-publishDate: "2024-09-19"
+title: Distributions
+publishDate: 2024-09-20
 ---
 
 # Distributions

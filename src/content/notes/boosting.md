@@ -1,6 +1,6 @@
 ---
-title: "Boosting"
-publishDate: "2024-09-19"
+title: Boosting
+publishDate: 2024-09-20
 ---
 
 # Boosting
@@ -27,7 +27,7 @@ In other words, in the original case of binary classification problems, it is a 
 >In its simplest form (regression) boosting amounts to the following simple iteration (Efron and Hastie, 2021):
 
 1. Initialize $b=0$ and $F^0(x) := 0$
-2. For $$b=1,2,...,B$$:
+2. For $b=1,2,...,B$:
     1. compute the residuals $r_i=y_i-F^{b-1}(x_i), i=1,...,n;$
     2. fit a small [regression tree](/regression_trees.md) to the observations $(x_i, r_i)^n_1$, which we can think of as estimating a function $g^b(x)$; and
     3. update $F^b(x) = F^{b-1}(x) + \epsilon g^b(x)$.

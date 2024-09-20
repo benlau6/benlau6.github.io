@@ -1,6 +1,6 @@
 ---
-title: "Hypothesis Testing"
-publishDate: "2024-09-19"
+title: Hypothesis Testing
+publishDate: 2024-09-20
 ---
 
 # Hypothesis Testing

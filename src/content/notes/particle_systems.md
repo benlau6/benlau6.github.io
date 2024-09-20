@@ -1,6 +1,6 @@
 ---
-title: "Particle Systems"
-publishDate: "2024-09-19"
+title: Particle Systems
+publishDate: 2024-09-20
 ---
 
 # Particle Systems

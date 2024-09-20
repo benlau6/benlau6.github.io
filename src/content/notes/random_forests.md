@@ -1,6 +1,6 @@
 ---
-title: "Random Forests"
-publishDate: "2024-09-19"
+title: Random Forests
+publishDate: 2024-09-20
 ---
 
 # Random Forests

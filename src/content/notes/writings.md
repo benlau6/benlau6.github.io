@@ -1,8 +1,7 @@
 ---
-title: "Writings"
-publishDate: "2024-09-19"
+title: Writings
+publishDate: 2021-08-01
 ---
-
 # Writings
 
 ## Blog Posts

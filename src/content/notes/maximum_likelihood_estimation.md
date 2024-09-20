@@ -1,6 +1,6 @@
 ---
-title: "Maximum Likelihood Estimation"
-publishDate: "2024-09-19"
+title: Maximum Likelihood Estimation
+publishDate: 2024-09-20
 ---
 
 # Maximum Likelihood Estimation

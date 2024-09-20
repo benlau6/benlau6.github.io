@@ -1,6 +1,6 @@
 ---
-title: "Bootstrap"
-publishDate: "2024-09-19"
+title: Bootstrap
+publishDate: 2024-09-20
 ---
 
 # Bootstrap
