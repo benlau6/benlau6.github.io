@@ -24,50 +24,54 @@ In other words, in the original case of binary classification problems, it is a 
 
 ### Regression boosting
 
->In its simplest form (regression) boosting amounts to the following simple iteration (Efron and Hastie, 2021):
+> In its simplest form (regression) boosting amounts to the following simple iteration (Efron and Hastie, 2021):
 
 1. Initialize $b=0$ and $F^0(x) := 0$
 2. For $b=1,2,...,B$:
-    1. compute the residuals $r_i=y_i-F^{b-1}(x_i), i=1,...,n;$
-    2. fit a small [regression tree](/regression_trees.md) to the observations $(x_i, r_i)^n_1$, which we can think of as estimating a function $g^b(x)$; and
-    3. update $F^b(x) = F^{b-1}(x) + \epsilon g^b(x)$.
+   1. compute the residuals $r_i=y_i-F^{b-1}(x_i), i=1,...,n;$
+   2. fit a small [regression tree](/regression_trees.md) to the observations $(x_i, r_i)^n_1$, which we can think of as estimating a function $g^b(x)$; and
+   3. update $F^b(x) = F^{b-1}(x) + \epsilon g^b(x)$.
 
 ### Gradient Boosting with squared-error loss
 
 1. Given a training sample $d=(X,y)$. Fix the number of steps B, the shrinkage factor $\epsilon$ and the tree depth $d$. Set the initial fit $\hat{G}_0 \equiv 0$, and the residual vector $r=y$.
 2. For $b=1,2,...,B$:
-    1. Fit a regression tree $\tilde{g}_b$ to the data $(X,r)$, grown best-first to depth $d$.
-    2. Update the fitted model with a shrunken version of $\tilde{g}_b$: $\hat{G}_b = \hat{G}_{b-1} + \hat{g}_b$ with $\hat{g}_b = \epsilon \tilde{g}_b$.
-    3. Update the residuals: $r_i = r_i - \hat{g}_b(x_i)$, $i=1,...,n$.
+   1. Fit a regression tree $\tilde{g}_b$ to the data $(X,r)$, grown best-first to depth $d$.
+   2. Update the fitted model with a shrunken version of $\tilde{g}_b$: $\hat{G}_b = \hat{G}_{b-1} + \hat{g}_b$ with $\hat{g}_b = \epsilon \tilde{g}_b$.
+   3. Update the residuals: $r_i = r_i - \hat{g}_b(x_i)$, $i=1,...,n$.
 3. Return the sequence of fitted functions $\hat{G}_b$, $b=1,...,B$.
 
 ### Generalized Boosting by forward-stagewise fitting
 
->Note: $L$ is the loss function, such as negative log-likelihood for Bernoulli responses, or squared-error for Gaussian responses.
+> Note: $L$ is the loss function, such as negative log-likelihood for Bernoulli responses, or squared-error for Gaussian responses.
 
 1. Define the class of functions $g(x;\gamma)$. Start with $\hat{G}_0(x) =0$, and set $B$ and the shrinkage parameter $\epsilon>0$.
 2. For $b=1,...,B$ repeat the following steps:
-    1. Solve $\hat{\gamma}_b = \underset{\gamma}{\mathrm{arg\,min}}\sum^n_{i=1}L(y_i, \hat{G}_{b-1}(x_i)+g(x_i;\gamma))$.
-    2. Update $\hat{G}_b(x) = \hat{G}_{b-1}(x) + \hat{g}_b(x)$, with $\hat{g}_b(x) = \epsilon g(x;\hat{\gamma}_b)$.
+   1. Solve $\hat{\gamma}_b = \underset{\gamma}{\mathrm{arg\,min}}\sum^n_{i=1}L(y_i, \hat{G}_{b-1}(x_i)+g(x_i;\gamma))$.
+   2. Update $\hat{G}_b(x) = \hat{G}_{b-1}(x) + \hat{g}_b(x)$, with $\hat{g}_b(x) = \epsilon g(x;\hat{\gamma}_b)$.
 3. Return the sequence $\hat{G}_b(x)$, $b=1,...,B$.
 
 ### Gradient Boosting
 
->Note: It is the most popular version of boosting.
+> Note: It is the most popular version of boosting.
+
 ---
->Note 2: It is quite general, can be used with any differentiable loss function.
+
+> Note 2: It is quite general, can be used with any differentiable loss function.
+
 ---
->Idea: To solve 2(i) of the above generalized boosting, perform functional gradient descent on the loss function, in the n-dimensional space of the fitted vector. Since we want to be able to evaluate our new function everywhere, not just at the n original values $x_i$, once the negative gradient vector has been computed, it is approximated by a depth-$d$ tree (which can be evaluated everywhere). Taking a step of length $\epsilon$ down the gradient amounts to adding $\epsilon$ times the tree to the current function.
+
+> Idea: To solve 2(i) of the above generalized boosting, perform functional gradient descent on the loss function, in the n-dimensional space of the fitted vector. Since we want to be able to evaluate our new function everywhere, not just at the n original values $x_i$, once the negative gradient vector has been computed, it is approximated by a depth-$d$ tree (which can be evaluated everywhere). Taking a step of length $\epsilon$ down the gradient amounts to adding $\epsilon$ times the tree to the current function.
 
 1. Start with $\hat{G}_0(x) =0$, and set $B$ and the shrinkage parameter $\epsilon>0$.
 2. For $b=1,...,B$ repeat the following steps:
-    1. Compute the pointwise negative gradient of the loss function at the current fit:
-    $$
-    r_i = -\left.\frac{\partial L(y_i, \lambda_i)}{\partial \lambda_i}\right\vert_{\lambda_i=\hat{G}_{b-1}(x_i)}, \,i=1,...,n
-    $$
-    2. Approximate the negative gradient by a depth-$d$ tree by solving
-    $$\underset{\gamma}{\mathrm{minimize}}\sum^n_{i=1}(r_i-g(x_i;\gamma))^2$$
-    3. Update $\hat{G}_b(x) = \hat{G}_{b-1}(x) + \hat{g}_b(x)$, with $\hat{g}_b(x) = \epsilon g(x;\hat{\gamma}_b)$
+   1. Compute the pointwise negative gradient of the loss function at the current fit:
+      $$
+      r_i = -\left.\frac{\partial L(y_i, \lambda_i)}{\partial \lambda_i}\right\vert_{\lambda_i=\hat{G}_{b-1}(x_i)}, \,i=1,...,n
+      $$
+   2. Approximate the negative gradient by a depth-$d$ tree by solving
+      $$\underset{\gamma}{\mathrm{minimize}}\sum^n_{i=1}(r_i-g(x_i;\gamma))^2$$
+   3. Update $\hat{G}_b(x) = \hat{G}_{b-1}(x) + \hat{g}_b(x)$, with $\hat{g}_b(x) = \epsilon g(x;\hat{\gamma}_b)$
 3. Return the sequence $\hat{G}_b(x)$, $b=1,...,B$.
 
 ## Hyperparameters
