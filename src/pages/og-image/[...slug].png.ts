@@ -1,6 +1,7 @@
 import RobotoMonoBold from "@/assets/roboto-mono-700.ttf";
 import RobotoMono from "@/assets/roboto-mono-regular.ttf";
 import { getAllPosts } from "@/data/post";
+import { getAllPosts as getAllNotes } from "@/data/notes";
 import { siteConfig } from "@/site-config";
 import { getFormattedDate } from "@/utils/date";
 import { Resvg } from "@resvg/resvg-js";
@@ -184,7 +185,10 @@ export async function GET(context: APIContext) {
 
 export async function getStaticPaths() {
 	const posts = await getAllPosts("projects");
-	return posts
+	const blog = await getAllPosts("blog");
+	const notes = await getAllNotes();
+	const allPosts = [...posts, ...blog, ...notes];
+	return allPosts
 		.filter(({ data }) => !data.ogImage)
 		.map((post) => ({
 			params: { slug: post.slug },
