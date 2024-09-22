@@ -19,8 +19,9 @@ It is used as a foundation to form random forest and boosting (Ensembles of tree
   - The basic mechanism is variance reduction by averaging. Each deep tree has a high variance.
 - [Boosting](/boosting.md): Repeatedly grow shallow trees to the residuals, and hence build up an additive model consisting of a sum of trees.
   - The basic mechanism is bias reduction. It might also include some variance reduction in different methods.
+- Explanatory analysis: [feature importances](https://mlcourse.ai/book/topic05/topic5_part3_feature_importance.html) could be easily extracted from the tree structure.
 
->Note: Boosting and [Random Forests](/random_forests.md) provide a terrific benchmark for how well a traditional parametrized model is performing: if they does much better, then the model is not doing well, with an indicator that probably some important interactions are missing.
+> Note: Boosting and [Random Forests](/random_forests.md) provide a terrific benchmark for how well a traditional parametrized model is performing: if they does much better, then the model is not doing well, with an indicator that probably some important interactions are missing.
 
 ## Common method to split tree
 

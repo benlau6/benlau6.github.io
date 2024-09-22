@@ -135,3 +135,4 @@ $$
 ## References
 
 - Efron, B., & Hastie, T. (2021). Computer Age Statistical Inference: Algorithms, Evidence, and Data Science. Cambridge University Press.
+- [mlcourse.ai](https://mlcourse.ai/book/index.html)

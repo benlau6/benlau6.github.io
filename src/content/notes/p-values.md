@@ -18,6 +18,10 @@ publishDate: 2024-09-20
   - If you carry out enough tests, you are bound to see something odd.
   - [StatQuest - FDR](https://www.youtube.com/watch?v=K8LQSvtjcEo)
 
+## Questions to ask yourself
+
+- [Say you flip a coin 10 times and observe only one heads. What would be your null hypothesis and p-value for testing whether the coin is fair or not?](https://datalemur.com/questions/coin-fairness-test)
+
 ## Good one liners to summarize
 
 - The p-value assumes the same sampling procedure, it is true only if the exact same experiment is repeated many times. [source](https://www.youtube.com/watch?v=vemZtEM63GY)
@@ -35,7 +39,7 @@ publishDate: 2024-09-20
 - A 3-sigma result means there is a roughly 1 in 1,000 probability that observations at least as extreme as those gathered would occur, given the null hypothesis. Physicists don’t usually crack open the champagne until they have a 5-sigma result. A 5-sigma result tells you there would be a chance of less than one in a million. [source](https://theconversation.com/new-physics-at-the-large-hadron-collider-scientists-are-excited-but-its-too-soon-to-be-sure-157871)
 - there’s the adage that extraordinary claims require extraordinary evidence. The Standard Model is extremely well confirmed. It will take an extremely striking observation (such as on observation of an event that would be very unlikely if the standard model were true) to reduce confidence in the model. [source](https://theconversation.com/new-physics-at-the-large-hadron-collider-scientists-are-excited-but-its-too-soon-to-be-sure-157871)
 - To confirm a discovery, ideally the results need to be replicated using a different experimental set up (one that doesn’t risk also replicating the same errors), preferably more than once. [source](https://theconversation.com/new-physics-at-the-large-hadron-collider-scientists-are-excited-but-its-too-soon-to-be-sure-157871)
-- ‘Significant’ means that something is worthy of attention. A hypothesis test is used to distinguish a signal (that is worth paying attention to) from random noise in empirical data.  Researchers use a methodological procedure to decide whether to make an ordinal claim or not as a safeguard against confirmation bias. [source](https://lakens.github.io/statistical_inferences/01-pvalue.html)
+- ‘Significant’ means that something is worthy of attention. A hypothesis test is used to distinguish a signal (that is worth paying attention to) from random noise in empirical data. Researchers use a methodological procedure to decide whether to make an ordinal claim or not as a safeguard against confirmation bias. [source](https://lakens.github.io/statistical_inferences/01-pvalue.html)
 - It is worth distinguishing statistical significance (denoted by p-values), which is only used to claim whether an observed effect is a signal or noise, from practical significance (denoted by effect sizes), which depends on whether the size of the effect is large enough to have any worthwhile consequences in real life. [source](https://lakens.github.io/statistical_inferences/01-pvalue.html)
 - One question that interests scientists is whether measurements that have been collected under different conditions differ, or not. The answer to such a question is an ordinal claim.
 - just because data are surprising, does not mean we need to care about it. It is mainly the word ‘significant’ that causes confusion here – it is perhaps less confusing to think of a ‘significant’ effect as a ‘surprising’ effect, but not necessarily as an ‘important’ effect. [source](https://lakens.github.io/statistical_inferences/01-pvalue.html#misconception-3-a-significant-p-value-means-that-a-practically-important-effect-has-been-discovered.)
@@ -52,6 +56,7 @@ publishDate: 2024-09-20
 - The simplest way to understand hypothesis testing (NHST) — at least for me — is to keep in mind that p-values are probabilities about the data (not about the null and alternative hypotheses): Large p-value means that the data is consistent with the null hypothesis, small p-value means that the data is inconsistent with the null hypothesis. NHST doesn't tell us what hypothesis to reject and/or accept so that we have 100% certainty in our decision: hypothesis testing doesn't prove anything٭. The reason is that a p-value is computed by assuming the null hypothesis is true [3].
 
 ---
+
 [Answer 2](https://stats.stackexchange.com/a/587633)
 
 We should not accept the research/alternative hypothesis.
@@ -76,3 +81,7 @@ Unfortunately the semantics of Null Hypothesis Statistical Tests are rather subt
 - [A Dialog Between a Teacher and a Thoughtful Student about p-values](https://stats.stackexchange.com/a/130772)
 - [A Dirty Dozen: Twelve P-Value Misconceptions -- Goodman, 2008](https://doi.org/10.1053/j.seminhematol.2008.04.003)
 - [p-values: What they are and how to interpret them](https://www.youtube.com/watch?v=vemZtEM63GY)
+
+## Acknowledgements
+
+- [DataLemur](https://datalemur.com)

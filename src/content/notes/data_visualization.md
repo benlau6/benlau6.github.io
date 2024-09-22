@@ -47,6 +47,15 @@ publishDate: 2024-09-20
 ## Websites
 
 - [UW Interactive Data Lab -- Visualization + Analysis](https://idl.uw.edu/)
+- [Vis & Society 2024 MIT](https://vis-society.github.io/)
+- [Dataviz Inspiration](https://www.dataviz-inspiration.com/)
+- [from Data to Viz](https://www.data-to-viz.com/)
+- [1 dataset 100 visualizations](https://100.datavizproject.com/)
+
+## Learning
+
+- [How to learn D3.js](https://2019.wattenberger.com/blog/d3#intro)
+- [Better Data Visualizations with Svelte](https://www.newline.co/courses/better-data-visualizations-with-svelte)
 
 ## Books
 

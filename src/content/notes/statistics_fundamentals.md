@@ -27,3 +27,7 @@ publishDate: 2024-09-20
 - $X$ vs $x$
   - $X$: random variable
   - $x$: observed value
+
+## Finite Population Sampling
+
+n is only ever able to reach N if we sample without replacement, meaning the samples are no longer iid. If we sample with replacement then we never run out of n.
