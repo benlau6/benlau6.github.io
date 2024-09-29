@@ -11,11 +11,12 @@ When applying standard statistical procedures, there will often be standard ways
 
 Interpretation
 
+- There's a 95% probability that this range contains the true value of $\theta$.
 - The confidence interval can be expressed in terms of a long-run frequency in repeated samples (or in resampling): "Were this procedure to be repeated on numerous samples, the proportion of calculated 95% confidence intervals that encompassed the true value of the population parameter would tend toward 95%."
 - The confidence interval can be expressed in terms of probability with respect to a single theoretical (yet to be realized) sample: "There is a 95% probability that the 95% confidence interval calculated from a given future sample will cover the true value of the population parameter." This essentially reframes the "repeated samples" interpretation as a probability rather than a frequency.
 - The confidence interval can be expressed in terms of statistical significance, e.g.: "The 95% confidence interval represents values that are not statistically significantly different from the point estimate at the .05 level."
--
-  - [summary in a reddit post](https://www.reddit.com/r/statisticsmemes/comments/ssl5dq/comment/hxorqvb/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button)
+- [summary in a reddit post](https://www.reddit.com/r/statisticsmemes/comments/ssl5dq/comment/hxorqvb/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button)
+- We are 95% confident that this confidence interval captures the true population parameter. [ref](https://evalf21.classes.andrewheiss.com/resource/bayes/#confidence-intervals-vs-credible-intervals)
 
 Common Misinterpretations
 

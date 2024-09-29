@@ -23,6 +23,15 @@ A few plots are generated to visualize the results. Note that time series plots 
 
 ![trace plot](./trace.png)
 
+## Ideas
+
+- Used state space model and Bayesian model to provide a generalized framework to model the COVID-19 pandemic with building blocks. i.e. The combination allows me to encode any prior knowledge and assumptions into the model iteratively.
+- Model infection delay by using generation time distribution
+- Model onset to confirmation delay by applying 1d convolution with n days pmf
+- Model variance >> mean due to breakouts and settlements in epidemic waves by using negative binomial distribution instead of Poisson to avoid over-dispersion
+- Model unpredictable human behavior by using Gaussian random walk prior
+- Model excess zeros to avoid downward bias on parameter estimates by using zero-inflated negative binomial distribution
+
 ## Acknowledgements
 
 ### Implementations and Tutorials

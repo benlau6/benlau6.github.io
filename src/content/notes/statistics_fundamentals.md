@@ -19,6 +19,11 @@ publishDate: 2024-09-20
 - Statistics vs Parameters
   - Statistics: observed values; computed based on the sample data
   - Parameters: estimated values; estimated based on sample statistics
+- [Statistics vs Estimators](https://www.statlect.com/glossary/unbiased-estimator)
+  - A statistics is a function of a sample (data) with no sense of being good or bad. [discussion](https://stats.stackexchange.com/a/47756)
+  - An estimator is a function of a sample related to some quantity of the distribution. [ref](https://www.statlect.com/glossary/unbiased-estimator) [ref2](https://wangcc.me/LSHTMlearningnote/inference-basic.html)
+  - A quantity is a function of the distribution, referring to some property of the distribution, which is usually unknown and thus has to be estimated. And a statistic is a quantity of the sample.
+  - A statistic is not an estimator, but an estimator is a statistic with something added. For example, sample mean can be used as an estimator for the population mean, which is unbiased, while it can also be used as an estimator of the population variance, which is biased for most distributions.
 - $\mu$ vs $\hat{\mu}$ vs $\bar{x}$ vs $x$
   - $\mu$: population mean
   - $\hat{\mu}$: estimated population mean

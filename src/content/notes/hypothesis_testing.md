@@ -10,6 +10,7 @@ Important to know [p-values](/p-values.md) and [confidence intervals](/confidenc
 ## One liners
 
 - Type I error is rejecting a true null hypothesis, i.e. false positive. While Type II error is failing to reject a false null hypothesis, i.e. false negative.
+- P-value is the type I error, while power is 1 - type II error. So power is the probability of rejecting a false null hypothesis, i.e. true positive.
 
 ## Types of statistical tests
 

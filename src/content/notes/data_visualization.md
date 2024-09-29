@@ -52,11 +52,6 @@ publishDate: 2024-09-20
 - [from Data to Viz](https://www.data-to-viz.com/)
 - [1 dataset 100 visualizations](https://100.datavizproject.com/)
 
-## Learning
-
-- [How to learn D3.js](https://2019.wattenberger.com/blog/d3#intro)
-- [Better Data Visualizations with Svelte](https://www.newline.co/courses/better-data-visualizations-with-svelte)
-
 ## Books
 
 - [Fundamentals of Data Visualization](https://clauswilke.com/dataviz/)
@@ -64,6 +59,12 @@ publishDate: 2024-09-20
   - [14 Visualizing trends](https://clauswilke.com/dataviz/visualizing-trends.html)
 - Interactive Data Visualization by Scott Murray
   - D3 is great for explanatory visuals, not exploratory. If I am finished studying a refined hypothesis and want to show a specific result I'd use D3. Or if I want something highly customized because I know exactly how the data will look, D3 is great. But most of what I do is exploratory. I'm not exactly sure what the data will look like.
+
+## Tools
+
+- [Manim](https://www.manim.community/) -- A community maintained Python library for creating mathematical animations.
+- [How to learn D3.js](https://2019.wattenberger.com/blog/d3#intro)
+- [Better Data Visualizations with Svelte](https://www.newline.co/courses/better-data-visualizations-with-svelte)
 
 ## Envy Visualization Examples
 

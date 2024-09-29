@@ -74,6 +74,7 @@ Several days were spent to conduct a research on how to build a good personal we
 
 ### Academic
 
+- [Matti](https://mvuorre.github.io/posts/2019-02-18-analyze-analog-scale-ratings-with-zero-one-inflated-beta-models/) -- blog structure, tags, toc
 - [TK Kinoshita](https://www.iamtk.co/) -- minimalistic design, list style, font, content, tags
 - [dennybritz](https://dennybritz.com/): Great articles on AI, rust, gaming, visualization, minimalistic design, content
   - [poe-crafting](https://dennybritz.com/posts/poe-crafting/) -- rust, ai, visualization

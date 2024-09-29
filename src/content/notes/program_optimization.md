@@ -1,9 +1,9 @@
 ---
-title: Programming Optimization
+title: Program Optimization
 publishDate: 2024-09-20
 ---
 
-# Programming Optimization
+# Program Optimization
 
 ## Tools
 
@@ -18,3 +18,4 @@ publishDate: 2024-09-20
 ## Python
 
 - [Making Python 100x faster with less than 100 lines of Rust](https://ohadravid.github.io/posts/2023-03-rusty-python/)
+- [Time complexity of Python data structures](https://wiki.python.org/moin/TimeComplexity)

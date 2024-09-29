@@ -49,6 +49,25 @@ Bad properties:
 - Large trees are hard to interpret.
 - Generally don't have good predictive performance.
 
+## Feature importances in regression trees are tricky
+
+Standard feature importances simply tell you which features were more useful when building the model. They are not to be interpreted as a direct dependence between predictor and target.
+
+1. They are completely useless if the model is weak, i.e. overfitted.
+2. They are strongly influenced by correlated features.
+3. They are biased towards numerical and high cardinality features.
+
+However, permutation importances are computed on validation date, and therefore solve first overfitting issue. Moreover, as they are computed on a metric of your choice, they are easier to interpret and can in some sense be seen as a "strength coefficient", since they answer the question: "How much does the performance of my model degrade if I shuffle this predictor?". [ref](https://stats.stackexchange.com/questions/450703/is-feature-importance-in-random-forest-useless)
+
+Nevertheless, it is always important to evaluate the predictive power of a model prior to interpreting feature importances. Permutation importance does not reflect to the intrinsic predictive value of a feature by itself but how important this feature is for a particular model. [ref](https://scikit-learn.org/stable/modules/permutation_importance.html)
+
+The second issue still exists in a way that when two features are correlated and one of the features is permuted, the model still has access to the latter through its correlated feature. This results in a lower reported importance value for both features, though they might actually be important. For example, if two features both strongly related to the target, they will always end up with a feature importance score of about 0.5 each, whereas one would expect that both should score something close to one. One way to handle the issue is to cluster features that are correlated and only keep one feature from each cluster. [ref](https://scikit-learn.org/stable/modules/permutation_importance.html#misleading-values-on-strongly-correlated-features)
+
+## Sometimes it outperforms neural networks
+
+- [Why do tree-based models still outperform deep learning on typical tabular data?](https://openreview.net/forum?id=Fp7__phQszn)
+- [TABULAR DATA: DEEP LEARNING IS NOT ALL YOU NEED](https://arxiv.org/pdf/2106.03253)
+
 ## References
 
 - Efron, B., & Hastie, T. (2021). Computer Age Statistical Inference: Algorithms, Evidence, and Data Science. Cambridge University Press.
