@@ -1,5 +1,5 @@
 ---
-title: metrics
+title: Metrics
 publishDate: 2024-09-28
 ---
 

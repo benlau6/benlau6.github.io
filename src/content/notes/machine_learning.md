@@ -14,6 +14,10 @@ publishDate: 2024-09-21
   - The more complex the model f ^ ( x ) {\displaystyle {\hat {f}}(x)} is, the more data points it will capture, and the lower the bias will be. However, complexity will make the model "move" more to capture the data points, and hence its variance will be larger.
 - MAE is more robust to outliers than MSE, but it is not differentiable at 0, which can be a problem for optimization, especially for gradient-based methods. RMSE is a compromise between the two.
 
+## Questions to clarify
+
+- How can a Bayesian model be learnt by MCMC?
+
 ## Recommended Readings
 
 - [A few useful things to know about machine learning](https://dl.acm.org/doi/pdf/10.1145/2347736.2347755)

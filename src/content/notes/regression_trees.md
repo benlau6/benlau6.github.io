@@ -53,11 +53,11 @@ Bad properties:
 
 Standard feature importances simply tell you which features were more useful when building the model. They are not to be interpreted as a direct dependence between predictor and target.
 
-1. They are completely useless if the model is weak, i.e. overfitted.
+1. They are completely useless if the model has bad predictive power.
 2. They are strongly influenced by correlated features.
 3. They are biased towards numerical and high cardinality features.
 
-However, permutation importances are computed on validation date, and therefore solve first overfitting issue. Moreover, as they are computed on a metric of your choice, they are easier to interpret and can in some sense be seen as a "strength coefficient", since they answer the question: "How much does the performance of my model degrade if I shuffle this predictor?". [ref](https://stats.stackexchange.com/questions/450703/is-feature-importance-in-random-forest-useless)
+However, permutation importances are computed on validation stage, and therefore solve first overfitting issue. Moreover, as they are computed on a metric of your choice, they are easier to interpret and can in some sense be seen as a "strength coefficient", since they answer the question: "How much does the performance of my model degrade if I shuffle this predictor?". [ref](https://stats.stackexchange.com/questions/450703/is-feature-importance-in-random-forest-useless)
 
 Nevertheless, it is always important to evaluate the predictive power of a model prior to interpreting feature importances. Permutation importance does not reflect to the intrinsic predictive value of a feature by itself but how important this feature is for a particular model. [ref](https://scikit-learn.org/stable/modules/permutation_importance.html)
 
