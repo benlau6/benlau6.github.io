@@ -7,6 +7,18 @@ publishDate: 2024-09-20
 
 ## Analytics
 
+### Sports
+
+- [Football AI Tutorial: From Basics to Advanced Stats with Python](https://www.youtube.com/watch?v=aBVGKoNZQUw)
+- [roboflow/sports](https://github.com/roboflow/sports)
+
+### Marketing
+
+- [PyMC-Marketing: A Bayesian Approach to Marketing Data Science](https://www.pymc-labs.com/blog-posts/pymc-marketing-a-bayesian-approach-to-marketing-data-science/)
+- [Bayesian Media Mix Modeling for Marketing Optimization](https://www.pymc-labs.com/blog-posts/bayesian-media-mix-modeling-for-marketing-optimization/)
+- [Introduction to Media Mix Modeling](https://www.pymc-marketing.io/en/stable/guide/mmm/mmm_intro.html)
+- [How-to: MMMs and CLVs notebooks](https://www.pymc-marketing.io/en/stable/notebooks/index.html)
+
 ### Case procedures
 
 #### Pricing
@@ -37,9 +49,11 @@ The usual procedure of Bayesian search theory is as follows: [ref](https://en.wi
 
 ### Real case studies
 
+- [A Look at The First Place Solution of a Dermatology Classification Kaggle Competition](https://bjlkeng.io/posts/a-look-at-the-first-place-solution-of-a-dermatology-classification-kaggle-competition/)
 - [How Writing My Thesis on League of Legends Made Me Stop Playing](https://www.youtube.com/watch?v=a-a6__xFeVc)
 - [Beta 存活模型](https://taweihuang.hpd.io/2020/02/23/beta-survival-model/)
 - [利用斷點迴歸設計設計估計需求曲線 – Uber 案例](https://taweihuang.hpd.io/2018/09/09/nat_exp_rdd_uber/)
+- [sklearn@Examples based on real world datasets](https://scikit-learn.org/stable/auto_examples/applications/index.html)
 
 ## Tech blogs
 

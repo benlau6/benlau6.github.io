@@ -132,6 +132,10 @@ $$
 - Due to shrinkage, many of the trees could be similar to each other. Lasso could be used as a post-processor to select a subset of these trees, reweight them, and hence produce a prediction model with far fewer trees with comparable accuracy.
 - However, it would introduce a new tuning parameter, which is critical to be selected correctly for the performance of the model.
 
+## Bayesian Additive Regression Trees (BART) is a Bayesian version of boosting
+
+- Bayesian Additive Regression Trees (BART) are similar to Gradient Boosting Tree (GBT) methods in that they sum the contribution of sequential weak learners. This is opposed to Random Forests, which average many independent estimates. But instead of multiplying each sequential tree by a small constant (the learning rate) as in GBT, the Bayesian approach is to use a prior. [summary blog](https://blog.zakjost.com/post/bart/) [technical blog](https://jmloyola.github.io/posts/2019/06/introduction-to-bart) [example blog](https://www.pymc.io/projects/bart/en/latest/examples/bart_introduction.html)
+
 ## References
 
 - Efron, B., & Hastie, T. (2021). Computer Age Statistical Inference: Algorithms, Evidence, and Data Science. Cambridge University Press.

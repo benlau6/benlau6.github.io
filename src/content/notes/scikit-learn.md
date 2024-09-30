@@ -16,7 +16,7 @@ publishDate: 2024-09-30
 - Scikit-learn in Python: 100+ Data Science Exercises ex.68: pca from scratch
 - check GridSearch on udemy Scikit-learn in Python: 100+ Data Science Exercises ex.50
 
-  ```python=
+  ```python
   # python code about GridSearch
   X_train, X_test, y_train, y_test = train_test_split(data, target)
 

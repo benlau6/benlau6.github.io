@@ -10,7 +10,6 @@ import { expressiveCodeOptions } from "./src/site.config";
 // Remark plugins
 import remarkDirective from "remark-directive"; /* Handle ::: directives as nodes */
 // @ts-ignore
-import RemarkLinkRewrite from "remark-link-rewrite";
 import remarkMath from "remark-math";
 import remarkUnwrapImages from "remark-unwrap-images";
 import wikiLinkPlugin from "remark-wiki-link";

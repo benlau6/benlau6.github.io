@@ -22,13 +22,13 @@ tags:
 - Applied constraint programming to solve VRP with time window and capacity constraints in Python using OR-Tools
 - Visualized geospatial data on map of Hong Kong interactively in JavaScript
 
-It is a solver with visualization to solve Pickup Delivery Problem (PDP) with Time Windows, Capacity, Breaks and Priority Constraints for Rehabus.
+It is a solver with visualization to solve Pickup Delivery Problem (PDP) with Time Windows, Capacity, Breaks and Priority Constraints for a transport company serving people with disabilities.
 
 ## Design Document (Trimmed)
 
 ### Introduction
 
-This document describes the design of the routing optimization for [Rehabus](https://www.rehabsociety.org.hk/transport/rehabus/), a non-profit organization that provides transportation services for people with disabilities.
+This document describes the design of the routing optimization for a non-profit organization that provides transportation services for people with disabilities.
 
 It does **not** describe the decision making of the business constraints such as maximum working hours and length of break time. Those constraints are assumed to be given by the organization as constants.
 
@@ -46,21 +46,15 @@ After reading this document, you are expected to know the goals, objectives, ass
 
 ### Background
 
-Rehabus provides three types of services:
-
-1. [Scheduled Route Service](https://www.rehabsociety.org.hk/transport/rehabus/scheduled-route-service/)
-2. [Dial-a-Ride Service](https://www.rehabsociety.org.hk/transport/rehabus/dial-a-ride-service/)
-3. [Pooled Dial-a-Ride Service](https://www.rehabsociety.org.hk/transport/rehabus/pooled-dial-a-ride-service/)
-
-The Scheduled Route Service is a fixed route service that operates on a fixed schedule. The Dial-a-Ride Service is a point-to-point service that allows passengers to book a ride up to 4 days in advance. The pooled version allows ride sharing. Rehabus needs to digest 500 daily requests with 200 vehicles. 40 of them are often in stand-by or maintenance modes. The vehicles would be stating or ending at 17 depots, which are spread around Hong Kong. Rehabus also hired around 180 drivers, while some of them are part-time drivers.
+The company provides a point-to-point service that allows passengers to book a ride up to 4 days in advance, which allows ride sharing. The company needs to digest 500 daily requests with 200 vehicles. 40 of them are often in stand-by or maintenance modes. The vehicles would be stating or ending at 17 depots, which are spread around Hong Kong. The company also hired around 180 drivers, while some of them are part-time drivers.
 
 ### Methodology
 
-All of the services are just vehicle routing problems (VRP) with pickup and delivery, time windows, capacity, breaks, and priority constraints with slightly different settings. It is often termed as the Vehicle Routing Problem (VRP), Pickup and Delivery Problem (PDP), or Dial-a-Ride Problem (DARP) in academic literature. It is a well-known problem with well-established frameworks and tools to solve it. The problem is mainly framed in two paradigms, which are mixed integer linear programming (MILP) and constraint programming (CP). The former is more suitable for small to medium size problems, while the latter is more suitable for medium to large size problems with complex constraints.
+It is just a vehicle routing problem (VRP) with pickup and delivery, time windows, capacity, breaks, and priority constraints. It is often termed as the Vehicle Routing Problem (VRP), Pickup and Delivery Problem (PDP), or Dial-a-Ride Problem (DARP) in academic literature. It is a well-known problem with well-established frameworks and tools to solve it. The problem is mainly framed in two paradigms, which are mixed integer linear programming (MILP) and constraint programming (CP). The former is more suitable for small to medium size problems, while the latter is more suitable for medium to large size problems with complex constraints.
 
 The most difficult part is to define the constraints in mathematical terms to be plugged into a mathematical model, and the rest is just a matter of choosing a well-developed optimization algorithm from a [well-established optimization software](https://en.wikipedia.org/wiki/List_of_optimization_software) to get an acceptable solution with low cost according to the objective in **a limited time**.
 
-Since Rehabus has to deal with 500 daily requests in average in a complex setting according to business needs, constraint programming is chosen to solve the problem due to its speed and generality. The optimization software used in this project is [OR-Tools](https://developers.google.com/optimization), a Google's open-source optimization software that is free to use. It also has a dedicated routing module that is designed to solve VRP in constraint programming, with a good documentation, lots of awards, and a great community support. To know more about OR-Tools, please refer to the [recommended readings](#recommended-readings) section.
+Since the company has to deal with 500 daily requests in average in a complex setting according to business needs, constraint programming is chosen to solve the problem due to its speed and generality. The optimization software used in this project is [OR-Tools](https://developers.google.com/optimization), a Google's open-source optimization software that is free to use. It also has a dedicated routing module that is designed to solve VRP in constraint programming, with a good documentation, lots of awards, and a great community support. To know more about OR-Tools, please refer to the [recommended readings](#recommended-readings) section.
 
 ### Goals and Objectives
 
@@ -128,16 +122,19 @@ References
 - It doesn't mean the standard deviation is minimized
 - Without setting a proper cost, it returns any route that fit the hard constraints
 - [ref](https://github.com/google/or-tools/discussions/2589#discussioncomment-1860434)
+- [maximizing seems doable](https://github.com/google/or-tools/discussions/3367)
 
 Type of costs
 
-- SpanCost
-  - one coefficent per vehicle, default 0
-  - it minimizes the dispersion
+- dimension.SetSpanCostCoefficientForAllVehicles(coeff)
+  - one coefficient per vehicle, default 0
+  - useful for dimension other than time because there is already arc cost for time
+  - add span cost on time_dimension, even if the coefficient is one, might kill the performance of the solver, making it stuck in local minimum or returning no solution
 - GlobalSpanCost
-  - cost one coefficient per dimension, default 0
-  - it minimizes the differences of max and min
+  - one coefficient per dimension, default 0
+  - it minimizes the difference between max and min along the entire plan
   - e.g. [6, 0, 0] == [6, 6, 0]
+  - [explanation with calculation](https://github.com/google/or-tools/issues/1107#issuecomment-469203360)
 - ArcCost
   - one coefficient per arc, default 0
   - to be used by any initial first strategy
@@ -153,6 +150,22 @@ Type of costs
   - imposed by SoftUpperBOund or SoftLowerBound
   - added to objective function once a soft constraint is violated
   - default only hard limit
+- routing.SetAmortizedCostFactorsOfAllVehicles(100, 100)
+  - reduce number of used vehicles if possible by first term
+  - aims at making the routes as dense as possible by second term
+  - [code ref](https://github.com/google/or-tools/blob/fa84bc05e72641dddfbb98164d81b8bc9bef6ea5/ortools/constraint_solver/routing.h#L921)
+  - it seems produce no difference while making the objective value being negative
+
+How to add a reward?
+
+Considering the followings as rewards are good
+
+- number of served wheelchairs
+- number of served normal passengers
+
+#### First solution strategy
+
+ALL_UNPERFORMED, GLOBAL_CHEAPEST_ARC are good methods for models with many constraints because they will find a feasible solution in seconds, then heuristics could quickly react to remove the penalties. Other methods may struggle to find a feasible solution even in 10 minutes.
 
 #### PDP constraints
 
@@ -232,6 +245,45 @@ Alternatives
 3. [Find solution for high priority nodes first](https://groups.google.com/g/or-tools-discuss/c/HsioeGr8DyA/m/7sWkGMSmDAAJ)
 4. [SetCumulVarSoftUpperBOund](https://github.com/google/or-tools/discussions/2274)
 
+#### How to model shift?
+
+- There can only be n (180) vehicles outside the depot simultaneously
+- There are limited vehicles at each depot
+- There are limited driving for each driver
+- There are limited working hours, including waiting time for each driver
+- The waiting time and shifting time are counted in slack time, using the same vehicle for different drivers, it may result in a violation of the working hours, but actually not.
+
+[multi trip reload depot](https://github.com/google/or-tools/issues/976)
+
+So, using the same vehicle for different drivers will violate the working hours and driving hours. While using different vehicles for different drivers will violate the number of concurrent vehicles outside the depot constraint, and violate the number of vehicles at each depot constraint.
+
+Could i reset the duration of the vehicle to 0 after each shift? [ref](https://github.com/google/or-tools/issues/1624)
+
+#### How to add back the dropped disjunct node?
+
+> NOTE: if there are unused vehicles and dropped nodes co-existing, it is likely that the imposed assumptions are incorrect, such that the requests are infeasible to be served by any vehicle. E.g. exceeding seat demand, exceeding estimated travel time compared to allowed travel time derived from time window, etc.
+
+Ideas
+
+- [Nodes Drop Issue #227](https://github.com/google/or-tools/issues/227)
+- [Routing problem: Manual assignment better than solver for small testcases.](https://groups.google.com/g/or-tools-discuss/c/0jJpIvvNMS8/m/bMeJ6zlhAgAJ)
+- [routing solver dropping nodes, but leaving vehicles unused](https://groups.google.com/g/or-tools-discuss/c/StrnNTcmwig/m/dTD7qByPAQAJ)
+- [Exploring disjunctions](https://activimetrics.com/blog/ortools/exploring_disjunctions/)
+
+#### How to insert new request with existing solution?
+
+- [VRPTW: Routing Problems recalculating a given solution fixing time windows and adding new locations #2142](https://github.com/google/or-tools/issues/2142)
+
+#### Speed Optimization
+
+- [Need advice with optimizing the running speed of OR-Tools Routing #4172](https://github.com/google/or-tools/discussions/4172)
+
+#### How to make more log?
+
+- trace_search: <https://stackoverflow.com/a/63602540>
+- search monitor: <https://groups.google.com/g/or-tools-discuss/c/oj1YblO9f1o/m/Wk3OkSmXDQAJ>
+- routing.AddAtSolutionCallback()
+
 ### Recommended Readings
 
 - [Model Building in Mathematical Programming](https://www.amazon.com/Model-Building-Mathematical-Programming-Williams/dp/1118443330) -- for understanding the basic concepts of mathematical programming and how to model a real-world problem
@@ -243,7 +295,7 @@ Alternatives
   - [Armbrust et al., 2022 - Case study of Dial-a-Ride Problems arising in Austrian rural regions](https://doi.org/10.1016/j.trpro.2022.02.025)
   - [Hungerländer et al., 2021 - Improving Sharing Rates of a Dial-a-Ride Problem implemented for an Austrian Mobility Provider](https://doi.org/10.1016/j.trpro.2021.01.062)
 
-## References
+### References
 
 - Armbrust, Philipp, Philipp Hungerländer, Kerstin Maier, and Veronika Pachatz. “Case Study of Dial-a-Ride Problems Arising in Austrian Rural Regions.” Transportation Research Procedia 62 (2022): 197–204. <https://doi.org/10.1016/j.trpro.2022.02.025>.
 - Baita, F., R. Pesenti, W. Ukovich, and D. Favaretto. “A Comparison of Different Solution Approaches to the Vehicle Scheduling Problem in a Practical Case.” Computers & Operations Research 27, no. 13 (November 2000): 1249–69. <https://doi.org/10.1016/S0305-0548(99)00073-8>.

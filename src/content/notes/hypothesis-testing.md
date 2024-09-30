@@ -46,3 +46,28 @@ Important to know [p-values](p-values.md) and [confidence intervals](confidence-
 - [Bayesian hypothesis testing](https://michael-franke.github.io/intro-data-analysis/ch-03-07-hypothesis-testing-Bayes.html)
 - [Bayesian Hypothesis Testing with PyMC](https://austinrochford.com/posts/2013-05-17-bayesian-hypothesis-testing-with-pymc.html)
 - [Bayesian Estimation Supersedes the T-Test](https://www.pymc.io/projects/examples/en/latest/case_studies/BEST.html)
+
+## How many experiments does it take to get a statistically significant result?
+
+Just one, but the method, documentation, control, and execution must be flawless.
+
+## With a large enough sample size, everything is significant
+
+There are differences between statistical significant and practical significant. With a large sample size that usually obtained in modern days, a statistical significant test might be meaningless because even a tiny difference would be caught given enormous evidence. Here comes the importance of effect size, which deals with practical significance.
+
+## How to combine multiple experiments on the same hypothesis?
+
+- [Meta-analysis@Nature](https://www.nature.com/articles/s41598-021-86465-y) for combining results from multiple studies on the same hypothesis.
+  - it usually apply on effect size instead of p-value
+  - [Bayesian meta-analysis](https://www.niss.org/sites/default/files/Ghosh-NISS-2011-talk4in1.pdf)
+- Multiple testing for adjusting false positive rate, i.e. p-value, when testing multiple hypotheses.
+- What if I have multiple experiments on the same hypothesis from the same study, setting, and dataset? Seems not a multiple testing problem, nor a meta-analysis problem. It is more like a bootstrapping, but the experiments are actually performed, while bootstrapping is simulating the experiments hypothetically.
+
+## How to test proportions?
+
+- [Inference for a single proportion - Introduction to Modern Statistics](https://openintro-ims.netlify.app/inference-one-prop)
+
+### Readings
+
+- [Are large data sets inappropriate for hypothesis testing?](https://stats.stackexchange.com/questions/2516/are-large-data-sets-inappropriate-for-hypothesis-testing)
+- [Hypothesis testing when sample sizes are extremely large](https://www.reddit.com/r/statistics/comments/10ywamd/q_hypothesis_testing_when_sample_sizes_are/)
