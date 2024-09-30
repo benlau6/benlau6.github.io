@@ -29,7 +29,7 @@ In other words, in the original case of binary classification problems, it is a 
 1. Initialize $b=0$ and $F^0(x) := 0$
 2. For $b=1,2,...,B$:
    1. compute the residuals $r_i=y_i-F^{b-1}(x_i), i=1,...,n;$
-   2. fit a small [regression tree](/regression-trees.md) to the observations $(x_i, r_i)^n_1$, which we can think of as estimating a function $g^b(x)$; and
+   2. fit a small [regression tree](regression-trees.md) to the observations $(x_i, r_i)^n_1$, which we can think of as estimating a function $g^b(x)$; and
    3. update $F^b(x) = F^{b-1}(x) + \epsilon g^b(x)$.
 
 ### Gradient Boosting with squared-error loss
@@ -113,7 +113,7 @@ Boosting is a general nonparametric function-fitting algorithm, and shares attri
 
 ### Difference between Boosting and Random Forest
 
-- Boosting is different in a fundamental way. The trees in a [random forest](/random-forests.md) are identically distributed, the same (random) treatment is repeatedly applied to the same data. With boosting, on the other hand, each tree is trying to amend errors made by the ensemble of previously grown trees.
+- Boosting is different in a fundamental way. The trees in a [random forest](random-forests.md) are identically distributed, the same (random) treatment is repeatedly applied to the same data. With boosting, on the other hand, each tree is trying to amend errors made by the ensemble of previously grown trees.
 - Unlike random forests, a boosted regression model can overfit if `B` is too large.
 - Boosting often slightly outperforms a random forest, but careful tuning is needed, which requires considerable extra work, with time-costly rounds of cross-validation, whereas random forests are almost automatic.
 

@@ -11,7 +11,7 @@ publishDate: 2024-09-20
 - ECS is the in-memory equivalent of column based databases (e.g. Cassandra vs Postgres).
 - [Overwatch uses ECS for part of their game engine](https://www.youtube.com/watch?v=W3aieHjyNvw)
 - [Minecraft Bedrock Edition uses ECS for their game engine](https://github.com/SanderMertens/ecs-faq#how-is-ecs-different-from-entity-component-frameworks)
-- [Noita uses ECS for their game engine](/noita.md)
+- [Noita uses ECS for their game engine](noita.md)
 - Potential usecases
   - Vampire survivor: Many similar entities
 

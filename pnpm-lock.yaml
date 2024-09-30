@@ -29,6 +29,9 @@ importers:
       astro-icon:
         specifier: ^1.1.1
         version: 1.1.1
+      astro-rehype-relative-markdown-links:
+        specifier: ^0.15.0
+        version: 0.15.0(astro@4.15.6(@types/node@22.5.5)(rollup@4.22.1)(typescript@5.6.2))
       cssnano:
         specifier: ^7.0.6
         version: 7.0.6(postcss@8.4.47)
@@ -53,9 +56,6 @@ importers:
       remark-directive:
         specifier: ^3.0.0
         version: 3.0.0
-      remark-link-rewrite:
-        specifier: ^1.0.7
-        version: 1.0.7
       remark-math:
         specifier: ^6.0.0
         version: 6.0.0
@@ -1149,6 +1149,11 @@ packages:
   astro-icon@1.1.1:
     resolution: {integrity: sha512-HKBesWk2Faw/0+klLX+epQVqdTfSzZz/9+5vxXUjTJaN/HnpDf608gRPgHh7ZtwBPNJMEFoU5GLegxoDcT56OQ==}
 
+  astro-rehype-relative-markdown-links@0.15.0:
+    resolution: {integrity: sha512-+f4fg1Kc/7qeBoLQFKu0HAwsTiD8Ua7alLbMD57K/VH6b5i5Sd5FTVFZ4cO/43/S+E9bTmYmIq2LF6Hhkrnlhw==}
+    peerDependencies:
+      astro: '>=2.x <5'
+
   astro@4.15.6:
     resolution: {integrity: sha512-SWcUNwm8CiVRaIbh4w5byh62BNihpsovlCd4ElvC7cL/53D24HcI7AaGFsPrromCamQklwQmIan/QS7x/3lLuQ==}
     engines: {node: ^18.17.1 || ^20.3.0 || >=21.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
@@ -1232,6 +1237,9 @@ packages:
 
   caniuse-lite@1.0.30001662:
     resolution: {integrity: sha512-sgMUVwLmGseH8ZIrm1d51UbrhqMCH3jvS7gF/M6byuHOnKyLOBL7W8yz5V02OHwgLGA36o/AFhWzzh4uc5aqTA==}
+
+  catch-unknown@2.0.0:
+    resolution: {integrity: sha512-4ELowf+Fp6Qwv77ZvRDto9oJMsOalEk8IYvS5KsmIhRZQWbfArlIhIOONJtmCzOeeqpip6JzYqAYaNR9sIyLVQ==}
 
   ccount@2.0.1:
     resolution: {integrity: sha512-eyrF0jiFpY+3drT6383f1qhkbGsLSifNAjA61IUjZjmLCWjItY6LB9ft9YhoDgwfmclB2zhu51Lc7+95b8NRAg==}
@@ -2893,10 +2901,6 @@ packages:
   remark-gfm@4.0.0:
     resolution: {integrity: sha512-U92vJgBPkbw4Zfu/IiW2oTZLSL3Zpv+uI7My2eq8JxKgqraFdU8YUGicEJCEgSbeaG+QDFqIcwwfMTOEelPxuA==}
 
-  remark-link-rewrite@1.0.7:
-    resolution: {integrity: sha512-jfmXL8VL3O7Ca4g+Ya0A0S9LIpVhCUSqMHiei4N8Z8Mx9z/oEI1HDoa1ZcF9/tS0I7NwydGsPkw2zT4eeoD6+Q==}
-    engines: {node: '>=12.20'}
-
   remark-math@6.0.0:
     resolution: {integrity: sha512-MMqgnP74Igy+S3WwnhQ7kqGlEerTETXMvJhrUzDikVZ2/uogJCb+WHUg97hK9/jcfc0dkD73s3LN8zU49cTEtA==}
 
@@ -3269,9 +3273,6 @@ packages:
   unist-util-inspect@8.1.0:
     resolution: {integrity: sha512-mOlg8Mp33pR0eeFpo5d2902ojqFFOKMMG2hF8bmH7ZlhnmjFgh0NI3/ZDwdaBJNbvrS7LZFVrBVtIE9KZ9s7vQ==}
 
-  unist-util-is@5.2.1:
-    resolution: {integrity: sha512-u9njyyfEh43npf1M+yGKDGVPbY/JWEemg5nH05ncKPfi+kBbKBJoTdsogMu33uhytuLlv9y0O7GH7fEdwLdLQw==}
-
   unist-util-is@6.0.0:
     resolution: {integrity: sha512-2qCTHimwdxLfz+YzdGfkqNlH0tLi9xjTnHddPmJwtIG9MGsdbutfTc4P+haPD7l7Cjxf/WZj+we5qfVPvvxfYw==}
 
@@ -3296,14 +3297,8 @@ packages:
   unist-util-visit-children@3.0.0:
     resolution: {integrity: sha512-RgmdTfSBOg04sdPcpTSD1jzoNBjt9a80/ZCzp5cI9n1qPzLZWF9YdvWGN2zmTumP1HWhXKdUWexjy/Wy/lJ7tA==}
 
-  unist-util-visit-parents@5.1.3:
-    resolution: {integrity: sha512-x6+y8g7wWMyQhL1iZfhIPhDAs7Xwbn9nRosDXl7qoPTSCy0yNxnKc+hWokFifWQIDGi154rdUqKvbCa4+1kLhg==}
-
   unist-util-visit-parents@6.0.1:
     resolution: {integrity: sha512-L/PqWzfTP9lzzEa6CKs0k2nARxTdZduw3zyh8d2NVBnsyvHjSX4TWse388YrrQKbvI8w20fGjGlhgT96WwKykw==}
-
-  unist-util-visit@4.1.2:
-    resolution: {integrity: sha512-MSd8OUGISqHdVvfY9TPhyK2VdUrPgxkUtWSuMHF6XAAFuL4LokseigBnZtPnJMu+FbynTkFNnFlyjxpVKujMRg==}
 
   unist-util-visit@5.0.0:
     resolution: {integrity: sha512-MR04uvD+07cwl/yhVuVWAtw+3GOR/knlL55Nd/wAdblk27GCVt3lqpTivy/tkJcZoNPzTwS1Y+KMojlLDhoTzg==}
@@ -4661,6 +4656,20 @@ snapshots:
       - debug
       - supports-color
 
+  astro-rehype-relative-markdown-links@0.15.0(astro@4.15.6(@types/node@22.5.5)(rollup@4.22.1)(typescript@5.6.2)):
+    dependencies:
+      astro: 4.15.6(@types/node@22.5.5)(rollup@4.22.1)(typescript@5.6.2)
+      catch-unknown: 2.0.0
+      debug: 4.3.7
+      github-slugger: 2.0.0
+      gray-matter: 4.0.3
+      is-absolute-url: 4.0.1
+      unified: 11.0.5
+      unist-util-visit: 5.0.0
+      zod: 3.23.8
+    transitivePeerDependencies:
+      - supports-color
+
   astro@4.15.6(@types/node@22.5.5)(rollup@4.22.1)(typescript@5.6.2):
     dependencies:
       '@astrojs/compiler': 2.10.3
@@ -4824,6 +4833,8 @@ snapshots:
       lodash.uniq: 4.5.0
 
   caniuse-lite@1.0.30001662: {}
+
+  catch-unknown@2.0.0: {}
 
   ccount@2.0.1: {}
 
@@ -6872,10 +6883,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  remark-link-rewrite@1.0.7:
-    dependencies:
-      unist-util-visit: 4.1.2
-
   remark-math@6.0.0:
     dependencies:
       '@types/mdast': 4.0.4
@@ -7408,10 +7415,6 @@ snapshots:
     dependencies:
       '@types/unist': 3.0.3
 
-  unist-util-is@5.2.1:
-    dependencies:
-      '@types/unist': 2.0.11
-
   unist-util-is@6.0.0:
     dependencies:
       '@types/unist': 3.0.3
@@ -7448,21 +7451,10 @@ snapshots:
     dependencies:
       '@types/unist': 3.0.3
 
-  unist-util-visit-parents@5.1.3:
-    dependencies:
-      '@types/unist': 2.0.11
-      unist-util-is: 5.2.1
-
   unist-util-visit-parents@6.0.1:
     dependencies:
       '@types/unist': 3.0.3
       unist-util-is: 6.0.0
-
-  unist-util-visit@4.1.2:
-    dependencies:
-      '@types/unist': 2.0.11
-      unist-util-is: 5.2.1
-      unist-util-visit-parents: 5.1.3
 
   unist-util-visit@5.0.0:
     dependencies:

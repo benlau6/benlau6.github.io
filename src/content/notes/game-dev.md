@@ -5,13 +5,13 @@ publishDate: 2024-09-20
 
 # Game Dev
 
-- [Particle Systems](/particle-systems.md)
-- [ECS](/ecs.md)
+- [Particle Systems](particle-systems.md)
+- [ECS](ecs.md)
 - [Hands-on Rust - Effective Learning through 2D Game Development and Play](https://pragprog.com/titles/hwrust/hands-on-rust/)
 
 ## Some good indie games
 
-- [Noita](/noita.md)
+- [Noita](noita.md)
 - [方块地牢](https://steamcommunity.com/app/1783200)
 - [Vampire Suvivors](https://store.steampowered.com/app/1794680/Vampire_Survivors/)
   - project clean earth

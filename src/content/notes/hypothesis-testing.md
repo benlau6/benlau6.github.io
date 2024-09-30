@@ -5,7 +5,7 @@ publishDate: 2024-09-20
 
 # Hypothesis Testing
 
-Important to know [p-values](/p-values.md) and [confidence intervals](/confidence-intervals.md) before diving into hypothesis testing.
+Important to know [p-values](p-values.md) and [confidence intervals](confidence-intervals.md) before diving into hypothesis testing.
 
 ## One liners
 

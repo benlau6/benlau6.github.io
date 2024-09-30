@@ -41,4 +41,4 @@ publishDate: 2024-09-20
 
 ## Why slice is DST but not the vector
 
-[memory-management#Dynamically sized type (DST) in rust](/memory-management.md#dynamically-sized-type-dst-in-rust)
+[memory-management#Dynamically sized type (DST) in rust](memory-management.md#dynamically-sized-type-dst-in-rust)

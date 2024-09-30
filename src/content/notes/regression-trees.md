@@ -7,7 +7,7 @@ publishDate: 2024-09-20
 
 ## Definition
 
-It uses a simple but intuitively appealing technique to form a [regression surface](/regression.md): recursive partitioning, which is used to fit a piecewise constant surface $\hat{r}(x)$ over the domain $\mathcal{X}$. It is totally nonparametric (Efron and Hastie, 2021).
+It uses a simple but intuitively appealing technique to form a [regression surface](regression.md): recursive partitioning, which is used to fit a piecewise constant surface $\hat{r}(x)$ over the domain $\mathcal{X}$. It is totally nonparametric (Efron and Hastie, 2021).
 
 ## Use cases
 
@@ -15,13 +15,13 @@ It is easy to interpret, but on the other hand, also easy to overinterpret, with
 
 It is used as a foundation to form random forest and boosting (Ensembles of trees)
 
-- [Random forest](/random-forests.md): Grow many deep regression trees to randomized versions of the training data, and average them. The randomization could be bootstrap sampling and/or subsampling of the observations or variables.
+- [Random forest](random-forests.md): Grow many deep regression trees to randomized versions of the training data, and average them. The randomization could be bootstrap sampling and/or subsampling of the observations or variables.
   - The basic mechanism is variance reduction by averaging. Each deep tree has a high variance.
-- [Boosting](/boosting.md): Repeatedly grow shallow trees to the residuals, and hence build up an additive model consisting of a sum of trees.
+- [Boosting](boosting.md): Repeatedly grow shallow trees to the residuals, and hence build up an additive model consisting of a sum of trees.
   - The basic mechanism is bias reduction. It might also include some variance reduction in different methods.
 - Explanatory analysis: [feature importances](https://mlcourse.ai/book/topic05/topic5_part3_feature_importance.html) could be easily extracted from the tree structure.
 
-> Note: Boosting and [Random Forests](/random-forests.md) provide a terrific benchmark for how well a traditional parametrized model is performing: if they does much better, then the model is not doing well, with an indicator that probably some important interactions are missing.
+> Note: Boosting and [Random Forests](random-forests.md) provide a terrific benchmark for how well a traditional parametrized model is performing: if they does much better, then the model is not doing well, with an indicator that probably some important interactions are missing.
 
 ## Common method to split tree
 

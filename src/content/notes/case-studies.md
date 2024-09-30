@@ -22,7 +22,7 @@ publishDate: 2024-09-20
 6. Recommendation: recommend prices to the business
 7. Evaluation: A/B testing / Causal Impact Analysis
 
-Examples: [online retail analytics notes](/online-retail-analytics.md)
+Examples: [online retail analytics notes](online-retail-analytics.md)
 
 #### Searching
 

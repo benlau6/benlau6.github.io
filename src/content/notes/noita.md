@@ -7,7 +7,7 @@ publishDate: 2024-09-20
 
 - [Noita uses ECS for their game engine](https://noita.wiki.gg/wiki/Modding:_Basics)
 - [Noita Gameplay - Explaining what every pixel is simulated means](https://www.youtube.com/watch?v=0We8a8AFPp8)
-- Fantastic [Particle System](/particle-systems.md)
+- Fantastic [Particle System](particle-systems.md)
 - Note: [the sand simulation itself don't use ECS, it would be very slow to have every grain of sand be an entity on its own. A dictated game engine tightly coupled to the simulation is needed. Fragment shader could also help. However, other game stuffs like characters or spells, ECS would be a great fit.](https://www.reddit.com/r/rust_gamedev/comments/y9bl1o/ecs_for_falling_sand_simulation/)
 
 ## QNA from noita Dev

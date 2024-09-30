@@ -22,6 +22,7 @@ import { remarkUpdatedDate } from "./src/plugins/remark-updated-date";
 import rehypeExternalLinks from "rehype-external-links";
 // Rehype plugins
 import rehypeKatex from "rehype-katex";
+import rehypeAstroRelativeMarkdownLinks from "astro-rehype-relative-markdown-links";
 
 // https://astro.build/config
 export default defineConfig({
@@ -47,7 +48,8 @@ export default defineConfig({
 					target: "_blank",
 				},
 			],
-			[rehypeKatex, {}],
+			rehypeKatex,
+			rehypeAstroRelativeMarkdownLinks,
 		],
 		remarkPlugins: [
 			remarkUnwrapImages,
@@ -57,22 +59,7 @@ export default defineConfig({
 			remarkMath,
 			remarkH1ToTitle,
 			remarkUpdatedDate,
-			[
-				RemarkLinkRewrite,
-				{
-					replacer: (url: string) => {
-						// it replaces markdown internal links with the correct path
-						// NOTE: url.includes(".md") would break external links with ".md" in them
-						if (url.includes(".md")) {
-							const parts = url.replace(".md", "").split("/");
-							const prefix = `${parts[0]}/notes`;
-							const path = parts.slice(1).join("/");
-							return `${prefix}/${path}`;
-						}
-						return url;
-					},
-				},
-			],
+			wikiLinkPlugin,
 		],
 		remarkRehype: {
 			footnoteLabelProperties: {
