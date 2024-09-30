@@ -12,7 +12,7 @@ publishDate: 2024-09-20
 
 ## Causal Impact
 
-- It uses [state-space models](/state_space_models.md)
+- It uses [state-space models](/state-space-models.md)
 
 ## AB Testing
 

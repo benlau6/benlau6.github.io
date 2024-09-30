@@ -58,11 +58,6 @@ export default defineConfig({
 			remarkH1ToTitle,
 			remarkUpdatedDate,
 			[
-				wikiLinkPlugin,
-				// TODO: replace all markdown filename separators with hyphens
-				{ hrefTemplate: (link: string) => `/notes/${link}`.replaceAll("-", "_") },
-			],
-			[
 				RemarkLinkRewrite,
 				{
 					replacer: (url: string) => {

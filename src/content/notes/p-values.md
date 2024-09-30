@@ -11,7 +11,7 @@ publishDate: 2024-09-20
   - The probability of observing something rarer or more extreme.
 - Avoid p-hacking
   - Alter the data or confidence level after seeing the p-value
-  - Perform [power analysis](/power_analysis.md) before doing the experiment
+  - Perform [power analysis](/power-analysis.md) before doing the experiment
   - [StatQuest](https://www.youtube.com/watch?v=HDCOUXE3HMM)
 - [Bootstrapping p-value](/bootstrap.md)
 - Multiple testing

@@ -1,9 +1,9 @@
 ---
-title: Reading and Implementation of The Nature of Code by Daniel Shiffman
+title: The Nature of Code by Daniel Shiffman
 publishDate: 2024-09-20
 ---
 
-# Reading and Implementation of The Nature of Code by Daniel Shiffman
+# The Nature of Code by Daniel Shiffman
 
 ## Particle Systems
 

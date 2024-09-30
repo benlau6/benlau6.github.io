@@ -7,7 +7,7 @@ publishDate: 2024-09-20
 
 ## Definition
 
-It uses [regression trees](/regression_trees.md) as building blocks, each of which constructed very deep and hence with high variance, it then averages them to reduce variance.
+It uses [regression trees](/regression-trees.md) as building blocks, each of which constructed very deep and hence with high variance, it then averages them to reduce variance.
 
 ## Randomization
 

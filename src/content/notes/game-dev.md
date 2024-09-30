@@ -5,7 +5,7 @@ publishDate: 2024-09-20
 
 # Game Dev
 
-- [Particle Systems](/particle_systems.md)
+- [Particle Systems](/particle-systems.md)
 - [ECS](/ecs.md)
 - [Hands-on Rust - Effective Learning through 2D Game Development and Play](https://pragprog.com/titles/hwrust/hands-on-rust/)
 

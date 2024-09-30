@@ -25,7 +25,7 @@ publishDate: 2024-09-23
 
 ## Structural modeling
 
-- [Generalized linear models](/generalized_linear_models.md) for modeling the conditional distribution of the response variable $Y$ given the predictors $X$
+- [Generalized linear models](/generalized-linear-models.md) for modeling the conditional distribution of the response variable $Y$ given the predictors $X$
 - [Quantile regression](http://www.econ.uiuc.edu/~roger/research/rq/QRJEP.pdf) for
 - [Zero-inflated models](https://discourse.pymc.io/t/modeling-zero-inflation-on-continuous-outcome/6792/4) for count data with excess zeros
   - structural zeros come from some other probabilistic process that prevents an outcome, e.g. failed to capture the non-zero outcome, while sampling zeros come from the data generating process itself, e.g. actual zeros were observed. [ref](https://biol609.github.io/lectures/13_zinfl.html)

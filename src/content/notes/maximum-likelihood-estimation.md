@@ -10,4 +10,4 @@ publishDate: 2024-09-20
 - [Maximum likelihood for normal distribution](https://www.youtube.com/watch?v=Dn6b9fCIUpM)
 - [Maximum likelihood for exponential distribution](https://www.youtube.com/watch?v=p3T-_LMrvBc)
 
-[What is a likelihood](/statistics_fundamentals.md)
+[What is a likelihood](/statistics-fundamentals.md)

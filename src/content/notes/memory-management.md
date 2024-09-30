@@ -8,7 +8,7 @@ publishDate: 2024-09-20
 ## Python Memory Management
 
 - [The Python Memory Model](https://www.cs.toronto.edu/~david/course-notes/csc110-111/06-memory-model/04-python-memory-model-1.html)
-- `dict` is a [hash map](/hash_maps.md)
+- `dict` is a [hash map](/hash-maps.md)
 
 ## [[Rust]] Memory Management
 
