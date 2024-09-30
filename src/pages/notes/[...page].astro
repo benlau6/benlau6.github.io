@@ -58,9 +58,9 @@ const ascInitialKeys = Object.keys(groupedByInitial).sort((a, b) => +a - +b);
 				ascInitialKeys.map((initialKey) => (
 					<div class="grid grid-cols-[20px_1fr] gap-4 md:gap-8">
 						<h2 class="title text-center text-lg">{initialKey}</h2>
-						<ul class="mb-4 flex flex-wrap gap-2">
+						<ul class="mb-4 flex flex-wrap gap-3">
 							{groupedByInitial[initialKey]?.map((p) => (
-								<li class="grid gap-2 sm:grid-cols-[auto_1fr]">
+								<li>
 									<PostPreview post={p} withDate={false} />
 								</li>
 							))}
