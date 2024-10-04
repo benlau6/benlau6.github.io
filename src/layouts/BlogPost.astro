@@ -5,6 +5,7 @@ import { siteConfig } from "@/site-config";
 import Masthead from "@/components/blog/Masthead.astro";
 import TOC from "@/components/blog/TOC.astro";
 import WebMentions from "@/components/blog/webmentions/index.astro";
+import Comments from "@/components/Comments.astro";
 
 import BaseLayout from "./Base.astro";
 
@@ -42,9 +43,10 @@ const { headings } = await post.render();
 				class="prose prose-cactus mt-12 min-w-64 max-w-screen-md sm:prose-lg prose-headings:font-semibold prose-headings:text-accent-2 prose-headings:before:absolute prose-headings:before:-ms-4 prose-headings:before:text-accent sm:prose-th:before:content-none"
 			>
 				<slot />
-				<WebMentions />
 			</div>
 		</div>
+		<Comments />
+		<WebMentions />
 	</article>
 	<button
 		aria-label="Back to Top"
