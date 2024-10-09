@@ -21,6 +21,8 @@ publishDate: 2024-09-20
   - Preliminary analysis of the pricing decision support tool on historical data suggested that, in fact, the model recommended price increases had little to no effect on sales quantity.
   - Motivated by this analysis, we wanted to design an experiment to test whether implementing model recommended price increases would decrease sales. Ideally, we would have liked to design a controlled experiment where some customers were offered prices recommended by the tool and others were not; due to potentially inducing negative customer reactions from such an experiment, we decided not to pursue this type of experiment. Instead, we developed and conducted a field experiment that took place from January through May of 2014 and satisfied Rue La La’s business constraints.
   - Our goal for the field experiment was to address two questions: (i) would implementing model recommended price increases cause a decrease in sales quantity, and (ii) what impact would the recommended price increases have on revenue?
+- What was the field study if controlled experiment was not used?
+  - It was a controlled experiment, but not in a users level, that some users might receive the recommended price and some not because the clients concern about negative customer reaction. Instead, it was controlled in a items level, where the price optimization model was turned off for the controlled item group and turned on for treatment item group. Similar alternation could be made in time level, where the model was turned off for some time and turned on for some time.
 
 ## Demand Forecasting
 
@@ -48,14 +50,10 @@ publishDate: 2024-09-20
 ## Evaluation
 
 - Field experiment
-
   - Causal inference
-  - Reasons
-    - Preliminary analysis of the pricing decision support tool on historical data suggested that, in fact, the model recommended price increases had little to no effect on sales quantity. Motivated by this analysis, we wanted to design an experiment to test whether implementing model recommended price increases would decrease sales. Ideally, we would have liked to design a controlled experiment where some customers were offered prices recommended by the tool and others were not; due to potentially inducing negative customer reactions from such an experiment, we decided not to pursue this type of experiment. Instead, we developed and conducted a field experiment that took place from January through May of 2014 and satisfied Rue La La’s business constraints.
   - Questions to address
-    1. would implementing model recommended price increases cause a decrese in sales quantity
+    1. would implementing model recommended price increases cause a decrease in sales quantity
     2. what impact would the recommended price increases have on revenue
-
 - Hypothesis testing
 
 ## Tools

@@ -36,3 +36,7 @@ publishDate: 2024-09-20
 ## Finite Population Sampling
 
 n is only ever able to reach N if we sample without replacement, meaning the samples are no longer iid. If we sample with replacement then we never run out of n.
+
+## Why usually we use mean instead of median?
+
+It is because mean is more efficient than median in terms of variance, i.e. it has smaller variance, due to [asymptotic efficiency](<https://en.wikipedia.org/wiki/Efficiency_(statistics)#Asymptotic_efficiency>). However, the median is far more robust to outliers, so if the Gaussian assumption is questionable, median might be preferred. [robust statistics](https://en.wikipedia.org/wiki/Robust_statistics)

@@ -7,6 +7,11 @@ publishDate: 2021-08-01
 
 ## Blog Posts
 
+- Don't restate the theories, or something that could be googled in a minute. Instead, focus on some unique insights or questions to be answered.
+- Uses point form to state multiple facts or opinions that don't need to be elaborated, while uses paragraphs to explain some ideas in detail.
+- Uses examples, simulations, equations, plots, diagrams, or code snippets to illustrate the ideas whenever possible.
+- Links are fantastic, but they should never be the only piece of information in the answer. [discussion](https://meta.stackexchange.com/questions/8231/are-answers-that-just-contain-links-elsewhere-really-good-answers/8259#8259)
+
 ## Design Documents
 
 - [My Techlead Roasted Me](https://www.youtube.com/watch?v=rekkXqTMDfw)
