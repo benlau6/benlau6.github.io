@@ -5,13 +5,9 @@ import { getAllPosts, sortMDByDate } from "@/data/post";
 import { getAllPosts as getAllNotes, sortMDByDate as sortNotesByDate } from "@/data/notes";
 import PageLayout from "@/layouts/Base.astro";
 
-const MAX_POSTS = 10;
-// const allPosts = await getAllPosts();
-// const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 const allNotes = await getAllNotes();
 const selectedNotes = [
 	"data-science-workflow",
-	"bayesian-statistics",
 	"bias-and-variance-tradeoff",
 	"hypothesis-testing",
 	"distributions",
@@ -21,10 +17,18 @@ const selectedNotes = [
 	"rust",
 ];
 const filteredNotes = allNotes.filter((note) => selectedNotes.includes(note.slug));
-const filteredNotesByDate = sortNotesByDate(filteredNotes).slice(0, MAX_POSTS);
+const filteredNotesByDate = sortNotesByDate(filteredNotes);
 
 const allProjects = await getAllPosts("projects");
-const allProjectsByDate = sortMDByDate(allProjects).slice(0, MAX_POSTS);
+const selectedProjects = [
+	"personal-website",
+	"covid",
+	"fullstack-rust",
+	"routing-visualization",
+	"change-point",
+];
+const filteredProjects = allProjects.filter((project) => selectedProjects.includes(project.slug));
+const filteredProjectsByDate = sortMDByDate(filteredProjects);
 ---
 
 <PageLayout meta={{ title: "Home" }}>
@@ -52,10 +56,10 @@ const allProjectsByDate = sortMDByDate(allProjects).slice(0, MAX_POSTS);
 		</p>
 	</section>
 	<section aria-label="Blog post list" class="mt-12">
-		<h2 class="title mb-4 text-xl"><a href="/projects">Projects</a></h2>
+		<h2 class="title mb-4 text-xl"><a href="/projects">Selected Projects</a></h2>
 		<ul class="space-y-4">
 			{
-				allProjectsByDate.map((p) => (
+				filteredProjectsByDate.map((p) => (
 					<li class="grid gap-2 sm:grid-cols-[auto_1fr] sm:[&_q]:col-start-2">
 						<PostPreview post={p} />
 					</li>
