@@ -80,7 +80,3 @@ enc.fit_transform(df.col.str.split(" ")) # for string column (storing sentence)
 
 1. If it is a list of strings, you can use `str` accessor to manipulate, e.g. `df.col.str.join('|')` to join the strings in the list with a comma. Note that the only function that can be used for a list of strings is `len` and `join`. Other string methods will produce very strange results that you may not catch and make you debugging for hours.
 2. If it is a list of numbers, you can use `apply` to turn it into a series, e.g. `df.col.apply(pd.Series).mean(axis=1)` to calculate the mean of the numbers in the list.
-
-```
-
-```
