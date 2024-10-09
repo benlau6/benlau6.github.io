@@ -20,7 +20,7 @@ publishDate: 2024-10-02
 - Every given assumption must be explicitly stated and asserted, don't trust any people, you are the last safeguard. If data is given or will be given, and the assumption is quantifiable, assert it. If something goes wrong, e.g. having wrong results or bugs, after debugging for hours without getting better, you shall review the assumptions.
   - > One time I worked with a client, it costed me several days to figure out the given assumption of seat capacity of a vehicle was incorrect. It assumed that a vehicle request shall be denied automatically when a incoming request is with a exceeding seat demand. However, it is not the case in the historical data, that some accepted cases were with exceeding demand. Before figuring out that, I was thinking that the solver or the code was incorrect. I had been searching for related discussions, diving into documentations, trying different alternatives for days. Given that the framework has been used and tested for years, next time facing a similar issue, we should first check the assumptions. And it brings me the importance of explicitly stating assertions on the assumptions, as suggested by TigerBeetle about [secure coding](https://github.com/tigerbeetle/tigerbeetle/blob/main/docs/TIGER_STYLE.md#safety).
 
-[Notes on error handling](error_handling.md)
+[Notes on error handling](error-handling.md)
 
 ## Preliminary modeling
 
