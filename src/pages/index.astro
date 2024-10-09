@@ -2,11 +2,26 @@
 import SocialList from "@/components/SocialList.astro";
 import PostPreview from "@/components/blog/PostPreview.astro";
 import { getAllPosts, sortMDByDate } from "@/data/post";
+import { getAllPosts as getAllNotes, sortMDByDate as sortNotesByDate } from "@/data/notes";
 import PageLayout from "@/layouts/Base.astro";
 
 const MAX_POSTS = 10;
 // const allPosts = await getAllPosts();
 // const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
+const allNotes = await getAllNotes();
+const selectedNotes = [
+	"data-science-workflow",
+	"bayesian-statistics",
+	"bias-and-variance-tradeoff",
+	"hypothesis-testing",
+	"distributions",
+	"modeling",
+	"error-handling",
+	"regularization",
+	"rust",
+];
+const filteredNotes = allNotes.filter((note) => selectedNotes.includes(note.slug));
+const filteredNotesByDate = sortNotesByDate(filteredNotes).slice(0, MAX_POSTS);
 
 const allProjects = await getAllPosts("projects");
 const allProjectsByDate = sortMDByDate(allProjects).slice(0, MAX_POSTS);
@@ -36,23 +51,23 @@ const allProjectsByDate = sortMDByDate(allProjects).slice(0, MAX_POSTS);
 			>
 		</p>
 	</section>
-	<!-- <section aria-label="Blog post list" class="mt-12"> -->
-	<!-- 	<h2 class="title mb-4 text-xl">Blog</h2> -->
-	<!-- 	<ul class="space-y-4"> -->
-	<!-- 		{ -->
-	<!-- 			allPostsByDate.map((p) => ( -->
-	<!-- 				<li class="grid gap-2 sm:grid-cols-[auto_1fr] sm:[&_q]:col-start-2"> -->
-	<!-- 					<PostPreview post={p} /> -->
-	<!-- 				</li> -->
-	<!-- 			)) -->
-	<!-- 		} -->
-	<!-- 	</ul> -->
-	<!-- </section> -->
 	<section aria-label="Blog post list" class="mt-12">
 		<h2 class="title mb-4 text-xl"><a href="/projects">Projects</a></h2>
 		<ul class="space-y-4">
 			{
 				allProjectsByDate.map((p) => (
+					<li class="grid gap-2 sm:grid-cols-[auto_1fr] sm:[&_q]:col-start-2">
+						<PostPreview post={p} />
+					</li>
+				))
+			}
+		</ul>
+	</section>
+	<section aria-label="Blog post list" class="mt-12">
+		<h2 class="title mb-4 text-xl"><a href="/notes">Selected notes</a></h2>
+		<ul class="space-y-4">
+			{
+				filteredNotesByDate.map((p) => (
 					<li class="grid gap-2 sm:grid-cols-[auto_1fr] sm:[&_q]:col-start-2">
 						<PostPreview post={p} />
 					</li>
