@@ -1,9 +1,9 @@
 ---
-title: Regression Trees
+title: Decision Trees
 publishDate: 2024-09-20
 ---
 
-# Regression Trees
+# Decision Trees
 
 ## Definition
 
@@ -49,7 +49,7 @@ Bad properties:
 - Large trees are hard to interpret.
 - Generally don't have good predictive performance.
 
-## Feature importances in regression trees are tricky
+## Feature importances in decision trees are tricky
 
 Standard feature importances simply tell you which features were more useful when building the model. They are not to be interpreted as a direct dependence between predictor and target.
 
@@ -59,9 +59,9 @@ Standard feature importances simply tell you which features were more useful whe
 
 However, permutation importances are computed on validation stage, and therefore solve first overfitting issue. Moreover, as they are computed on a metric of your choice, they are easier to interpret and can in some sense be seen as a "strength coefficient", since they answer the question: "How much does the performance of my model degrade if I shuffle this predictor?". [ref](https://stats.stackexchange.com/questions/450703/is-feature-importance-in-random-forest-useless)
 
-Nevertheless, it is always important to evaluate the predictive power of a model prior to interpreting feature importances. Permutation importance does not reflect to the intrinsic predictive value of a feature by itself but how important this feature is for a particular model. [ref](https://scikit-learn.org/stable/modules/permutation_importance.html)
+Nevertheless, features that are deemed of low importance for a bad model could be very important for a good model. it is always important to evaluate the predictive power of a model prior to interpreting feature importances. Permutation importance does not reflect to the intrinsic predictive value of a feature by itself but how important this feature is for a particular model. [ref](https://scikit-learn.org/stable/modules/permutation_importance.html)
 
-The second issue still exists in a way that when two features are correlated and one of the features is permuted, the model still has access to the latter through its correlated feature. This results in a lower reported importance value for both features, though they might actually be important. For example, if two features both strongly related to the target, they will always end up with a feature importance score of about 0.5 each, whereas one would expect that both should score something close to one. One way to handle the issue is to cluster features that are correlated and only keep one feature from each cluster. [ref](https://scikit-learn.org/stable/modules/permutation_importance.html#misleading-values-on-strongly-correlated-features)
+The second issue still exists in a way that when two features are correlated and one of the features is permuted, the model still has access to the latter through its correlated feature. This results in a lower reported importance value for both features, though they might actually be important. For example, if two features both strongly related to the target, they will always end up with a feature importance score of about 0.5 each, whereas one would expect that both should score something close to one. One way to handle the issue is to cluster features that are correlated and only keep one feature from each cluster, or simply remove upper triangle of correlation matrix based on a threshold, or use `SelectKBest` with `f_regression` from `sklearn`. [ref](https://scikit-learn.org/stable/modules/permutation_importance.html#misleading-values-on-strongly-correlated-features) [clustering notes](clustering.md/#Hierarchical-clustering-can-improve-interpretability)
 
 ## Sometimes it outperforms neural networks
 

@@ -7,6 +7,10 @@ publishDate: 2024-09-20
 
 ## Analytics
 
+### Spam detection
+
+- Scammers will likely use emails or links that resemble real ones. So we could use the similarity of strings used between any users and celebrities to detect scammers. In this case, we could use Levenshtein distance to calculate the edit distance between two strings due to insertion, deletion, and substitution, which takes O(m\*n) Note that it does not have knowledge of semantics, which is exactly what we need in this case, because scammers usually just alter a few characters to make the link look real, without any semantic meaning. However, we might implement a custom Levenshtein distance function to add more weights on visually similar characters, such as `0` and `O`, `1` and `l`, etc.
+
 ### Sports
 
 - [Football AI Tutorial: From Basics to Advanced Stats with Python](https://www.youtube.com/watch?v=aBVGKoNZQUw)
@@ -14,10 +18,7 @@ publishDate: 2024-09-20
 
 ### Marketing
 
-- [PyMC-Marketing: A Bayesian Approach to Marketing Data Science](https://www.pymc-labs.com/blog-posts/pymc-marketing-a-bayesian-approach-to-marketing-data-science/)
-- [Bayesian Media Mix Modeling for Marketing Optimization](https://www.pymc-labs.com/blog-posts/bayesian-media-mix-modeling-for-marketing-optimization/)
-- [Introduction to Media Mix Modeling](https://www.pymc-marketing.io/en/stable/guide/mmm/mmm_intro.html)
-- [How-to: MMMs and CLVs notebooks](https://www.pymc-marketing.io/en/stable/notebooks/index.html)
+[marketing note](marketing.md)
 
 ### Case procedures
 

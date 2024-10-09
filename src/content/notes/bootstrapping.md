@@ -1,9 +1,9 @@
 ---
-title: Bootstrap
+title: Bootstrapping
 publishDate: 2024-09-20
 ---
 
-# Bootstrap
+# Bootstrapping
 
 - Replicating the experiment is time-consuming and expensive.
 - Instead of replicating the experiment, bootstrapping uses the sample data to approximate the population distribution by sampling with replacement.

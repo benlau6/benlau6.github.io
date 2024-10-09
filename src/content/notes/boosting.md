@@ -7,13 +7,21 @@ publishDate: 2024-09-20
 
 ## Definition
 
-It is a general method for building a complex prediction model using simple building components.
+It is a general method for building a complex prediction model using simple building components. It involves three steps, which are sequential training, weight adjustment, and model combination. The key benefit is to reduce bias and produce strong learner. [ref](https://www.analyticsvidhya.com/blog/2023/01/ensemble-learning-methods-bagging-boosting-and-stacking/)
 
 The "smallness" of the tree limits the interaction order of the model (e.g. a tree with only two splits involves at most two variables). The number of terms $B$ and the shrinkage parameter $\epsilon$ are both tuning parameters that control the rate of learning (and hence overfitting), and need to be set, for example by cross-validation.
 
 In words this algorithm performs a search in the space of trees for the one most correlated with the residual, and then moves the fitted function $F^b$ a small amount in that direction—a process known as forward-stagewise fitting. One can paraphrase this simple algorithm in the context of linear regression, where in step 2(ii) the space of small trees is replaced by linear functions (P.320).
 
 In other words, in the original case of binary classification problems, it is a means for improving the performance of "weak learners". This was achieved through resampling training points, giving more weight to those which had been misclassified, to produce a new classifier that would boost the performance in previously problematic areas of feature space. This process is repeated, generating a stream of classifiers, which are ultimately combined through voting to produce the final classifier (P.333).
+
+The final hypothesis $H$ can be written as a weighted sum of the weak hypotheses $h_i$, i.e. the output of each weak learner:
+
+$$
+H(x) = \sum^T_{i=1} \alpha_i h_i(x)
+$$
+
+where $\alpha_i$ is the weight of the weak hypothesis $h_i$.
 
 ## Key one-liners
 
@@ -29,7 +37,7 @@ In other words, in the original case of binary classification problems, it is a 
 1. Initialize $b=0$ and $F^0(x) := 0$
 2. For $b=1,2,...,B$:
    1. compute the residuals $r_i=y_i-F^{b-1}(x_i), i=1,...,n;$
-   2. fit a small [regression tree](regression-trees.md) to the observations $(x_i, r_i)^n_1$, which we can think of as estimating a function $g^b(x)$; and
+   2. fit a small [decision tree](decision-trees.md) to the observations $(x_i, r_i)^n_1$, which we can think of as estimating a function $g^b(x)$; and
    3. update $F^b(x) = F^{b-1}(x) + \epsilon g^b(x)$.
 
 ### Gradient Boosting with squared-error loss
@@ -98,7 +106,7 @@ $$
 = \sum^p_{j=1} \hat{f}_j(x_j)
 $$
 
-Hence boosted stumps (those single splits) fits an additive model, but in a fully adaptive way, that it selects variables, and also selects howmuch action to devote to each variable.
+Hence boosted stumps (those single splits) fits an additive model, but in a fully adaptive way, that it selects variables, and also selects how much action to devote to each variable.
 
 ### Shrinkage parameter $\epsilon$
 
@@ -106,6 +114,19 @@ Hence boosted stumps (those single splits) fits an additive model, but in a full
 - Small shrinkage parameter leads to a slow learning rate, so it can take many trees to adequately fit the data.
   - But it fits smoother, take much longer to overfit, and hence are less sensitive to the stopping point B.
 - Because of it, many of the trees could be similar to each other.
+
+## XGBoost
+
+- XGBoost is an scalable implementation of gradient boosting.
+- The key difference lies in how the trees are built.
+  - The trees are trained to fit the residuals directly, rather than the squared loss.
+  - Splits are chosen to minimize the differences of residuals between leaf nodes
+- Another one is the optimization methods
+  - It uses approximate quantiles to speed up the split finding process, instead of considering all possible splits.
+  - It uses second-order gradients in the gradient descent process, which allows it converge faster.
+- It incorporates regularization techniques to prevent overfitting.
+  - It employs pre-pruning of the trees
+- It random samples the features and subsamples when computing the splits, just like random forest.
 
 ## Relationship with other methods
 

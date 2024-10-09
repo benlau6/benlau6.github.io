@@ -21,6 +21,8 @@ When its conditions are not met
 >
 > -- from: Deep Learning 3.9.3
 
+> In many applications, the error term consists of many miscellaneous factors not captured by the regressors, i.e. $\epsilon_i$ captures all influences on $y_i$ other than $x_i$. The Central Limit Theorem suggests that the error term has a normal distribution.
+
 [剖析深度學習 (1)：為什麼Normal Distribution這麼好用？](https://ycc.idv.tw/deep-dl_1.html#anchor)
 
 ## Acknowledgements

@@ -43,6 +43,7 @@ publishDate: 2024-09-20
 
 - [Banking to 45 degree](http://vis.stanford.edu/files/2006-Banking-InfoVis.pdf)
 - [An Empirical Model of Slope Ratio Comparisons](http://vis.stanford.edu/files/2012-SlopeComparison-InfoVis.pdf)
+- [Principles of Beautiful Figures for Research Papers](https://www.youtube.com/watch?v=i-HAjex6VtM)
 
 ## Websites
 

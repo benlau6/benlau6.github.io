@@ -67,6 +67,14 @@ There are differences between statistical significant and practical significant.
 
 - [Inference for a single proportion - Introduction to Modern Statistics](https://openintro-ims.netlify.app/inference-one-prop)
 
+## Significance vs Coefficient
+
+It is not true in general that an insignificant variable has no effect on the response. A variable can be insignificant because the sample size is too low or the random variation too large to find a clear significant effect even if an effect in fact exists, or because it is correlated with other variables and the data cannot know how much of the effect of the correlated variables belongs to what individual variable. Insignificance only means that the data don't provide evidence of an effect; it doesn't mean that such an effect cannot exist.
+
+The coefficient of an insignificant variable can in principle still be interpreted if it is appropriately expressed that any interpretation is unreliable due to random variation and that there is no conclusive evidence that the variable has any effect at all. Chances are however that in most situations the interpretation of such a coefficient is not of much interest, as it comes with too much uncertainty.
+
+What makes more sense is to interpret a confidence interval for the coefficient, as this also expresses the uncertainty.
+
 ### Readings
 
 - [Are large data sets inappropriate for hypothesis testing?](https://stats.stackexchange.com/questions/2516/are-large-data-sets-inappropriate-for-hypothesis-testing)

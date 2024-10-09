@@ -34,6 +34,10 @@ We are uncertain about what the true value of the parameter is, so we model it a
 - Bootstrapping aims to estimate the distribution of an estimator to answer how accurate an estimator is estimated, while Bayesian approach aims to estimate the posterior distribution of a parameter. So in some sense, they are similar.
 - While modeling for proportions, with rare events, bootstrapping performs poorly since it might includes p=0 or p=1 in some of the samples, while Bayesian approach can handle this by using a Beta distribution as a prior, which excludes 0 and 1.
 
+## Would a Bayesian model overfit?
+
+Yes, it would. But the prior assumptions act as a regularizer, which can be seen as a way to prevent overfitting. As a side note, since the regularization term from prior distributions, Bayesian estimators are intrinsically biased. [regularization](regularization.md#a-probabilistic-interpretation-of-regularization) [discussion](https://stats.stackexchange.com/questions/265094/is-it-true-that-bayesian-methods-dont-overfit)
+
 ## Recommended Readings
 
 - [機器學習中的貝氏定理：生成模型 (Generative Model) 與判別模型 (Discriminative Model)](https://taweihuang.hpd.io/2017/03/21/mlbayes/)

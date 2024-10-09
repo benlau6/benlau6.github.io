@@ -33,6 +33,12 @@ publishDate: 2024-10-01
 - use assertions to provide feedback to yourself or your developer team
 - use assertions to state things that you (supposedly) know to be true
 
+## Exception vs Returning error
+
+- Normally, Exceptions are very expensive, even if it is not thrown. However, zero-cost exception was implemented in Python 3.11, which minimizes the cost of exceptions to almost 0 when they are not thrown.
+- Returning error is a more explicit and cheaper way to handle errors. Programmers has full control over what to do with the error. There is a variant that uses Result type to wrap the execution result, which is a sum type that can represent either a success or a failure. Despite the advantages, whether using returning error or result type, languages must be designed for it to make it useful. For example, Rust or Go. In other languages such as Python or JavaScript, it is not idiomatic to use Result type, and it brings lots of troubles when interacting with external libraries. So just use exceptions in these languages. No matter how useful a technique is, we should use the languages in their own ways.
+- When comparing returning error in go and try catch in JavaScript, it is not the case that Go is cumbersome, but most of the JavaScript program don't handle the error properly. For example, in every `JSON.parse` or `.await`, it is possible to fail, so it must be wrapped by `try {} catch {}` block. Then it is even more cumbersome than returning `err` in Go, or `Result<T, E>` in Rust. In Go or Rust, you have to handle the error, and it is a good thing for creating a robust program. [ref]((<https://www.youtube.com/watch?v=YZhwOWvoR3I>)
+
 ## Design by contract
 
 1. Use types [TigerBettle -- it takes two to contract](https://tigerbeetle.com/blog/2023-12-27-it-takes-two-to-contract) [Primeagen comments on tigerbettle](https://youtu.be/sS6u5UU3t3c?t=1461)

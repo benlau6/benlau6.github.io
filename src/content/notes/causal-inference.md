@@ -10,13 +10,16 @@ publishDate: 2024-09-20
 - Assignment mechanism
 - Potential outcomes
 
-## Causal Impact
-
-- It uses [state-space models](state-space-models.md)
-
 ## AB Testing
 
-- In Bayesian AB testing, we can use the posterior distribution to calculate the probability of the treatment group being better than the control group by just calculating the proxy equation on each pair of samples from the posterior distributions and take an average [source](https://towardsdatascience.com/bayesian-a-b-testing-in-pymc3-54dceb87af74). E.g. `(blue_button_conversion_rate_samples > red).mean()`.
+The idea is to test the behaviour change between two groups. If confidence intervals of the metrics of the treatment group and the control group do not overlap, we can conclude that the treatment group is better than the control group. Or if the confidence interval of the cumulative treatment effects does not overlap with 0, we can conclude that the treatment has a significant effect. We could use the following methods:
+
+- t-test
+- Regression discontinuity: point comparison, only for immediate effect
+- Difference-in-differences: aggregate the effects
+- Bayesian Structural Time Series (Causal Impact): aggregate the effects, isolate some latent factors, e.g. seasonality, trend, etc.
+
+In Bayesian AB testing, we can use the posterior distribution to calculate the probability of the treatment group being better than the control group by just calculating the proxy equation on each pair of samples from the posterior distributions and take an average [source](https://towardsdatascience.com/bayesian-a-b-testing-in-pymc3-54dceb87af74). E.g. `(blue_button_conversion_rate_samples > red).mean()`.
 
 References:
 
@@ -26,6 +29,10 @@ References:
 ### Research papers
 
 - [Statistical Challenges in Online Controlled Experiments: A Review of A/B Testing Methodology](https://www.tandfonline.com/doi/full/10.1080/00031305.2023.2257237#abstract)
+
+## Causal Impact (Bayesian Structural Time Series)
+
+- It uses [state-space models](state-space-models.md)
 
 ## Recommended Readings
 
