@@ -14,11 +14,12 @@ publishDate: 2024-09-20
 - The outcome of a coin flip is Bernoulli distributed.
 - The number of heads in n coin flips is binomial distributed.
 - The number of successes in n events without replacement is hypergeometric distributed.
-- The number of events in a fixed interval of time is Poisson distributed.
+- The number of events in a fixed interval of time is Poisson distributed. It assumes the conditional variance is the same as the conditional mean.
 - The time between events in a Poisson process is exponentially distributed.
-- The number of failures before the r-th success in a sequence of Bernoulli trials is negative binomial distributed.
+- The number of failures before the r-th success in a sequence of Bernoulli trials is negative binomial distributed. It allows overdispersion, that is, the conditional variance is greater than the conditional mean, even it is substantially higher.
 - The number of trials until the first success in a sequence of Bernoulli trials is geometric distributed.
-- Gamma distribution can model the mean-variance relationship. [ref](https://besjournals.onlinelibrary.wiley.com/doi/pdf/10.1111/2041-210X.12843).[ref2](https://biol609.github.io/lectures/13_zinfl.html#53_The_error_generating_process)
+- [Beta geometric distribution] is a compound distribution that is generalization of the geometric distribution. The beta geometric distribution extends geometric distribution by allowing flexibility in how probabilities change from one trial to another. Which is good for churn prediction.
+- Gamma distribution is the continuous analog of the negative binomial distribution. [ref](https://besjournals.onlinelibrary.wiley.com/doi/pdf/10.1111/2041-210X.12843).[ref2](https://biol609.github.io/lectures/13_zinfl.html#53_The_error_generating_process)
 - Any continuous proportion data without 0s and 1s can be modeled with beta distribution. It can be augmented by zero-inflated / one-inflated model to include 0s and 1s. [example](https://www.andrewheiss.com/blog/2021/11/08/beta-regression-guide/) [ref](https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210X.13234) ![proportional data](./images/proportional_data_decision_tree.webp)
 - Asymmetric Laplace distribution is great for quantile regression. It can be parametrized by quantile $q$ as symmetry parameter, mean $\mu$ as location parameter, and standard deviation $\sigma$ as scale parameter $b$. Although drawing quantiles of posterior mean is okay, the shape of curves is essentially the same just shifted up and down, i.e. for the Gaussian family the variability always stays the same. However, using asymmetric Laplace distribution, it allows the model to account for the increased variability in response as the covariates increases. [example](https://www.pymc.io/projects/bart/en/latest/examples/bart_quantile_regression.html#asymmetric-laplace-distribution) [paper](https://doi.org/10.1093/biostatistics/kxj039)
 

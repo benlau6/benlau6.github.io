@@ -7,9 +7,13 @@ publishDate: 2024-09-20
 
 ## Analytics
 
-### Spam detection
+### Survey
 
-- Scammers will likely use emails or links that resemble real ones. So we could use the similarity of strings used between any users and celebrities to detect scammers. In this case, we could use Levenshtein distance to calculate the edit distance between two strings due to insertion, deletion, and substitution, which takes O(m\*n) Note that it does not have knowledge of semantics, which is exactly what we need in this case, because scammers usually just alter a few characters to make the link look real, without any semantic meaning. However, we might implement a custom Levenshtein distance function to add more weights on visually similar characters, such as `0` and `O`, `1` and `l`, etc.
+- [Case Study: A City Social Survey Blog](https://aakinshin.net/posts/cs-social-survey/)
+
+### Anomaly detection
+
+[Notes on anomaly detection](anomaly-detection.md)
 
 ### Sports
 

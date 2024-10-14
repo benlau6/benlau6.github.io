@@ -38,10 +38,6 @@ The three different uses of $r_d(x)$ raise different inferential questions. Pred
 
 - [Distribution modeling](distributions.md#popular-choice-of-modeling)
 
-## Two way fixed effects
-
-- [Freedom, Hierarchies and Confounded Estimates](https://nathanielf.github.io/posts/post-with-code/multilevel_confounding/multilevel_models.html#architectures-and-free-parameters)
-
 ## Structural modeling
 
 - [Generalized linear models](generalized-linear-models.md) for modeling the conditional distribution of the response variable $Y$ given the predictors $X$
@@ -52,6 +48,8 @@ The three different uses of $r_d(x)$ raise different inferential questions. Pred
   - > A mixture between continuous and discrete is not really a mixture and more a model with two outcomes/ likelihoods (one binomial for the discrete zeros and one continuous for the rest). Since there is no crosstalk between the two components one can model them separately or ignore one altogether (e.g drop the zeros) without loss of information for the kept parameters. [ref](https://discourse.pymc.io/t/zero-inflated-normal/6857/4)
 - Quantile regression for any data with outliers, or when the mean is not of interest, but the median or other quantiles instead. [ref](http://www.econ.uiuc.edu/~roger/research/rq/QRJEP.pdf)
 - [Censored or truncated data model](censored-data.md) for correcting the underestimation of the parameter estimates by updating the likelihood function with the knowledge that there is zero probability of observing the data beyond a certain threshold.
+- Two way fixed effects: [Freedom, Hierarchies and Confounded Estimates](https://nathanielf.github.io/posts/post-with-code/multilevel_confounding/multilevel_models.html#architectures-and-free-parameters)
+- [Probability modeling, i.e. using proportions as target, is much better than classification using binary target most of the time](classification.md#modeling-binary-data-or-proportions)
 
 ## Frequentist vs Bayesian vs Machine Learning
 
@@ -63,13 +61,11 @@ The differences could be summarized in terms of assumptions:
 
 ### Readings
 
+- [Why can't we be friends? Plotting frequentist (lmerTest) and Bayesian (brms) mixed-effects models](https://pablobernabeu.github.io/2022/why-can-t-we-be-friends-plotting-frequentist-lmertest-and-bayesian-brms-mixed-effects-models/)
 - [Technically Wrong: When Bayesian and Frequentist methods differ](https://www.countbayesie.com/blog/2021/4/27/technically-wrong-when-bayesian-and-frequentist-methods-differ)
 - [What's wrong with Bayes](https://statmodeling.stat.columbia.edu/2019/12/03/whats-wrong-with-bayes/)
 - [Why isn't everyone Bayesian](https://www2.stat.duke.edu/courses/Spring09/sta122/Readings/EfronWhyEveryone.pdf)
-
-## If neural networks are so flexible, why they don't always work?
-
-- Mixed: [Why can't we be friends? Plotting frequentist (lmerTest) and Bayesian (brms) mixed-effects models](https://pablobernabeu.github.io/2022/why-can-t-we-be-friends-plotting-frequentist-lmertest-and-bayesian-brms-mixed-effects-models/)
+- [Bayesian workflow](https://arxiv.org/pdf/2011.01808)
 
 ## Readings
 

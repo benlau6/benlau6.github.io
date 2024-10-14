@@ -5,7 +5,11 @@ publishDate: 2024-10-03
 
 # Imbalanced Data
 
+It usually happens in classification, e.g. fraud detection, spam filtering, disease screening, etc. where the positive class is rare. The model can be biased towards the majority class.
+
 ## How to handle it
+
+Following are some techniques to handle imbalanced data:
 
 - Customize the cost function to make predicting the minority class wrong much more costly
 - Use the right evaluation metrics
@@ -17,9 +21,16 @@ publishDate: 2024-10-03
 
 Practically, we could just use the right models which includes the above techniques implicitly, e.g. `BalancedBaggingClassifier`, `BalancedRandomForestClassifier`, `EasyEnsembleClassifier`, etc.
 
+However, there is a paper suggesting that the use of random undersampling, random oversampling, or SMOTE yielded poorly calibrated models. The probability to belong to the minority class was strongly overestimated. These methods did not result in higher areas under the ROC curve when compared with models developed without correction for class imbalance. Although imbalance correction improved the balance between sensitivity and specificity, similar results were obtained by shifting the probability threshold instead. Imbalance correction led to models with strong miscalibration without better ability to distinguish between patients with and without the outcome event. The inaccurate probability estimates reduce the clinical utility of the model, because decisions about treatment are ill-informed. Outcome imbalance is not a problem in itself, imbalance correction may even worsen model performance. [The harm of class imbalance corrections for risk prediction models: illustration and simulation using logistic regression](https://doi.org/10.1093/jamia/ocac093)
+
 ## Metrics
 
 Using accuracy, recall or precision will be problematic when the data is imbalanced because the model can blindly predict a single target label to be 100% accurate. Use F1 score while there is no clear preference between recall and precision, or use F-beta score when there is a preference, with beta being the weight of precision. When beta equals 1, it is the same as F1 score. [Accuracy, precision, and recall in multi-class classification](https://www.evidentlyai.com/classification-metrics/multi-class-metrics)
+
+## We shall consider modeling the probability instead
+
+- [Modeling probabilities is better than discrete outcomes in classification](classification.md#modeling-probabilities-is-better-than-discrete-outcomes-in-classification)
+- [Classifier is really bad in dealing with highly imbalanced sample](classification.md#classifier-is-really-bad-in-dealing-with-highly-imbalanced-sample)
 
 ## Readings
 

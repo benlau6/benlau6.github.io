@@ -9,6 +9,32 @@ It is the process of finding global maxima or minima of an objective function gi
 
 A cost function or a loss function is just an objective function that wants to be minimized. It is a function that measures the difference between the actual value and the predicted value, i.e. the residual errors. The optimization problem is to find the parameters that minimize the cost function.
 
+## How to construct a objective function, or loss function?
+
+Some [metrics](metrics.md) might be used as the objective function, but not all of them. Then [regularization](regularization.md) term might be added to the objective function to prevent overfitting. [Introduction to Loss Functions](https://www.datarobot.com/blog/introduction-to-loss-functions/)
+
+### Why sometimes we don't use evaluation metrics in the lost function?
+
+Sometimes the loss function is not the evaluation [metrics](metrics.md) we use. Most likely in classification problem, where usually we use cross-entropy in cost function, but recall, precision, etc. in evaluation metrics. Since some cost function is differentiable, and easier to optimize, while some evaluation metrics are more interpretable, meaningful but non-differentiable, or difficult to optimize. Despite sometimes they are different, they should always be closely related. So choosing a relevant pair of cost function and metric is essential. [discussion](https://stats.stackexchange.com/questions/379264/why-do-we-use-loss-functions-to-estimate-a-model-instead-of-evaluation-metrics-l) [loss function and metrics in deep learning paper](https://arxiv.org/pdf/2307.02694)
+
+### Why log loss is used in logistic regression?
+
+The hypothesis is a nonlinear function $\hat{Y} = (1+e^{-Z})^{-1}$. If we use MSE as the cost function, it will give a non-convex function, that when we optimize it by gradient descent, it will struggle to find the global minima. Moreover, in classification problems, target values are either 0 or 1, so the loss would always be in between 0 and 1, which can make it very difficult to compute on such high precision floating numbers. On the other hand, log loss uses log corrected probabilities based on truth labels, whose cost function is a convex function, the outputs extends beyond 1, and it penalizes much harder for incorrect prediction. [Log Loss vs. Mean Squared Error in logistic regression](https://www.analyticsvidhya.com/blog/2020/11/binary-cross-entropy-aka-log-loss-the-cost-function-used-in-logistic-regression/)
+
+Moreover, Log Loss heavily penalises classifiers that are confident about an incorrect classification. For example, if for a particular observation, the classifier assigns a very small probability to the correct class then the corresponding contribution to the Log Loss will be very large indeed. [ref](https://www.r-bloggers.com/2015/12/making-sense-of-logarithmic-loss/)
+
+### Can cross entropy be used in regression models?
+
+Cross-entropy, Kullback-Leibler divergence (KLD) are natural choices for predicting probabilities, which have computational advantages. [ref](https://stats.stackexchange.com/a/412971)
+
+Yes and no. [ref](https://stats.stackexchange.com/a/215484)
+
+> Cross entropy is defined on probability distributions, not single values. The reason it works for classification is that classifier output is (often) a probability distribution over class labels. For example, the outputs of logistic/softmax functions are interpreted as probabilities. The observed class label is also treated as a probability distribution: the empirical distribution (where the probability is 1 for the observed class and 0 for the others).
+>
+> The concept of cross entropy applies equally well to continuous distributions. But, it can't be used for regression models that output a point estimate (e.g. the conditional mean) but not a full probability distribution. If you had a model that gave the full conditional distribution (probability of output given input), you could use cross entropy as a loss function.
+>
+> Just considering a single observed input/output pair (x,y), p would be the empirical conditional distribution (a delta function over the observed output value), and q would be the modeled conditional distribution (probability of output given input). In this case, the cross entropy reduces to −logq(y∣x). Summing over data points, this is just the negative log likelihood!
+
 ## How to solve
 
 - Greedy algorithms
@@ -22,7 +48,7 @@ A cost function or a loss function is just an objective function that wants to b
 
 Gradient descent is a optimization algorithm to find the parameters that minimize the cost function associated with a model, and a cost function calculates the errors between actual and predicted values.
 
-It works by taking gradient of the cost function. It gets the direction and equation of minimizing the error with respect to each parameters. Then set a arbitrary initial values for each parameter, plug them to the partial differentiated equation. Get a new value, and loop the process until the error is small enough to be accepted.
+It works by taking gradient of the cost function. It gets the direction and equation of minimizing the error with respect to each parameters. Then set a arbitrary initial values for each parameter, plug them to the partial differentiated equations. Get a new value, and loop the process until the improvement is small enough to be neglected.
 
 However, when the learning rate is too high, the algorithm may diverge and result in oscillating iteration in cost function. On the other hand, when the learning rate is too low, the algorithm may take too long to converge.
 
@@ -50,3 +76,11 @@ Exploding gradient problem can be solved by using gradient clipping, which is to
 - Grid search: Exhaustively search all possible combinations of hyperparameters. It works great for fast algorithms, e.g. random forests, but not for slow algorithms, e.g. neural networks, gradient boosting.
 - Random search: Randomly search the hyperparameters
 - Bayesian optimization: It is best-suited for optimization over continuous domains of less than 20 dimensions. It works by constructing a posterior distribution of functions (Gaussian process) that best describes the objective function. As the number of observations grows, the posterior distribution improves, and the algorithm becomes more certain of which regions in parameter space are worth exploring and which are not. [github](https://github.com/bayesian-optimization/BayesianOptimization) [paper](https://arxiv.org/abs/1807.02811)
+
+## Vehicle Routing Problem
+
+- [A quadratically constrained mixed-integer non-linear programming model for multiple sink distributions](https://www.sciencedirect.com/science/article/pii/S2405844024145598)
+
+## Budget allocation
+
+- [Budget Allocation with PyMC-Marketing](https://www.pymc-marketing.io/en/stable/notebooks/mmm/mmm_budget_allocation_example.html#example-use-cases)

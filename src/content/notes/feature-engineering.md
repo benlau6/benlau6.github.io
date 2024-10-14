@@ -24,6 +24,8 @@ Following methods are empirically proven to be useful in Kaggle competitions.
   - It could be applied to important features instead of the target
 - Frequency encoding: convert categories to their frequency, but may make categories with the same frequency indistinguishable
 
+[Other categorical encoders on github](https://github.com/scikit-learn-contrib/category_encoders)
+
 ## Why normalization?
 
 ## Examples

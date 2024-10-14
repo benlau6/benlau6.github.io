@@ -38,9 +38,19 @@ publishDate: 2024-10-02
 
 ## Feature engineering
 
+[Notes on feature engineering](feature-engineering.md)
+
 ## Model selection
 
+One way is to implement different models. [Notes on modeling](modeling.md)
+
+Another way is to try different hyperparameters, or different cost functions. [Notes on mathematical optimization](mathematical-optimization.md)
+
+If the performances are close, ensemble methods, i.e. combining those results, maybe by averaging, or voting, would be a great choice.
+
 ## Model evaluation
+
+[Notes on metrics](metrics.md)
 
 ## Hypothesis testing
 
@@ -59,6 +69,10 @@ publishDate: 2024-10-02
 [linkedin discussion](https://www.linkedin.com/posts/danleedata_data-scientist-my-model-has-094-auc-activity-7244001578649616384-mAcu/?utm_source=share&utm_medium=member_desktop)
 
 ## Model deployment
+
+- Website, API, etc.
+- [6 Little-Known Challenges After Deploying Machine Learning](https://eugeneyan.com/writing/challenges-after-deploying-machine-learning/)
+- [A Practical Guide to Maintaining Machine Learning in Production](https://eugeneyan.com/writing/practical-guide-to-maintaining-machine-learning/)
 
 ## Documentation and refactoring
 
