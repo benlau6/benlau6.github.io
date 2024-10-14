@@ -17,7 +17,11 @@ Y &\sim N(X\beta, 1)
 \end{aligned}
 $$
 
-where Y comes from a deterministic function $h(X)=X\beta+\epsilon$. In probabilistic perspective, X is fixed, but $\epsilon$ is random, so the distribution of Y is also random, which forms the conditional distribution of Y given X. In practical perspective, X is observed, but Y is quite different from the perfect line, so there must be a error term, which is from a certain distribution.
+where Y comes from a deterministic function $h(X)=X\beta+\epsilon$. In probabilistic perspective, X is fixed, but $\epsilon$ is random, so the distribution of Y is also random, which forms the conditional distribution of Y given X. In practical perspective, X is observed, but Y is quite different from the perfect line, so there must be a error term, which is from a certain distribution. [Peter et. al.; 2020; Understanding Regression Analysis; P.52](https://www.routledge.com/Understanding-Regression-Analysis-A-Conditional-Distribution-Approach/Westfall-Arias/p/book/9780367493516)
+
+Note that the key assumption of a GLM is the mean-variance relationship, the actual shape of the distribution, or the data being discrete or not, does not matter as much.
+
+The choice of the distribution can be referred to the [distributions](distributions.md) page.
 
 ## How it works?
 

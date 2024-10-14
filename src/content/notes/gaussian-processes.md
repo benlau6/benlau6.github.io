@@ -19,6 +19,10 @@ GPs are generally a go-to approach for non-linear time series, but the reservati
 
 However, there seems to be a solution [Stationarity without mean reversion in improper Gaussian processes](https://arxiv.org/pdf/2310.02877).
 
+## Examples
+
+- [Forecasting of CO2 level on Mona Loa using Gaussian Process regression](https://scikit-learn.org/stable/auto_examples/gaussian_process/plot_gpr_co2.html) [another blog on CO2](https://peterroelants.github.io/posts/gaussian-process-kernels/) [pymc example](https://www.pymc.io/projects/examples/en/latest/gaussian_processes/GP-MaunaLoa.html#the-model-in-pymc3) [pymc improved version](https://www.pymc.io/projects/examples/en/latest/gaussian_processes/GP-MaunaLoa2.html) [pymc discussion](https://discourse.pymc.io/t/gaussian-process-regression-level-1-inference-re-producing-mauna-loa-co2-example-with-pymc3/241/6)
+
 ## Readings
 
 - [A Visual Exploration of Gaussian Processes](https://distill.pub/2019/visual-exploration-gaussian-processes/)

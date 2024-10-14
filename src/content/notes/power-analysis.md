@@ -17,3 +17,8 @@ $$n = \frac{(\sigma^2)(Z_{1-\alpha/2}+Z_{1-\beta})^2}{\delta^2}$$
 
 - [Rules of Thumb for Web Site Experimenters](https://stats.stackexchange.com/a/494386): $355 \times s^2$, where $s=\frac{E[(y_i-\mu)^3]}{sigma^2}$
 - [Neither the t-test nor the permutation test have much power to identify a difference in means between two such extraordinarily skewed distributions.](https://stats.stackexchange.com/a/69967)
+
+## Readings
+
+- [Using Effect Size—or Why the P Value Is Not Enough](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3444174/)
+- [Nonparametric Cohen's d-consistent effect size](https://aakinshin.net/posts/nonparametric-effect-size/)

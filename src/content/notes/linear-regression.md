@@ -60,7 +60,7 @@ Note that the errors do not need to be normal distributed, nor do they need to b
 
 ## Then why sometimes normality assumption is imposed?
 
-Normality assumption is not for the OLS estimator, but for the [confidence intervals](confidence-intervals.md), and [p-values](p-values.md), i.e. [hypothesis testing](hypothesis-testing.md). Just having an estimator does not provide a full picture. It is essential to know how accurate the estimator is.
+Normality assumption is not for the OLS estimator, but for the [confidence intervals](confidence-intervals.md), and [p-values](p-values.md), i.e. [hypothesis testing](hypothesis-testing.md). Just having an estimator does not provide a full picture. It is essential to know how accurate the estimator is. [discussion](https://stats.stackexchange.com/a/148812)
 
 To measure the accuracy, we need to perform tests, or to construct an interval wrapping around the estimate to justify the estimation process, then it requires a assumed distribution of errors. Most of the justifications rely on being asymptotic, i.e. depending on reasonably large sample. So usually normal distribution would be a good choice due to [central limit theorem](central-limit-theorem.md).
 

@@ -20,3 +20,4 @@ publishDate: 2024-10-11
 ### Readings
 
 - [Evaluation Metrics for Unsupervised Learning Algorithms paper](https://arxiv.org/abs/1905.05667)
+- [Stanford notes on unsupervised learning](https://ee104.stanford.edu/lectures/unsupervised.pdf)
