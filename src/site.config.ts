@@ -20,7 +20,8 @@ export const siteConfig: SiteConfig = {
 	// Meta property, found in src/components/BaseHead.astro L:42
 	ogLocale: "en_GB",
 	// Option to sort posts by updatedDate if set to true (if property exists). Default (false) will sort by publishDate
-	sortPostsByUpdatedDate: false,
+	// NOTE: it does not count the derived updatedDate from the git commit date, because it does not change data field.
+	sortPostsByUpdatedDate: true,
 	// Meta property used to construct the meta title property, found in src/components/BaseHead.astro L:11
 	title: "Ben Lau",
 	webmentions: {
