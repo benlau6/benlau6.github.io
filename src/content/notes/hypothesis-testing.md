@@ -17,8 +17,8 @@ Important to know [p-values](p-values.md) and [confidence intervals](confidence-
 ![Types of tests](https://www.statsols.com/hs-fs/hubfs/Master-Images/Blog-Images/2019/what-statistical-test-to-use/What-statistical-test-to-use.png?width=733&name=What-statistical-test-to-use.png)
 
 - chi-square of goodness-of-fit test tests whether your data is as expected.
-- z-test tests whether the means of two groups are significantly different from each other when the sample size is large.
-- t-test tests whether the means of two groups are significantly different from each other.
+- z-test tests whether the means of two groups are significantly different from each other when the sample size is large, and the population standard deviation is known.
+- t-test tests whether the means of two groups are significantly different from each other, applicable for small sample size or unknown population standard deviation.
 - F-test tests whether the variances of two or more groups are significantly different from each other.
 - ANOVA tests whether the means of two or more groups are significantly different from each other.
   - it uses F-test to check if there's a change in means of the dependent variable due to at least one factor level.

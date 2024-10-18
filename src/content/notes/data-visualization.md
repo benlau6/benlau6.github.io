@@ -64,6 +64,7 @@ publishDate: 2024-09-20
 ## Tools
 
 - [Manim](https://www.manim.community/) -- A community maintained Python library for creating mathematical animations.
+- [How I animate 3Blue1Brown | A Manim demo with Ben Sparks](https://www.youtube.com/watch?v=rbu7Zu5X1zI)
 - [How to learn D3.js](https://2019.wattenberger.com/blog/d3#intro)
 - [Better Data Visualizations with Svelte](https://www.newline.co/courses/better-data-visualizations-with-svelte)
 

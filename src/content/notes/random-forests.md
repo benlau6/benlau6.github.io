@@ -45,6 +45,10 @@ We can use variable-importance plots to assess the relative importance of variab
 - A maximal-depth tree splits every node until it is pure, meaning all the responses are the same. For very large $n$ this might be unrasonable; in practice, one can put a lower bound on the minimum count in a terminal node.
 - In the case of a classification tree, there are at least two strategies at the averaging stage: using a plurality vote on classifications made by each tree or averaging the class probabilities.
 
+## Readings
+
+- [Chapter 4. Resonance: Bootstrap & Random Forests](https://dataanalyticsbook.info/chapter-4.-resonance-bootstrap-random-forests.html)
+
 ## References
 
 - Efron, B., & Hastie, T. (2021). Computer Age Statistical Inference: Algorithms, Evidence, and Data Science. Cambridge University Press.

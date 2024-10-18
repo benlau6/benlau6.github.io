@@ -29,7 +29,11 @@ There are two types of churn, contractual churn and [non contractual churn](http
 - A [BART model](https://juanitorduz.github.io/html/revenue_retention_presentation.html#/more-complex-models---requirements) could also be used.
 - [pymc-marketing@shifted beta geometric](https://www.pymc-marketing.io/en/latest/notebooks/clv/sBG.html)
 - [pymc-marketing@BG/NBD model](https://www.pymc-marketing.io/en/stable/notebooks/clv/bg_nbd.html)
-- [beta survival models](https://arxiv.org/pdf/1905.03818)
+- Survival analysis
+  - [beta survival models](https://arxiv.org/pdf/1905.03818)
+  - [Random Survival Forests@sklearn](https://scikit-survival.readthedocs.io/en/stable/user_guide/random-survival-forest.html)
+  - [Random Survival Forests@paper](https://arxiv.org/pdf/0811.1645)
+- [Bayesian Proportional Hazard Model](https://www.pymc.io/projects/examples/en/latest/survival_analysis/survival_analysis.html#bayesian-proportional-hazards-model)
 - [BG/NBD Model in PyMC](https://juanitorduz.github.io/bg_nbd_pymc/)
 
 ## Survival analysis
@@ -45,6 +49,7 @@ It is also called Time-To-Event Study. Good for contractual business.
 It could differentiate changes due to advertising spend, holiday effect, seasonality, or macro-economic factors, or account for adstock (carry-over), saturation, or delayed effects of advertising. The adstock effect is the idea that the impact of advertising on sales will persist for a period of time after the advertising ceases. The saturation effect is the idea that the impact of advertising on sales will diminish due to long time exposure. The delayed effect is the idea that the impact of advertising on sales will not be immediate, but will occur after a delay.
 
 - [Media Effect Estimation with PyMC: Adstock, Saturation & Diminishing Returns](https://juanitorduz.github.io/pymc_mmm/)
+- [Media Mix Model and Experimental Calibration: A Simulation Study](https://juanitorduz.github.io/mmm_roas/)
 - [Bayesian Media Mix Modeling for Marketing Optimization](https://www.pymc-labs.com/blog-posts/bayesian-media-mix-modeling-for-marketing-optimization/)
 - [Introduction to Media Mix Modeling](https://www.pymc-marketing.io/en/stable/guide/mmm/mmm_intro.html)
 - [Media Mix Model and Experimental Calibration: A Simulation Study](https://juanitorduz.github.io/mmm_roas/)
@@ -77,17 +82,16 @@ PyMC-Marketing's CLV module includes a range of models, to predict future churn 
 
 It uses BG/NBD model to predict churn, and Gamma-Gamma model to predict CLV. The BG/NBD model is a latent attrition model, which assumes that all customers are active at the beginning of the observation period and that a customer can only drop out immediately following a transaction. Customers with no repeat transactions during the observation period haven't had a chance to drop out so their probability of being alive equals 1. [paper](http://brucehardie.com/papers/018/fader_et_al_mksc_05.pdf) [step-by-step derivation](http://www.brucehardie.com/notes/039/bgnbd_derivation__2019-11-06.pdf) [lifetime examples](https://lifetimes.readthedocs.io/en/latest/Quickstart.html)
 
-> 1. While active, transactions made by a customer in time period t is Poisson distributed with mean λt
-> 2. Differences in transaction rate between customers follows a gamma distribution with shape r and scale α
-> 3. Each customer becomes inactive after each transaction with probability p
-> 4. Differences in p follows a beta distribution with shape parameters a and b
->
-> In summary, what it will do is learn the mass behavior from these individual behaviors and then make a probabilistic estimation specific to the individual. After making a purchase, the customer becomes partial churn. The BG/NBD Model probabilistically models two processes for the expected number of transactions.
->
-> 1. First Process: Transaction Process (Buy)
-> 2. Second Process : Dropout process (Till You Die) → process of becoming churn
->
-> [ref](https://medium.com/geekculture/predicting-customer-life-time-value-cltv-via-beta-geometric-negative-binominal-distribution-59be07ac30bd)
+In summary, what it will do is learn the mass behavior from these individual behaviors and then make a probabilistic estimation specific to the individual. After making a purchase, the customer becomes partial churn. The BG/NBD Model probabilistically models two processes for the expected number of transactions. [ref](https://medium.com/geekculture/predicting-customer-life-time-value-cltv-via-beta-geometric-negative-binominal-distribution-59be07ac30bd)
+
+1. First Process: Transaction Process (Buy)
+   - While active, transactions made by a customer in time period t is Poisson distributed with mean λt
+   - Heterogeneous transaction rate between customers follows a gamma distribution with shape r and scale α
+   - Note: The gamma distribution is the conjugate prior of the Poisson distribution, combining the two gives Negative Binomial Posterior Predictive Distribution, that is the NBD.
+2. Second Process : Dropout process (Till You Die) → process of becoming churn
+   - Each customer becomes inactive after each transaction with probability p
+   - Heterogeneous p follows a beta distribution with shape parameters a and b
+   - The number of transactions made by a customer before becoming inactive follows a geometric distribution
 
 Here is also a experienced data scientist talking about contractual CLV [ref](https://www.reddit.com/r/datascience/comments/ipwt4z/question_about_predicting_customer_life_time/).
 
@@ -120,6 +124,8 @@ Here is also a experienced data scientist talking about contractual CLV [ref](ht
 
 It is actually kind of complicated, but it works by considering frequency, recency, and time since first purchase. The basic idea is that there is not much evidence of customers with low repeated purchases, so we assume it is very likely they are still active. But when a customer has lots of repeated purchases, and the time between the first purchase and last purchase is short, i.e. time since last purchase is long, it is very likely that they are no longer active. [formula](http://www.brucehardie.com/notes/021/palive_for_BGNBD.pdf) [code](https://github.com/CamDavidsonPilon/lifetimes/blob/4f2833f4518621343bb6983eb3e540c11f66ec6a/lifetimes/fitters/beta_geo_fitter.py#L260)
 
+The simplest way to calculate the churn rate could be $p=(\frac{\text{frequency}_i}{\text{frequency}_{max}})(\frac{\text{recency}_i}{\text{recency}_{max}})^2$
+
 ### How to model the churn
 
 The transaction process (Buy), i.e. the number of events within a fixed interval could be modeled by Poisson distribution with transaction rate, while the transaction rate could be modeled by a gamma distribution. Since gamma distribution is the [conjugate prior](conjugate-priors.md) of Poisson distribution, and it is a continuous analog of the negative binomial distribution, which is also a analog of geometric distribution but allowing overdispersion, i.e. the number of trials until the first success. As a result, the posterior predictive distribution would be a negative binomial distribution. [ref](https://en.wikipedia.org/wiki/Conjugate_prior)
@@ -144,7 +150,7 @@ The model of spend per transaction is based on the following three general assum
 - Average transaction values vary across customers but do not vary over time for any given individual.
 - The distribution of average transaction values across customers is independent of the transaction process.
 
-The monetary value could simply be the total spend divided by the number of transactions. Then the spend could be modeled by a gamma distribution, such that the total spend across x transactions is also gamma distributed due to the convolution property, and the average spend across x transactions is also gamma distributed due to scaling property.
+The monetary value could simply be the total spend divided by the number of transactions of any customer. Then the spend could be modeled by a gamma distribution, such that the total spend across x transactions of any customer is also gamma distributed due to the convolution property, and the average spend across x transactions and all customer is also gamma distributed due to scaling property.
 
 Note that the Gamma-Gamma model assumes that there is no relationship between the monetary value and the purchase frequency, i.e. the distribution of average transaction values across customers is independent of the transaction process.
 

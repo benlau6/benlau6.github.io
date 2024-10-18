@@ -17,6 +17,10 @@ Scammers will likely use emails or links that resemble real ones. So we could us
 
 Benford's Law states that in many naturally occurring collections of numbers, the leading significant digit is likely to be small. For example, in sets that obey the law, the number 1 appears as the most significant digit about 30% of the time, while 9 appears as the most significant digit less than 5% of the time. It is used to detect fraud in accounting, and tax evasion, because people tend to invent numbers with a uniform distribution, while real numbers have a non-uniform distribution. [ref](https://en.wikipedia.org/wiki/Benford%27s_law)
 
+- [Why do Biden's votes not follow Benford's Law?](https://www.youtube.com/watch?v=etx0k1nLn78)
+- [Application of Benford’s law in Data Analysis](Application of Benford’s law in Data Analysis)
+- [Unveiling the Power of Benford’s Law and how it’s Revolutionizing Data Science](https://medium.com/ds3ucsd/benfords-law-and-its-many-applications-in-data-science-875bac4d562c)
+
 ## Two approaches
 
 1. Accept those outliers by using robust models that are not sensitive to outliers, e.g. Student's t-regression, whose tails are heavier which interprets the outliers as part of the possible outcomes without altering the model's parameters.

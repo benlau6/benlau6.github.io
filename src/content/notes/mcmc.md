@@ -15,6 +15,10 @@ It is a method to sample from a probability distribution, which is often intract
 
 ## Hamiltonian Monte Carlo (HMC)
 
+## Why don't use GPU for MCMC?
+
+Whenever we think GPU acceleration we think matrix multiplication. Bayesian inference can be done by either variational inference or MCMC. Variational inference is easily parallelizable, but it is sometimes problematic on the result, while MCMC is fundamentally sequential, apart from running multiple sequences at once, it is not possible to be parallelized for now, but it is asymptotic exact solution to any posterior distribution, so still being the golden standard for doing Bayesian. [discussion](https://www.reddit.com/r/MachineLearning/comments/csu5c9/comment/exha8vz/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button) There are some studies about parallelization, but no breakthrough yet. [embarrassingly parallelization](https://arxiv.org/abs/1311.4780) However, theoretically, a critical part of Bayesian inference, i.e. Gaussian processes, can be parallelized and be benefited from GPU acceleration a lot because the time complexity is $O(n^3)$, which come from matrix inversion. [discusison](https://www.reddit.com/r/MachineLearning/comments/csu5c9/comment/exhx15s/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button)
+
 ### Readings
 
 - [忘記物理也要搞懂的 Hamiltonian Monte Carlo (HMC) 筆記](https://bobondemon.github.io/2022/05/07/Hamiltonian-Monte-Carlo/)

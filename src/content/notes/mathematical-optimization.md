@@ -77,10 +77,24 @@ Exploding gradient problem can be solved by using gradient clipping, which is to
 - Random search: Randomly search the hyperparameters
 - Bayesian optimization: It is best-suited for optimization over continuous domains of less than 20 dimensions. It works by constructing a posterior distribution of functions (Gaussian process) that best describes the objective function. As the number of observations grows, the posterior distribution improves, and the algorithm becomes more certain of which regions in parameter space are worth exploring and which are not. [github](https://github.com/bayesian-optimization/BayesianOptimization) [paper](https://arxiv.org/abs/1807.02811)
 
-## Vehicle Routing Problem
+## Bayesian optimization
+
+The most common method is to use [Gaussian processes](gaussian-processes.md) in method called kriging. It has found prominent use in machine learning problems, for optimizing hyperparameter values. [wiki](https://en.wikipedia.org/wiki/Bayesian_optimization)
+
+## Linear programming
+
+Three components to define:
+
+- Objective function
+- Decision variables
+- Constraints
+
+## Applications
+
+### Vehicle Routing Problem
 
 - [A quadratically constrained mixed-integer non-linear programming model for multiple sink distributions](https://www.sciencedirect.com/science/article/pii/S2405844024145598)
 
-## Budget allocation
+### Budget allocation
 
 - [Budget Allocation with PyMC-Marketing](https://www.pymc-marketing.io/en/stable/notebooks/mmm/mmm_budget_allocation_example.html#example-use-cases)

@@ -63,10 +63,43 @@ Nevertheless, features that are deemed of low importance for a bad model could b
 
 The second issue still exists in a way that when two features are correlated and one of the features is permuted, the model still has access to the latter through its correlated feature. This results in a lower reported importance value for both features, though they might actually be important. For example, if two features both strongly related to the target, they will always end up with a feature importance score of about 0.5 each, whereas one would expect that both should score something close to one. One way to handle the issue is to cluster features that are correlated and only keep one feature from each cluster, or simply remove upper triangle of correlation matrix based on a threshold, or use `SelectKBest` with `f_regression` from `sklearn`. [ref](https://scikit-learn.org/stable/modules/permutation_importance.html#misleading-values-on-strongly-correlated-features) [clustering notes](clustering.md/#Hierarchical-clustering-can-improve-interpretability)
 
-## Sometimes it outperforms neural networks
+## It is the best tool for tabular data, even better than deep learning
 
 - [Why do tree-based models still outperform deep learning on typical tabular data?](https://openreview.net/forum?id=Fp7__phQszn)
 - [TABULAR DATA: DEEP LEARNING IS NOT ALL YOU NEED](https://arxiv.org/pdf/2106.03253)
+
+## It inherently includes interaction terms
+
+It is believed that tree-based models consider variables sequentially, which makes them handy for considering interactions without specifying them. Interactions that are useful for prediction will be easily picked up with a large enough forest, so there's no real need to include an explicit interaction term. [example](https://stats.stackexchange.com/a/157674) However, if you believe that the interaction is important, you could manually create the interaction term because an engineered feature will make it easier for the model to discover relationships in the data. Apart from general believe, there is a article stating that interactions are masked by marignal effects and interactions cannot be differentiated form marginal effects, such that variable importance measures are unable to detect them as interactions. [paper](https://doi.org/10.1186/s12859-016-0995-8) [XGBoost tutorials](https://xgboost.readthedocs.io/en/latest/tutorials/feature_interaction_constraint.html) [discussion on feature engineering in tree-model](https://stats.stackexchange.com/questions/300254/does-feature-engineering-matter-when-doing-random-forest-or-gradient-boosting)
+
+## It is robust to outliers and feature scales
+
+Decision trees divide the feature space into regions, and it divide the features one by one into left and right. Therefore it only cares the ordering of the values, so it will not be affected by the scale of the features, and it is also robust to outliers.
+
+However, it is not the case for the target variable. So all the feature engineering techniques that usually required for the target variable are still needed.
+
+## It performs poorly on extrapolation
+
+It is not good at extrapolation, i.e. predicting outside the range of the training data. It is because the tree-based models are piecewise constant approximation, and they can't predict outside the range of the training data. However, it is often possible to reformulate the problem to avoid extrapolation through feature engineering, e.g. including lagged features, differencing, and using multi-output targets.
+
+## How to get predictions with uncertainty
+
+[confidence intervals vs prediction intervals](confidence-intervals.md#confidence-intervals-vs-prediction-intervals)
+
+### Confidence intervals
+
+- Bootstrapping
+- [Confidence Intervals for Random Forests: The Jackknife and the Infinitesimal Jackknife](https://www.jmlr.org/papers/volume15/wager14a/wager14a.pdf) [implementation]()
+
+### Prediction intervals
+
+- Fit two more models using [Quantile regressor forest](https://medium.com/walmartglobaltech/adding-prediction-intervals-to-tree-based-models-8ea53814a4b9) with quantile loss and alpha 0.025 and 0.975, and use the predictions as the lower and upper bounds of the confidence interval.
+
+## How to handle missing values
+
+- [LightGBM discusison](https://github.com/microsoft/LightGBM/issues/2921)
+- [XGBoost discussion](https://datascience.stackexchange.com/questions/15305/how-does-xgboost-learn-what-are-the-inputs-for-missing-values)
+- [Handling Missing Values with Random Forest](https://www.analyticsvidhya.com/blog/2022/05/handling-missing-values-with-random-forest/)
 
 ## References
 
