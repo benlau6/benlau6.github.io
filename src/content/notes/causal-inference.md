@@ -38,3 +38,5 @@ References:
 
 - [Causal Inference in Data Science](https://www.yuan-meng.com/posts/causality/)
 - [Demystifying ATE ATT ATU](https://www.andrewheiss.com/blog/2024/03/21/demystifying-ate-att-atu/)
+- [Machine Learning & Causal Inference: A Short Course@Stanford](https://www.gsb.stanford.edu/faculty-research/labs-initiatives/sil/research/methods/ai-machine-learning/short-course)
+- [Double Machine Learning@EconML](https://econml.azurewebsites.net/spec/estimation/dml.html)

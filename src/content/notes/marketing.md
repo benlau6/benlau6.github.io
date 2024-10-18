@@ -45,6 +45,7 @@ It is also called Time-To-Event Study. Good for contractual business.
 It could differentiate changes due to advertising spend, holiday effect, seasonality, or macro-economic factors, or account for adstock (carry-over), saturation, or delayed effects of advertising. The adstock effect is the idea that the impact of advertising on sales will persist for a period of time after the advertising ceases. The saturation effect is the idea that the impact of advertising on sales will diminish due to long time exposure. The delayed effect is the idea that the impact of advertising on sales will not be immediate, but will occur after a delay.
 
 - [Media Effect Estimation with PyMC: Adstock, Saturation & Diminishing Returns](https://juanitorduz.github.io/pymc_mmm/)
+- [Media Mix Model and Experimental Calibration: A Simulation Study](https://juanitorduz.github.io/mmm_roas/)
 - [Bayesian Media Mix Modeling for Marketing Optimization](https://www.pymc-labs.com/blog-posts/bayesian-media-mix-modeling-for-marketing-optimization/)
 - [Introduction to Media Mix Modeling](https://www.pymc-marketing.io/en/stable/guide/mmm/mmm_intro.html)
 - [Media Mix Model and Experimental Calibration: A Simulation Study](https://juanitorduz.github.io/mmm_roas/)

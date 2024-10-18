@@ -86,4 +86,6 @@ $$
 
 And the L1 or L2 regularizations are just the MAP estimation for linear regression with different priors. L1 regularization is equivalent to the MAP estimation with a Laplace prior, and L2 regularization is equivalent to the MAP estimation with a Gaussian prior.
 
+Apart from the Laplace prior (double-exponential), [horseshoe prior](https://austinrochford.com/posts/2021-05-29-horseshoe-pymc3.html) and spike-and-slab prior are also popular choices for dealing with sparsity.
+
 [Extra note](https://ycc.idv.tw/deep-dl_3.html)

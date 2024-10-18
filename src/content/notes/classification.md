@@ -23,6 +23,14 @@ $$
 
 Sometimes $y_{i,c}$ could be replaced by $p_{i,c}$, which is the true probability of the class.
 
+### What is cross entropy?
+
+Cross entropy $H(P, Q)=\sum^{states}_s p_s log q_s^{-1}$ is the average surprise you will get by observing a random variable governed by distribution P, while believing in its model Q. $p_s$ states how often the state S is observed, while $q_s$ states how surprised you will be to see it. [video](https://youtu.be/KHVR587oW8I?t=1020)
+
+When there is no discrepancy between P and Q, the cross-entropy reduces to just entropy (uncertainty) of P. For any model, the cross-entropy can never be lower thna the entropy of the underlying generating distribution, i.e. $H(P, Q) \geq H(P)$.
+
+As a side note, KL divergence $D_{KL}(P||Q)=H(P, Q) - H(P)$ is the difference between the cross-entropy and the entropy, where entropy is the entropy of training data, so is constant. That is, minimizing the KL divergence is equivalent to minimizing the cross-entropy. It isolates the surprise caused by discrepancy of the model and true distribution.
+
 ### Readings
 
 - [Information theory of cross entropy](https://ycc.idv.tw/deep-dl_2.html)

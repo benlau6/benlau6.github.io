@@ -14,6 +14,16 @@ publishDate: 2024-09-20
 
 - strong false assumptions can be better than weak true ones, because a learner with the latter needs more data to avoid overfitting. [ref](https://dl.acm.org/doi/pdf/10.1145/2347736.2347755)
 
+### Why Bayesian even if we have a lot of data?
+
+[discussion](https://stats.stackexchange.com/questions/490643/why-should-i-be-bayesian-when-my-dataset-is-large)
+
+- Being Bayesian is not only about information fed through the prior. But even then: Where the prior is zero, no amount of data will turn that over.
+- Having a full Bayesian posterior distribution to draw from opens loads and loads of ways to make inference from.
+- It is easy to explain a credible interval to any audience whilst you know that most audiences have a very vague understanding of what a confidence interval is.
+- Baysian analysis is not limited to point hyptheses and can find that the data is in a region of practical equivalence to a null hypotheses, a Baysian factor can grow your believe in some sort of null hypothesis equivalent where a p value can only accumulate evidence against it. Could you find ways to emulate that via confidence intervals and other Frequentist methods? Probably yes, but Bayes comes with that approach as the standard.
+- "But for large enough data, wouldn't the posterior just collapse to the MLE" - what if a posterior was bimodal or if two predictors are correlated so you could have different combinations of e.g. β8 and β9 - a posterior can represent these different combinations, an MLE point estimator does not.
+
 ## What does it mean that the data is fixed in Bayesian statistics?
 
 For now the data is fixed in a way that it is all you have, you can't go out and collect infinite additional samples. [ref](https://evalf21.classes.andrewheiss.com/resource/bayes/#confidence-intervals-vs-credible-intervals)

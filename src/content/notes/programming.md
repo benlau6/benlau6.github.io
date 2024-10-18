@@ -14,7 +14,9 @@ publishDate: 2024-09-20
   - A picture is worth a thousand words.
 - [Choose Boring Technology](https://boringtechnology.club/)
 - [Data Driven Products Now! (AB Testing)](https://datadriven.club/)
-- [Safety Critical Code -- tigerbeetle, NASA](https://github.com/tigerbeetle/tigerbeetle/blob/main/docs/TIGER-STYLE.md)
+- Offensive programming is great in development stage, and sometimes it is also great in production. [Safety Critical Code -- tigerbeetle, NASA](https://github.com/tigerbeetle/tigerbeetle/blob/main/docs/TIGER-STYLE.md) [normal vs defensive vs offensive programming](https://programmingduck.com/articles/defensive-programming)
+- Don't use default argument except it will brings in lots of benefits because it hides potential bugs or misuses, which is one of the practice of offensive programming.
+- Follow Chesterton's fence principle: "Don't remove a fence until you know why it was put up in the first place."
 
 ## Explanations
 

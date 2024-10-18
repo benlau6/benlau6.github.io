@@ -19,12 +19,15 @@ Transition from layer $k-1$ to layer $k$:
 $$
 z^{(k)} = \bm{W}^{(k-1)}a^{(k-1)}
 $$
+
 $$
 a^{(k)} = g^{(k)}(z^{(k)})
 $$
+
 where W^{(k-1)} represents the matrix of weights that go from layer $L_{k-1}$ to layer $L_k$, $a^{(k)}$ is the entire vector of activations at layer $L_{k}$, and our notation assumes that $g^{(k)}$ operates elementwise on its vector argument.
 
 M-class classification transformation $g^{(K)}$
+
 $$
 g^{(K)}(z^{(K)}_m;z^{(K)}) = \frac{e^{z^{(K)}_m}}{\sum^M_{l=1}e^{z^{(K)}_l}}
 $$
@@ -116,6 +119,26 @@ A special neural network for computing a type of nonlinear principal-component d
 ### Mamba
 
 - [MAMBA from Scratch: Neural Nets Better and Faster than Transformers](https://www.youtube.com/watch?v=N6Piou4oYx8)
+
+## Concepts
+
+- CNN tackles the problem of spatial invariance, locality, sparsity, and computation difficulty, allow for more efficient learning.
+- Resnet tackles the vanishing gradient problem.
+- Dropout tackles overfitting.
+- DenseNet, LSTM, Transformer allow for capturing complex interactions in the data.
+- Backpropagation is a method to compute the gradient of the loss function with respect to the weights and biases of the network by chain rule. Since the coefficients of the first layer are distant from the output layer, which calculates the loss, the gradient is needed to be propagated back through the whole network.
+- Adversarial examples are inputs to neural networks that are designed to fool the network. They are often created by applying small perturbations to regular inputs to cause the network to misclassify the input, while the perturbations are imperceptible to humans.
+- Hallucination is a problem of llm that the model generates sentences that are not meaningful but trying to fool you instead of admitting their incapability of generating an correct answer.
+- Diffusion models, aka denoising model, uses the idea of diffusion to generate results, which is a process of spreading out the information due to entropy. It uses the idea that the diffusion process follows a Gaussian distribution, and reverses the process will have a tendency towards center. The possible reverse path could be determined by score functions. It also benefits from the idea of manifold hypothesis.
+- Long range dependencies is the fundamental idea of video processing, otherwise the output videos would be non-sense. However, time continuity does not equal to logical or realistic, which is a problem that needs to be solved in SORA.
+
+## When to use neural networks
+
+- Easy to collect data, and there are lots of data
+- Invariant patterns
+- Mechanistic workflow
+
+[video ref](https://www.youtube.com/watch?v=LF9sd-2jCoY)
 
 ## References
 

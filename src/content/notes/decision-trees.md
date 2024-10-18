@@ -68,6 +68,10 @@ The second issue still exists in a way that when two features are correlated and
 - [Why do tree-based models still outperform deep learning on typical tabular data?](https://openreview.net/forum?id=Fp7__phQszn)
 - [TABULAR DATA: DEEP LEARNING IS NOT ALL YOU NEED](https://arxiv.org/pdf/2106.03253)
 
+## It inherently includes interaction terms
+
+It is believed that tree-based models consider variables sequentially, which makes them handy for considering interactions without specifying them. Interactions that are useful for prediction will be easily picked up with a large enough forest, so there's no real need to include an explicit interaction term. [example](https://stats.stackexchange.com/a/157674) However, if you believe that the interaction is important, you could manually create the interaction term because an engineered feature will make it easier for the model to discover relationships in the data. Apart from general believe, there is a article stating that interactions are masked by marignal effects and interactions cannot be differentiated form marginal effects, such that variable importance measures are unable to detect them as interactions. [paper](https://doi.org/10.1186/s12859-016-0995-8) [XGBoost tutorials](https://xgboost.readthedocs.io/en/latest/tutorials/feature_interaction_constraint.html) [discussion on feature engineering in tree-model](https://stats.stackexchange.com/questions/300254/does-feature-engineering-matter-when-doing-random-forest-or-gradient-boosting)
+
 ## References
 
 - Efron, B., & Hastie, T. (2021). Computer Age Statistical Inference: Algorithms, Evidence, and Data Science. Cambridge University Press.
