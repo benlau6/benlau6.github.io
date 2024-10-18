@@ -61,9 +61,9 @@ $$
 
 Or [proof by triangle inequality](https://stats.stackexchange.com/a/466209)
 
-## Use MAE or RMSE?
+### Use MAE or RMSE?
 
-It depends on your loss function. If we want to give more penalty to points further away from the mean, i.e. being off by 2x is more than twice as bad as being off by x, then we should use RMSE. If we want to give equal penalty to all points, then we should use MAE. If we want a more aggressive penalty, we can use MSE. [ref](https://stats.stackexchange.com/a/48268)
+It depends on your loss function. If we want to give more penalty to points further away from the mean, i.e. being off by 2x is more than twice as bad as being off by x, then we should use RMSE. If we want to give equal penalty to all points, then we should use MAE. If we want a more aggressive penalty, we can use MSE. So the choice would depend on business requirement. [ref](https://stats.stackexchange.com/a/48268)
 
 From another perspective, when your observations' conditional distribution is asymmetric and you want an unbiased fit, you would want to use (R)MSE. The (R)MSE is minimized by the conditional mean, the MAE by the conditional median. So if you minimize the MAE, the fit will be closer to the median and biased. For instance, low volume sales data typically have an asymmetric distribution. If you optimize the MAE, you may be surprised to find that the MAE-optimal forecast is a flat zero forecast. [ref](https://stats.stackexchange.com/a/210857)
 

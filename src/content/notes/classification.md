@@ -23,6 +23,14 @@ $$
 
 Sometimes $y_{i,c}$ could be replaced by $p_{i,c}$, which is the true probability of the class.
 
+### What is cross entropy?
+
+Cross entropy $H(P, Q)=\sum^{states}_s p_s log q_s^{-1}$ is the average surprise you will get by observing a random variable governed by distribution P, while believing in its model Q. $p_s$ states how often the state S is observed, while $q_s$ states how surprised you will be to see it. [video](https://youtu.be/KHVR587oW8I?t=1020)
+
+When there is no discrepancy between P and Q, the cross-entropy reduces to just entropy (uncertainty) of P. For any model, the cross-entropy can never be lower thna the entropy of the underlying generating distribution, i.e. $H(P, Q) \geq H(P)$.
+
+As a side note, KL divergence $D_{KL}(P||Q)=H(P, Q) - H(P)$ is the difference between the cross-entropy and the entropy, where entropy is the entropy of training data, so is constant. That is, minimizing the KL divergence is equivalent to minimizing the cross-entropy. It isolates the surprise caused by discrepancy of the model and true distribution.
+
 ### Readings
 
 - [Information theory of cross entropy](https://ycc.idv.tw/deep-dl_2.html)
@@ -80,7 +88,7 @@ When performing classification you often want not only to predict the class labe
 
 Logistic regression is more likely to return well calibrated predictions by itself as it has a canonical link function for its loss, i.e. the logit-link for the Log loss. In the unpenalized case, this leads to the so-called balance property.
 
-Random forest is a relatively bad classifier because they will give not peaks near both ends, i.e. probabilities close to 0 or 1 are very rare. Niculescu-Mizil and Caruana said "variance in the underlying base models will bias predictions that should be near zero or one away from these values. Because predictions are restricted to the interval [0,1], errors caused by variance tend to be one-sided near zero and one. For example, if a model should predict p = 0 for a case, the only way bagging can achieve this is if all bagged trees predict zero. If we add noise to the trees that bagging is averaging over, this noise will cause some trees to predict values larger than 0 for this case, thus moving the average prediction of the bagged ensemble away from 0. We observe this effect most strongly with random forests because the base-level trees trained with random forests have relatively high variance due to feature subsetting."
+Random forest is a relatively bad classifier because they will not give peaks near both ends, i.e. probabilities close to 0 or 1 are very rare. Niculescu-Mizil and Caruana said "variance in the underlying base models will bias predictions that should be near zero or one away from these values. Because predictions are restricted to the interval [0,1], errors caused by variance tend to be one-sided near zero and one. For example, if a model should predict p = 0 for a case, the only way bagging can achieve this is if all bagged trees predict zero. If we add noise to the trees that bagging is averaging over, this noise will cause some trees to predict values larger than 0 for this case, thus moving the average prediction of the bagged ensemble away from 0. We observe this effect most strongly with random forests because the base-level trees trained with random forests have relatively high variance due to feature subsetting."
 
 [discussion](https://stats.stackexchange.com/questions/312119/reduce-classification-probability-threshold/312124#312124)
 

@@ -5,6 +5,10 @@ publishDate: 2024-10-02
 
 # Data Science Workflow
 
+## Must Read
+
+- [Wanted: Data Scientists with Technical Brilliance AND Business Sense](https://careers.doordash.com/blog/data-scientists-technical-skill-business-impact/)
+
 ## Problem framing
 
 ## Data collection
@@ -12,6 +16,12 @@ publishDate: 2024-10-02
 [Notes on sql](sql.md)
 
 ## EDA
+
+- data missingness
+- imbalanced data
+- outliers
+- improperly formatted data
+- inconsistent values
 
 ## Data assertion and static typing
 
@@ -39,6 +49,8 @@ publishDate: 2024-10-02
 ## Feature engineering
 
 [Notes on feature engineering](feature-engineering.md)
+
+Be aware of data leakage. It is like cheating that, the model would perform well in the predefined testing set, but it would not reveal the actual predictive power on any unseen data, i.e. overfitting and inflated performance metrics. Don't use the information that is not available at the time of prediction. However, it is okay to use target encoding. As long as no test data is involved. Adding some Gaussian noise into it would also be a good practice.
 
 ## Model selection
 

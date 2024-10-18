@@ -65,7 +65,7 @@ For example, Google used deep neural networks for Youtube recommendations, which
 
 ### Regression model
 
-In small sample size, we could first classify users into groups, then calculate rate of interaction of each group to each item, or each group of item, then use regression to predict the interaction rate of a new user to a new item, which would make it more robust to avoid the problem of low signal to noise ratio from the small sample size.
+In small sample size, we could first classify users into groups, then calculate rate of interaction of each group to each item, or each group of item, then use regression to predict the interaction rate of a new user to a new item, which would make it more robust to avoid the problem of low signal to noise ratio from the small sample size. Note that this method is also known as cohort analysis.
 
 ## Collaborative filtering
 
@@ -236,3 +236,6 @@ It depends on the business, i.e. how long the user journey is, or how frequently
 - [利用「個體經濟模型」設計與評估新聞推薦系統](https://taweihuang.hpd.io/2020/07/01/personalization-microecon/)
 - [Introduction to Recommender systems@thingsolver](https://thingsolver.com/blog/introduction-to-recommender-systems/)
 - [Introduction to Recommendation systems@Google](https://developers.google.com/machine-learning/recommendation)
+- [Matrix Factorization Techniques for Recommender Systems](https://haren.medium.com/notes-matrix-factorization-techniques-for-recommender-systems-fd2494761431)
+- [Recommendation Systems • Evaluation Metrics and Loss Functions](https://aman.ai/recsys/metrics/#choosing-between-precision-and-recall--k-mrr-arhr-map-or-ndcg)
+- [21.5. Personalized Ranking for Recommender Systems@d2l.ai](https://d2l.ai/chapter_recommender-systems/ranking.html)

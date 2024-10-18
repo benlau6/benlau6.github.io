@@ -22,7 +22,12 @@ However, there seems to be a solution [Stationarity without mean reversion in im
 ## Examples
 
 - [Forecasting of CO2 level on Mona Loa using Gaussian Process regression](https://scikit-learn.org/stable/auto_examples/gaussian_process/plot_gpr_co2.html) [another blog on CO2](https://peterroelants.github.io/posts/gaussian-process-kernels/) [pymc example](https://www.pymc.io/projects/examples/en/latest/gaussian_processes/GP-MaunaLoa.html#the-model-in-pymc3) [pymc improved version](https://www.pymc.io/projects/examples/en/latest/gaussian_processes/GP-MaunaLoa2.html) [pymc discussion](https://discourse.pymc.io/t/gaussian-process-regression-level-1-inference-re-producing-mauna-loa-co2-example-with-pymc3/241/6)
+- [An Introduction to Gaussian Process Regression](https://juanitorduz.github.io/gaussian_process_reg/)
+- [PyData Berlin 2019: Gaussian Processes for Time Series Forecasting (scikit-learn)](https://juanitorduz.github.io/gaussian_process_time_series/)
+- [Gaussian Processes for Time Series Forecasting with PyMC3](https://juanitorduz.github.io/gp_ts_pymc3/)
+- [Time Series Modeling with HSGP: Baby Births Example](https://juanitorduz.github.io/birthdays/)
 
 ## Readings
 
 - [A Visual Exploration of Gaussian Processes](https://distill.pub/2019/visual-exploration-gaussian-processes/)
+- [Scikit-Learn Example in PyMC: Gaussian Process Classifier](https://juanitorduz.github.io/sklearn_pymc_classifier/)
