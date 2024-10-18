@@ -23,6 +23,7 @@ Following methods are empirically proven to be useful in Kaggle competitions.
   - statistics other than mean, e.g. mode, median, variance, skewness, kurtosis might be used
   - It could be applied to important features instead of the target
 - Frequency encoding: convert categories to their frequency, but may make categories with the same frequency indistinguishable
+- Embedding (Cat2Vec): Train a very simple neural network to predict the target value by the categorical feature, and use the output of the hidden layer as the new feature. [ref](https://www.reddit.com/r/datascience/comments/1ayhbxb/comment/krv5bb7/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button)
 
 [Other categorical encoders on github](https://github.com/scikit-learn-contrib/category_encoders)
 
