@@ -19,3 +19,7 @@ publishDate: 2024-09-20
 - [How Fast can Python Parse 1 Billion Rows of Data?](https://www.youtube.com/watch?v=utTaPW32gKY)
 - [Why I Switched from Python to Rust for AI Deployment](https://www.youtube.com/watch?v=R_jW8yvc_GU)
 - [How To Make Your Python Packages Really Fast With RUST](https://www.youtube.com/watch?v=jlWhnrk8go0)
+
+## Serialization and Deserialization
+
+- [The Cost of Serialization and 5 Ways to Minimize or Remove This Hidden Expense](https://www.harperdb.io/post/the-cost-of-serialization-and-5-ways-to-minimize-or-remove-this-hidden-expense)

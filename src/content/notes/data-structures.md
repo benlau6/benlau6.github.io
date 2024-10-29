@@ -7,3 +7,4 @@ publishDate: 2024-09-20
 
 - [Hash Map](hash-maps.md)
 - [Linked List](linked-lists.md)
+- [Queue](queues.md)

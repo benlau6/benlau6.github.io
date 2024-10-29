@@ -102,6 +102,8 @@ A special neural network for computing a type of nonlinear principal-component d
 ### Transformer
 
 - [AI Language Models & Transformers - Computerphile](https://www.youtube.com/watch?v=rURRYI66E54)
+- [【機器學習2021】Transformer (上)](https://www.youtube.com/watch?v=n9TlOhRjYoc)
+- [09 Transformer 之什么是注意力机制（Attention）](https://www.youtube.com/watch?v=z2TqBUouF8I)
 
 ### Diffusion
 

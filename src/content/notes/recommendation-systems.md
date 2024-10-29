@@ -38,7 +38,7 @@ At 2017, Facebook and Netflix had done A/B tests of the five-star system against
 
 ### Not only the choices can be personalized, but also the content
 
-Look at Netflix, the thumbnails are personalized based on the user's behavior, e.g. the user's favorite actor, genre, etc. So when considering recommendation systems, we might also think of personalized visuals, e.g. thumbnails, titles, descriptions, etc.
+Look at Netflix, the thumbnails are personalized based on the user's behavior, e.g. the user's favorite actor, genre, etc. So when considering recommendation systems, we might also think of personalized visuals, e.g. thumbnails, titles, descriptions, etc. [Blog: Artwork Personalization at Netflix](https://netflixtechblog.com/artwork-personalization-c589f074ad76)
 
 ## Content-based filtering
 
