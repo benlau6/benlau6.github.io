@@ -11,6 +11,23 @@ publishDate: 2024-10-02
 
 ## Problem framing
 
+### Business wise
+
+### Data wise
+
+1. How do you get data from its source?
+2. Is the data diverse enough to solve the problem?
+3. Do you have enough data?
+4. How is the data biased?
+5. How frequently does the data change?
+6. How sensitive is the data?
+7. Are there missing, inconsistent, or incorrect values?
+8. How noisy is the data?
+9. How can you trace back every piece of data to its source?
+10. Are there any legal restrictions on the use of the data?
+11. How do you scale as data grows?
+12. How quickly does the data become stale?
+
 ## Data collection
 
 [Notes on sql](sql.md)

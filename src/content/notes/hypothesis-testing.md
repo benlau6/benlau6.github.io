@@ -75,6 +75,14 @@ The coefficient of an insignificant variable can in principle still be interpret
 
 What makes more sense is to interpret a confidence interval for the coefficient, as this also expresses the uncertainty.
 
+## It is unnecessary to do so in Bayesian setting
+
+> Bayesian is simply the application of probability theory, you can do anything with it, including NHST. If you have access to Bayesian methods, why would you want to do NHST when you can do so much more with your data and knowledge? [discussion](https://www.reddit.com/r/statistics/comments/149xnr9/comment/jo7mu6o/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button)
+
+> What's the point of doing NHST with Bayesian analysis? You have all the distributions right there - you can just look at what the results are. And you don't have to worry about all those weird paradoxes about multiple comparisons and p-values.
+
+> Here’s the thing: NHST gives you the likelihood of obtaining your statistic under the assumption that the null hypothesis is true. If your Bayesian results indicate that the null hypothesis is itself unlikely to be true, it’s useless knowing how probable your result is under such improbable conditions.
+
 ### Readings
 
 - [Are large data sets inappropriate for hypothesis testing?](https://stats.stackexchange.com/questions/2516/are-large-data-sets-inappropriate-for-hypothesis-testing)

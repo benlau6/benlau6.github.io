@@ -7,6 +7,10 @@ publishDate: 2024-09-20
 
 ## Analytics
 
+### Problem set
+
+- Predicting the arrival delay of flights
+
 ### Survey
 
 - [Case Study: A City Social Survey Blog](https://aakinshin.net/posts/cs-social-survey/)

@@ -27,8 +27,15 @@ Following methods are empirically proven to be useful in Kaggle competitions.
 
 [Other categorical encoders on github](https://github.com/scikit-learn-contrib/category_encoders)
 
+### Why not dummy encoding?
+
+A 2-element feature vector is enough to provide a unique mapping for a vocabulary of size 3, and this is called dummy coding. Since it is a more compact representation, it is preferred in statistical models that perform better when the inputs are linearly independent.
+
+However, modern machine learning algorithms don't require their inputs to be linearly independent, and use methods such as L1 regularization to prune redundant inputs. Moreover, the additional degree of freedom allows the framework to transparently handle a missing input or any unknown vocabularies in production as all zeros (Lakshmanan, 2020). Therefore, many machine learning frameworks often support only one-hot encoding.
+
 ## Common techniques
 
+- Bucketing through histogram equalization: create bins based on quantiles, which would usually guarantee to create uniform distribution, except for repeated values in quantiles. After that, we removed the skewness and therefore can be applied scaling methods.
 - Cyclical features: convert cyclical features, e.g. time, day of the week, month, to sine and cosine functions, so that the distance at the boundary is close to 0, i.e. Monday is close to Sunday. However, it is not necessary for tree-based models since they only consider a single feature at a time.
 - Fourier transformation: convert a time series data to frequency domain, which is useful for detecting periodic patterns, e.g. seasonality, and it is useful for forecasting. [ref](https://www.analyticsvidhya.com/blog/2024/01/xgboost-for-time-series-forecasting/)
 - Aggregation: We can group a noisy feature, e.g. rare or sparse, by bin, or group a noisy feature by another categorical feature, such that the aggregated feature is stable and less noisy.

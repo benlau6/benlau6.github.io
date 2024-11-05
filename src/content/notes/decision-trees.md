@@ -101,6 +101,10 @@ It is not good at extrapolation, i.e. predicting outside the range of the traini
 - [XGBoost discussion](https://datascience.stackexchange.com/questions/15305/how-does-xgboost-learn-what-are-the-inputs-for-missing-values)
 - [Handling Missing Values with Random Forest](https://www.analyticsvidhya.com/blog/2022/05/handling-missing-values-with-random-forest/)
 
+## Tree-based models vs neural networks
+
+Random forest are good when the features are already somewhat informative, while neural nets are good when you have to learn the features while training as well
+
 ## References
 
 - Efron, B., & Hastie, T. (2021). Computer Age Statistical Inference: Algorithms, Evidence, and Data Science. Cambridge University Press.

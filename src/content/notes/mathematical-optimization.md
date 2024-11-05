@@ -13,6 +13,33 @@ A cost function or a loss function is just an objective function that wants to b
 
 Some [metrics](metrics.md) might be used as the objective function, but not all of them. Then [regularization](regularization.md) term might be added to the objective function to prevent overfitting. [Introduction to Loss Functions](https://www.datarobot.com/blog/introduction-to-loss-functions/)
 
+### Why log probability is mostly used in loss function?
+
+> Shannon quantified information from probability by using the log function after axiomatizing the properties of information. Between others, that the function is
+>
+> - additive (the information of two independent events should be the sum of the information),
+> - symmetric (equal probability events should carry equal information),
+> - continuous,
+> - monotonic, and
+> - normalized in that perfectly certain events do not have information.
+>
+> The only function that obeys the axioms is the negative log. In information theory there exist such odd beasts as the expected information of a distribution, and even the information of a distribution given another distribution. One would call the first the entropy, and the second the cross entropy. [discussion](https://www.reddit.com/r/MachineLearning/comments/1gnrpfe/d_log_probability_and_information_theory/)
+
+> First of all, because the logarithm function is monotonously increasing, log-probability preserves the order of probability. In this context log-probability can be thought of as rescaling our range from $[0,1]$ to $[-inf, 0]$ or $[0,inf]$ for the negative log . In information theory, the negative log of the probability is the “information content” of the random variable. It can be thought of as how surprised we should be to see a random variable take on a certain value. [information content](https://en.m.wikipedia.org/wiki/Information_content)
+
+> The connection is that this minimizes the KL divergence between model and data. And the KL divergence measures the distance between two distributions based on information theory.
+
+> "information" in information theory refers to something more specific than what you have in mind I think -- it has to do with communication in a noisy environment (it also applies to other things, but that's because this concept is so fundamental).
+>
+> Specifically, when you take the negative log likelihood of your prediction, what you're taking a point estimate of (based on your sample) is the cross-entropy of the true distribution and your model's estimate of the distribution.
+>
+> One interpretation of this quantity would be something like 'if I sent a message using an encoding scheme that yielded a probability distribution X, but you assumed it was X_hat from your model, how many bits would it take for you to decode it?'
+>
+> You can also look at the cross entropy two other ways (where p_hat is the probability of example x given the model):
+>
+> - H(X ; X_hat) = H(X) + KL(X || X_hat) -- another information theoretical perspective -- cross entropy is the entropy of X plus the KL divergence between X and X_hat from the model; get the model better and cross-entropy gets smaller
+> - log L(X | p_hat) = 1 / N \* sum(log p_hat(x)])= -H(X; X_hat) -- minimizing the cross-entropy is the same thing as maximizing the log-likelihood of the model given the dataset -- and recall the log is monotonic so this is also the same thing as making a maximum likelihood estimate
+
 ### Why sometimes we don't use evaluation metrics in the lost function?
 
 Sometimes the loss function is not the evaluation [metrics](metrics.md) we use. Most likely in classification problem, where usually we use cross-entropy in cost function, but recall, precision, etc. in evaluation metrics. Since some cost function is differentiable, and easier to optimize, while some evaluation metrics are more interpretable, meaningful but non-differentiable, or difficult to optimize. Despite sometimes they are different, they should always be closely related. So choosing a relevant pair of cost function and metric is essential. [discussion](https://stats.stackexchange.com/questions/379264/why-do-we-use-loss-functions-to-estimate-a-model-instead-of-evaluation-metrics-l) [loss function and metrics in deep learning paper](https://arxiv.org/pdf/2307.02694)

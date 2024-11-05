@@ -48,6 +48,42 @@ We are uncertain about what the true value of the parameter is, so we model it a
 
 Yes, it would. But the prior assumptions act as a regularizer, which can be seen as a way to prevent overfitting. As a side note, since the regularization term from prior distributions, Bayesian estimators are intrinsically biased. [regularization](regularization.md#a-probabilistic-interpretation-of-regularization) [discussion](https://stats.stackexchange.com/questions/265094/is-it-true-that-bayesian-methods-dont-overfit)
 
+## How to compare Bayesian models?
+
+[Cross validation with LOO](https://users.aalto.fi/~ave/CV-FAQ.html), which is the golden method for Bayesian model comparison. It usually uses [elpd](https://users.aalto.fi/~ave/CV-FAQ.html#12_What_is_the_interpretation_of_ELPD__elpd_loo__elpd_diff), which is the expected log pointwise predictive density as loss function to compare models in general as it measures the goodness of the whole predictive distribution including tails. But developer from Stan also recommend to use application specific [utility and loss functions](https://users.aalto.fi/~ave/CV-FAQ.html#32_The_utility_or_loss) which can provide information whether the predictive accuracy is good enough in practice as compared to application expertise. It is possible that one model is better than others, but still not useful for practice. [ref](https://users.aalto.fi/~ave/CV-FAQ.html#11_Can_other_utility_or_loss_functions_be_used_than_log_predictive_density)
+
+Another method would be prior predictive checks and posterior predictive checks. PPCs are an excellent tool for revising models, simplifying or expanding the current model as one examines how well it fits the data. [ref](https://www.pymc.io/projects/docs/en/stable/learn/core_notebooks/posterior_predictive.html#comparison-between-ppc-and-other-model-evaluation-methods)
+
+## Credible intervals are not unique
+
+The generalization to disconnected or multivariate sets of credible interval is called credible region. Any given probability distribution has an infinite number of credible regions of probability $\alpha$, for example:
+
+- The shortest interval, sometimes called the highest density interval (HDI), is the interval which contains the required mass such that all points within the interval have a higher probability density than points outside the interval. This interval will necessarily include the median whenever $\alpha \geq 0.5$. Besides, when the distribution is unimodal, this interval will include the mode. It is the most common credible interval because unlike equal-tailed intervals that typically exclude 2.5% from each tail of the distribution and always include the median, the HDI is not equal-tailed and therefore always includes the mode(s) of posterior distributions. While this can be useful to better represent the credibility mass of a distribution. [why 89% hdi](https://easystats.github.io/bayestestR/reference/hdi.html#details) [another blog reasoning why 85% hdi](https://easystats.github.io/bayestestR/articles/credible_interval.html#vs--95-ci)
+- The smallest region, sometimes called the highest density region (HDR). For a multimodal distribution, this is not necessarily an interval as it can be disconnected. This region will always include the mode.
+- A quantile-based interval (QBI) is computed by taking the inter-quantile interval for some quantiles, which could lead to equal-tailed interval (ETI), lowest interval, or many other QBIs.
+
+## Why not Bayesian?
+
+There are things that will reduce out of sample performance, remembering that it is the gain over non-Bayesian methods that you should be judging against not absolute performance. [ref](https://www.reddit.com/r/statistics/comments/149xnr9/has_bayesian_methodology_worked_for_you_in_real/)
+
+The first should be obvious. Using a flat prior when real prior knowledge exists is a mistake. With a flat prior, you mostly just have reinvented maximum likelihood estimation without the benefits of Frequentist statistics.
+
+Bayesian decisions minimize the average loss from having garnered a nonrepresentative sample. The prior serves to contextualize the problem. Without that context, you may be better off with a Frequentist decision, which minimizes the maximum risk.
+
+The second is forgetting that Bayesian methods are generative and not sampling based. There are two consequences for that. The first is that it will be rare for a Bayesian solution to be the best fitting line. The second is that the best Bayesian model may not match the best Frequentist model.
+
+For example, if nature is generating a time series as an autoregressive of degree one variable, the best Bayesian model once the data set is large enough should be an AR(1) model. The best Frequentist model may be an ARIMA(1,2 2) model.
+
+Nonetheless, because the Bayesian likelihood is minimally sufficient for the parameters, it shouldn’t be outperformed out of sample over infinite repetition.
+
+The third is using a Bayesian model when what you really want to do is perform null hypothesis testing. The posterior and the results of null hypothesis tests are not substitutes for each other. They are doing different things. Null hypothesis tests tend to be more conservative. There are circumstances where that is valuable.
+
+Finally, Bayesian models are optimal models. You can make them optimally fragile or optimally robust. If you are not sure you have the true generating model but behave as if you do rather than doing model selection makes you more fragile.
+
+## Why Bayesian?
+
+Bayesian models center the actual generative model very transparently. This makes building and fitting bespoke models straightforward. This does of course require you to have a decent understanding of the generative process, but that can in fact happen. Domain experts may not be able to phrase things as such, but talking to them can inform a statistician as to the structure required and reasonable choices of distributions. [ref](https://www.reddit.com/r/AskStatistics/comments/st2son/how_are_bayesian_statistics_utilized_in_realworld/)
+
 ## Recommended Readings
 
 - [機器學習中的貝氏定理：生成模型 (Generative Model) 與判別模型 (Discriminative Model)](https://taweihuang.hpd.io/2017/03/21/mlbayes/)

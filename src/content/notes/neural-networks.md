@@ -153,3 +153,4 @@ A special neural network for computing a type of nonlinear principal-component d
 - [Building a neural network FROM SCRATCH using numpy](https://www.youtube.com/watch?v=w8yWXqWQYmU)
 - [A Neural Network Playground](https://playground.tensorflow.org/)
 - [Why Neural Networks can learn (almost) anything](https://www.youtube.com/watch?v=0QczhVg5HaI)
+- [Neural Networks From Scratch](https://nnfs.io/)

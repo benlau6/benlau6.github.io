@@ -58,6 +58,20 @@ It could differentiate changes due to advertising spend, holiday effect, seasona
 
 We are a marketing agency want to optimize the marketing budget of a client, and we have the access to sales and media spend data.
 
+Some common questions that are best answered by MMM include [Robyn doc](https://facebookexperimental.github.io/Robyn/docs/analysts-guide-to-MMM/):
+
+- How much sales (online and offline) did each media channel drive?
+- What was the ROI of each marketing channel?
+- How should I allocate budget by channel so as to maximize my KPIs?
+- Where should my next marketing dollar go?
+- What is the optimal level of spend for each major marketing channel?
+- How would sales be impacted if I made X change to my marketing plan?
+- If I needed to cut my marketing budget by X%, where should the dollars come from?
+- How is performance of channels such as FB impacted by the way they are executed (e.g., buying objective, frequency, creative quality or targeting strategy used)?
+- Should we raise our prices? If so, by how much?
+- What is the impact of competitor advertising on the performance of our brands?
+- How much incremental revenue to trade and promotional activities drive?
+
 ### Some attributes from each channel or the whole campaign would be good
 
 - the target could be weekly sales
@@ -71,6 +85,11 @@ It is believed that the causal relationship between marketing and sales should b
 The carry-over effect on sales could be modeled by a geometric distribution, and the saturation effect could be modeled by a logistic function.
 
 In case of time-varying intercept, it could be modeled by a random walk, or a Gaussian process.
+
+### Actual use case
+
+- [Bayesian Marketing Mix Modeling](https://getrecast.com/bayesian-mmm/)
+- [Recast@Introduction to Bayesian Methods for MMM](https://getrecast.com/bayesian-methods-for-mmm/)
 
 ## Customer lifetime value
 
@@ -171,3 +190,7 @@ When the business goal is to correctly predicting the click-through rate, it cou
 ## Evaluation
 
 ROC curve and calibration curve is great. [Notes on classification](classification.md#evaluation)
+
+## How to get a job in marketing data science?
+
+Marketing analytics/data science can definitely be a mixed bag. You probably want to avoid any postings that mention Google/Adobe Analytics. Most of your Bayesian MMM type work will come from marketing measurement related positions, it gets called out in the JD pretty often. Large CPGs, US Tech/ecommerce, and marketing measurement firms (NeilsenIQ and the like) are good places to look. Marketing DS jobs related to performance marketing can be pretty good options as well. [ref](https://www.reddit.com/r/datascience/comments/11siza8/how_often_are_bayesian_methods_used_in_practice/)
