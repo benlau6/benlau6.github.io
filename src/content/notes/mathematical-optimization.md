@@ -13,6 +13,23 @@ A cost function or a loss function is just an objective function that wants to b
 
 Some [metrics](metrics.md) might be used as the objective function, but not all of them. Then [regularization](regularization.md) term might be added to the objective function to prevent overfitting. [Introduction to Loss Functions](https://www.datarobot.com/blog/introduction-to-loss-functions/)
 
+We could also create a custom loss function that fits the business problem. For example, we could create an asymmetric MSE loss function that penalizes overestimation more than underestimation, or a quantile loss function that penalizes underestimation at a certain quantile. [blog](https://towardsdatascience.com/custom-loss-functions-for-gradient-boosting-f79c1b40466d)
+
+Apart from custom made loss functions, there might be some predefined loss functions implemented in the libraries. For example, `tweedie`, `gamma`, `poisson` loss functions in `lightgbm` library. [doc](https://lightgbm.readthedocs.io/en/latest/Parameters.html#objective)
+
+### Distributions can be used as loss functions
+
+Doordash uses Beta distribution as the loss function of a delivery time prediction model, while Walmart uses Tweedie distribution as the loss function of a sales forecasting model. These application customized loss function bring great success. Check [Loss distributions note](distributions.md#loss-distributions) for more information.
+
+Following are some common loss distributions:
+
+- [Loss function in for gamma objective function in regression in XGBoost?](https://stats.stackexchange.com/questions/484555/loss-function-in-for-gamma-objective-function-in-regression-in-xgboost)
+- [sklearn | Mean Poisson, Gamma, and Tweedie deviances](https://scikit-learn.org/stable/modules/model_evaluation.html#mean-tweedie-deviance)
+- [Tweedie regression derivation](https://sathesant.medium.com/tweedie-loss-function-395d96883f0b)
+- [skscope | gamma regression](https://skscope.readthedocs.io/en/0.1.7/gallery/GeneralizedLinearModels/gamma-regression.html)
+- [Tweedie loss@lightGBM](https://github.com/microsoft/LightGBM/blob/1c27a15e42f0076492fcc966b9dbcf9da6042823/src/objective/regression_objective.hpp#L666)
+- [Tweedie metric@lightGBM](https://github.com/microsoft/LightGBM/blob/1c27a15e42f0076492fcc966b9dbcf9da6042823/src/metric/regression_metric.hpp#L300-L318)
+
 ### Why log probability is mostly used in loss function?
 
 > Shannon quantified information from probability by using the log function after axiomatizing the properties of information. Between others, that the function is

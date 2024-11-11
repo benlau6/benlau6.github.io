@@ -21,6 +21,10 @@ publishDate: 2024-09-20
     - [Choose the Right Option](https://www.youtube.com/watch?v=6c7pZYP_iIE)
   - `Infallible` (bottom type) uses `!`
 
+## Refactoring
+
+Rust is fantastic for refactoring, the type system with the compiler will guide you until you get it right, while other languages will not let you know that if you finish or not, and will certainly just break at runtime. Once you start refactoring, the compiler surfaces the problems early and generates a todo list for you. It is time consuming, but its correctness is guaranteed. [discussion](https://www.reddit.com/r/rust/comments/17jeezg/so_is_rust_easy_to_refactor_or_bad_to_refactor/)
+
 ## Testing
 
 - [Unit testing](https://doc.rust-lang.org/rust-by-example/testing/unit_testing.html)

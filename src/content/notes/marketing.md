@@ -10,6 +10,7 @@ There are three major models in marketing data science: survival analysis, marke
 
 ## Readings
 
+- [Byron Sharp: How Brands Grow](https://www.alexmurrell.co.uk/summaries/byron-sharp-how-brands-grow)
 - [PyMC-Marketing: A Bayesian Approach to Marketing Data Science](https://www.pymc-labs.com/blog-posts/pymc-marketing-a-bayesian-approach-to-marketing-data-science/)
 - [How-to: MMMs and CLVs notebooks](https://www.pymc-marketing.io/en/stable/notebooks/index.html)
 - [Revenue retention presentation](https://juanitorduz.github.io/html/revenue_retention_presentation.html#/title-slide)
@@ -93,6 +94,8 @@ In case of time-varying intercept, it could be modeled by a random walk, or a Ga
 
 ## Customer lifetime value
 
+There are non-contractual and contractual business. The entire section is talking about non-contractual business. Here is also an experienced data scientist talking about contractual CLV. [ref](https://www.reddit.com/r/datascience/comments/ipwt4z/question_about_predicting_customer_life_time/)
+
 While MMM maximize the mean of target variable, e.g. sales, or user signups, sometimes it is better to focus a specific group of high value customers. CLV predicts future purchases and quantify the long-term value of each customer, so it can differentiate the value of customers, and help to allocate resources to the most valuable customers. [blog](https://www.pymc-labs.com/blog-posts/pymc-marketing-a-bayesian-approach-to-marketing-data-science/#customer-lifetime-value)
 
 It build on the Buy Till You Die (BTYD) framework, which tells the story of people buying until they become inactive. A model in the BTYD family includes both repeat purchase and churn components. [blog](https://thetaclv.com/resource/how-to-model-customer-churn-for-a-subscription-business/)
@@ -101,18 +104,52 @@ PyMC-Marketing's CLV module includes a range of models, to predict future churn 
 
 It uses BG/NBD model to predict churn, and Gamma-Gamma model to predict CLV. The BG/NBD model is a latent attrition model, which assumes that all customers are active at the beginning of the observation period and that a customer can only drop out immediately following a transaction. Customers with no repeat transactions during the observation period haven't had a chance to drop out so their probability of being alive equals 1. [paper](http://brucehardie.com/papers/018/fader_et_al_mksc_05.pdf) [step-by-step derivation](http://www.brucehardie.com/notes/039/bgnbd_derivation__2019-11-06.pdf) [lifetime examples](https://lifetimes.readthedocs.io/en/latest/Quickstart.html)
 
+There are three fundamental assumptions in the BG/NBD model:
+
+- Each customer has a different purchasing rate
+- Each customer can stop being your customer at any time
+- Deactivation is both permanent and latent. That is, if a customer is inactive, it is forever inactive. And they won't explicitly tell you they've churned.
+
 In summary, what it will do is learn the mass behavior from these individual behaviors and then make a probabilistic estimation specific to the individual. After making a purchase, the customer becomes partial churn. The BG/NBD Model probabilistically models two processes for the expected number of transactions. [ref](https://medium.com/geekculture/predicting-customer-life-time-value-cltv-via-beta-geometric-negative-binominal-distribution-59be07ac30bd)
 
 1. First Process: Transaction Process (Buy)
-   - While active, transactions made by a customer in time period t is Poisson distributed with mean λt
+   - While active, the entire sequence of transactions made by a customer is modeled by a Poisson process with transaction rate λ, where each count at time t is drawn from a Poisson distribution with mean λ. [ref](https://www.reddit.com/r/statistics/comments/i9t1fq/comment/g1hn182/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button)
    - Heterogeneous transaction rate between customers follows a gamma distribution with shape r and scale α
    - Note: The gamma distribution is the conjugate prior of the Poisson distribution, combining the two gives Negative Binomial Posterior Predictive Distribution, that is the NBD.
+   - Note 2: Mean of the gamma distribution is rα, and variance is rα^2, which would be a good reference to determine the values of r and α
+   - Note 3: Mean of the Poisson distribution is λ, and variance is also λ
+   - Note 4: We can add covariates by simply multiplying $\alpha$ by $exp(-X\beta)$. This might be relevant to [link functions in glm](generalized-linear-models.md#link-functions)
 2. Second Process : Dropout process (Till You Die) → process of becoming churn
    - Each customer becomes inactive after each transaction with probability p
+   - That is, the number of transactions made by a customer before becoming inactive follows a geometric distribution with dropout probability p
    - Heterogeneous p follows a beta distribution with shape parameters a and b
-   - The number of transactions made by a customer before becoming inactive follows a geometric distribution
+   - Note: Mean of the beta distribution is a/(a+b), and variance is ab/((a+b)^2(a+b+1)), which would be a good reference to determine the values of a and b
+   - Note 2: We can add covariates by simply multiplying a by $exp(X\beta_1)$ and multiplying b by $exp(X\beta_2)$
+3. (Optional) Third Process: Monetary Value [ref](https://juanitorduz.github.io/gamma_gamma_pymc/)
+   - Assumptions:
+     - The monetary value of a customer’s given transaction varies randomly around their average transaction value.
+     - Average transaction values vary across customers but do not vary over time for any given individual.
+     - The distribution of average transaction values across customers is independent of the transaction process.
+   - Customer monetary value per transaction follows a gamma distribution with shape parameter p and scale parameter v
+   - The scale parameter v of the former gamma distribution also follows a gamma distribution with shape parameter q and scale parameter $\gamma$
+   - All the other parameters except v could be modeled by a half normal distribution with educated guess of the variances
+   - Note: We can add covariates by simply multiplying v by $exp(-X\beta)$, i.e. similar as the treatment at transaction process.
+   - Fun facts:
+     - The total spend across x transactions of any customer is also gamma distributed with px, v due to the convolution property
+     - The average spend across x transactions and all customer is also gamma distributed with px, vx due to scaling property
 
-Here is also a experienced data scientist talking about contractual CLV [ref](https://www.reddit.com/r/datascience/comments/ipwt4z/question_about_predicting_customer_life_time/).
+Note that these models are applicable for any processes that involve "transactions". It can in fact be used to model any phenomenon that involves different "users" making repeated "transactions" and predict how many future transactions will be made by those users if they are still "active". That is, transactions do not have to be purchases, it could be any event of interest, e.g. user logins. Monetary values do not have to be the actual money, it could be any value of interest associated with the event, e.g. user session duration. For example: [ref](https://www.aliz.ai/en/blog/part-1-customer-lifetime-value-estimation-via-probabilistic-modeling)
+
+- Predicting the future usage frequency of a mobile app by analyzing users' usage history.
+- Predicting if your website users will return to your website.
+- Predicting if your distant relative who used to call you periodically is still alive, literally, by analyzing their call pattern.
+- Predicting if your Tinder dates have become disinterested in you by looking at their texting frequency.
+
+### Resources
+
+- [Part 1: Customer lifetime value estimation via probabilistic modeling](https://www.aliz.ai/en/blog/part-1-customer-lifetime-value-estimation-via-probabilistic-modeling) - CLV = expected number of transactions \* expected profit, while former could be modeled by BG/NBD model, and the latter could be modeled by Gamma-Gamma model. Theoretical derivation is also given.
+- [Part 2: Modeling Customer Lifetime Values with lifetimes](https://www.aliz.ai/en/blog/part-2-modeling-customer-lifetime-values-with-lifetimes)
+- [Part 3: Bayesian Customer Lifetime Values Modeling using PyMC3](https://www.aliz.ai/en/blog/part-3-bayesian-customer-lifetime-values-modeling-using-pymc3)
 
 ### CLV will give your answers to questions such assumes
 
@@ -131,7 +168,7 @@ Here is also a experienced data scientist talking about contractual CLV [ref](ht
 
 - The target variable could be expected number of transaction \* expected profit
 - frequency: number of repeated purchases
-- recency: time duration between first and last purchase
+- recency: time duration between first and last purchase, note that it is not the time between last purchase and now, which often confuse people. This version considers length, which is known as the LRFM model, was introduced as an improved version of the RFM model to identify more relevant and exact consumer groups for profit maximization. [paper1](http://dx.doi.org/10.1016/j.eswa.2011.11.066) [paper2](https://doi.org/10.1371/journal.pone.0279262) [discussion](https://github.com/CamDavidsonPilon/lifetimes/issues/264)
 - first purchase: time duration between first purchase and the present
 - number of repeated purchases
 - monetary value: average purchase value
@@ -190,6 +227,14 @@ When the business goal is to correctly predicting the click-through rate, it cou
 ## Evaluation
 
 ROC curve and calibration curve is great. [Notes on classification](classification.md#evaluation)
+
+## Customer Decision Tree (CDT)
+
+Often called CDT (short for Customer Decision Tree), the Customer Decision Tree is the visual translation, in product groups and segments, of the successive logical questions a shopper is asking herself when buying a product in a category. [HPT PEDIA](https://hptpedia.hyper-trade.com/customer-decision-tree/)
+
+It is good for assortment optimization. [McKinsey & Company | Analytical assortment optimization](https://www.mckinsey.com/~/media/mckinsey/industries/retail/how%20we%20help%20clients/big%20data%20and%20advanced%20analytics/mck_retail_analytics_brochure_v10.pdf)
+
+Without an actual implementation given, it is hard to say how industries model it. But I assume it could be done by [hierarchical clustering](clustering.md#hierarchical-clustering) on the product features.
 
 ## How to get a job in marketing data science?
 

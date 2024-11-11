@@ -34,9 +34,11 @@ publishDate: 2024-09-23
 
 The three different uses of $r_d(x)$ raise different inferential questions. Prediction use calls for estimates of prediction error. For estimation, the accuracy of $r_d(x)$ as a function of x, perhaps in standard deviation terms, $sd(x) = sd(\hat{y}|x)$, would tell how closely $\hat{S}$ approximates S. Explanation requires more elaborate inferential tools, saying for example which of the regression coefficients $\alpha_i$ can safely be set to zero. [book](https://www.amazon.com/Computer-Age-Statistical-Inference-Mathematical/dp/1107149894)
 
-## Variable modeling
+## Distributional modeling
 
-- [Distribution modeling](distributions.md#popular-choice-of-modeling)
+- [Distributional modeling note](distributions.md#popular-choice-of-modeling)
+-
+- [LightGBMLSS | Distributional modeling](https://statmixedml.github.io/LightGBMLSS/dgbm/)
 
 ## Structural modeling
 
@@ -66,7 +68,11 @@ The differences could be summarized in terms of assumptions:
 
 - Frequentist: It assumes asymptotic properties, which cares the correctness of the procedures or experiments in the long run, and the true parameters are fixed. While a specific procedure is chosen, more strict assumptions from that model are made, e.g. z-test assumes the population variance is known, or the sampling distribution follows a normal distribution, i.e. the [central limit theorem](central-limit-theorem.md) holds, while t-test also assumes normality, iid, and homogeneity of variances, details are explained in [t-test violations](https://www.quality-control-plan.com/StatGuide/ttest_unpaired_ass_viol.htm). The assumptions are so strict that, if there are any irregularity, e.g. missing data, outliers, measurement errors, such noisy data environment can be achallenge to apply traditional methods that rely solely upon data to draw the conclusions. [why bayes](https://www.pymc-labs.com/blog-posts/pymc-marketing-a-bayesian-approach-to-marketing-data-science/#why-bayesian)
 - Bayesian: It assumes prior distributions, and the parameters are random that we are uncertain about the parameters of the model. With the prior assumptions, it allows to model small sample data, e.g. new products, or rare events, with certainty. It also allows for modeling complex data through hierarchical modeling, because the priors can be served as building blocks. Community support would be a great plus practically. Somehow the open source environment in Bayesian modeling is quite active, many cases could be studied, and many questions could be answered.
-- Machine learning: It assumes the samples collected can reconstruct the data generating process which represents the true distribution of population. It also assumes that the hypothesis suggested can represent of the data generating process, and [it can be learned](/bias-and-variance-tradeoff.md#if-neural-networks-are-so-flexible-why-they-dont-always-work), with given data and computational resources.
+- Machine learning: It assumes the samples collected can reconstruct the data generating process which represents the true distribution of population. It also assumes that the hypothesis suggested can represent of the data generating process, and [it can be learned](bias-and-variance-tradeoff.md#if-neural-networks-are-so-flexible-why-they-dont-always-work), with given data and computational resources.
+
+## Why inflation forecasting is difficult
+
+[discussion](https://www.reddit.com/r/datascience/comments/1gmijk9/need_some_help_with_inflation_forecasting/)
 
 ### Readings
 

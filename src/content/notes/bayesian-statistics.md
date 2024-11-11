@@ -84,8 +84,14 @@ Finally, Bayesian models are optimal models. You can make them optimally fragile
 
 Bayesian models center the actual generative model very transparently. This makes building and fitting bespoke models straightforward. This does of course require you to have a decent understanding of the generative process, but that can in fact happen. Domain experts may not be able to phrase things as such, but talking to them can inform a statistician as to the structure required and reasonable choices of distributions. [ref](https://www.reddit.com/r/AskStatistics/comments/st2son/how_are_bayesian_statistics_utilized_in_realworld/)
 
+## Facebook uses Bayesian a lot
+
+- [Facebook’s Prophet uses Stan](https://statmodeling.stat.columbia.edu/2017/03/01/facebooks-prophet-uses-stan/)
+- [Bayesian Bandits: Behind the scenes of Facebook’s spend allocation decisioning](https://mobiledevmemo.com/bayesian-bandits-behind-the-scenes-of-facebooks-spend-allocation-decisioning/)
+
 ## Recommended Readings
 
+- [Bayesian Statistics : A/B Testing, Thompson sampling of multi-armed bandits, Recommendation Engines and more from Big Consulting](https://franciscormendes.github.io/2024/07/19/bayesian-statistics/)
 - [機器學習中的貝氏定理：生成模型 (Generative Model) 與判別模型 (Discriminative Model)](https://taweihuang.hpd.io/2017/03/21/mlbayes/)
 - [Andrew Heiss Bayes Blog](https://www.andrewheiss.com/blog/)
 - [posterior cheat sheet](https://www.andrewheiss.com/blog/2022/09/26/guide-visualizing-types-posteriors/images/posterior-predictions-cheat-sheet_v2-0.pdf)

@@ -14,6 +14,11 @@ updatedDate: 2024-10-17
 - [Bandits for Recommender Systems](https://eugeneyan.com/writing/bandits/)
 - [Lecture 41 — Overview of Recommender Systems | Stanford University](https://www.youtube.com/watch?v=1JRrCEgiyHM&list=PLLssT5z_DsK9JDLcT8T62VtzwyW9LNepV&index=43)
 - [21. Recommender Systems | d2l.ai](https://d2l.ai/chapter_recommender-systems/index.html)
+- [Deep Learning for Recommender Systems (Nick Pentreath)](https://www.youtube.com/watch?v=y_TzOOCJqxI)
+
+## Cast Studies
+
+- [Machine Learning for Better User-Experience: A Reddit Case Study](https://www.youtube.com/watch?v=8ekhcN3hL3g): Removing posts that users have already seen, Boosting subreddits that users have interacted with previously, etc. Aim go maximize interaction rate, likelihood to comment, time on subreddit, etc. It uses simple linear regression model at the end and have a great success.
 
 ## User journey
 
@@ -70,7 +75,7 @@ In small sample size, we could first classify users into groups, then calculate 
 
 ## Collaborative filtering
 
-Recommend items based on the similarity of the users who have interacted with the items, aka training on embeddings. In this framework, we don't need user profiles or item profiles, we only need the user-item interaction matrix. The interactions could be explicit, e.g. ratings, or implicit, e.g. clicks, views, etc. But it suffers from the cold start problem that a new user or a new item has no interaction history.
+The idea is to use the wisdom of the crowd to recommend items. Recommend items based on the similarity of the users who have interacted with the items, aka training on embeddings. In this framework, we don't need user profiles or item profiles, we only need the user-item interaction matrix. The interactions could be explicit, e.g. ratings, or implicit, e.g. clicks, views, etc. But it suffers from the cold start problem that a new user or a new item has no interaction history.
 
 For example, if user A is similar to user B and user B likes a certain video, then this video is recommended to user A.
 

@@ -116,3 +116,13 @@ Similar procedures can be applied to other exponential family distributions, suc
 ## Let's say I get a posterior distribution by imposing conjugate prior to the likelihood function, how to update it?
 
 We could just update the parameters of the prior distribution by using the parameters from posterior distribution, i.e. use the posterior distributions as the prior distributions for the next inference, especially if conjugate priors are being used. [pymc updating priors](https://www.pymc.io/projects/examples/en/latest/howto/updating_priors.html)
+
+## It plays a great role in online learning
+
+The latency of online learning has to be quick. Conjugate priors give the corresponding posteriors in closed form which provide tractability that lead to instantaneous update. [Thompson sampling](multi-armed-bandit.md#thompson-sampling) is one of the example.
+
+However, sometimes it would be more efficient and without losing much accuracy to update the model daily instead of updating it every time a new data point comes in. This way, we can use any inference method to update the model.
+
+## But what if conjugate priors cannot be used?
+
+[Other Bayesian inference methods](bayesian-inference.md) could help, such as Laplace approximation, MCMC, Variational inference.

@@ -11,7 +11,7 @@ It usually happens in classification, e.g. fraud detection, spam filtering, dise
 
 Following are some techniques to handle imbalanced data:
 
-- Customize the cost function to make predicting the minority class wrong much more costly
+- Customize the cost function to make predicting the minority class wrong much more costly, e.g. putting more weight on the minority class while using cross-entropy loss
 - Use the right evaluation metrics
 - Use K-fold cross-validation correctly, i.e. stratified K-fold, which distributes the classes evenly in each fold
 - Resampling, which includes oversampling, undersampling, and SMOTE

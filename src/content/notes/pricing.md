@@ -5,7 +5,134 @@ publishDate: 2024-10-18
 
 # Pricing
 
-Pricing, aka price optimization, is complicated because of non-linear price elasticity and other potential confounders, which are usually unmeasured. This topic could be seen as a [causal inference](causal-inference.md) problem, where you want to know the effect of price on demand, while controlling for other confounders, such that you can optimize the price.
+Pricing, aka price optimization, is complicated because of non-linear price elasticity and other potential confounders, which are usually unmeasured. This topic could be seen as a [causal inference](causal-inference.md) problem, where you want to know the effect of price on demand, while controlling for other confounders, such that you can optimize the price. [EconML case stuides](https://github.com/py-why/EconML/blob/main/notebooks/CustomerScenarios/Case%20Study%20-%20Customer%20Segmentation%20at%20An%20Online%20Media%20Company.ipynb)
+
+Other than that, it could more be seen as a econometric problem or psychological problem. If we really want to approach it in statistical sense, we should first model it using the simplest log-log linear regression model such as GLM to estimate the price elasticity of demand, with a acknowledgement that there might be a large room to improve [ref](https://www.reddit.com/r/analytics/comments/l9itrx/comment/glifkkv/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button). Note that Conjoint analysis, Van Westendorp's Price Sensitivity Meter or Gabor–Granger method from market research might also be a good direction. [ref](https://www.reddit.com/r/datascience/comments/147qx9o/resourcesmodels_on_price_elasticity/) [forbes](https://www.forbes.com/sites/rebeccasadwick/2020/06/22/how-to-price-products/)
+
+## Parties
+
+- Buyers (customers, consumers, clients) - It’s crucial to know what matters to them, and what influences them to trade up or come back. The goal for B2C pricing is to understand purchasing behavior and preferences, and use that insight to inform pricing.
+- Sellers
+  - Competitors
+- Offers - B2B pricing is all about communicating—and monetizing—the value of your offerings.
+
+## Service Business models
+
+- One-time purchase
+- Subscription fees
+- Freemium - free basic services, but charge for premium features
+- Advertising fees
+- Commission fees
+- Transaction fees
+
+## Price discrimination
+
+Price discrimination is selling the same product or service to different buyers at different prices—as long as companies can justify it. The challenge for business leaders who want to vary prices fairly is that individuals’ perceptions of what is fair are numerous, nuanced, and often contradictory. Whether individuals perceive a price to be fair will depend on the product or service category, their age, where they live, what they earn, their political beliefs, and who the customer is (themselves or someone else).
+
+### Fair price
+
+[BCG@Solving the Paradox of Fair Prices](https://www.bcg.com/publications/2022/considering-pricing-variation-to-help-solve-the-paradox-of-fair-prices)
+
+For most people, a fair price is a price others pay for a good or service. At the same time, most people also consider giving a lower price to certain groups—such as seniors, students, or low-wage earners—to be fair. It is the paradox of fair prices. Charging different prices is often fairer than charging everyone the same price.
+
+Most people will also tolerate price discrimination that works against their self-interest. This holds true when they feel they have some control over the prices they pay, such as by choosing where to buy, when to buy, or whether to join a certain organization. Rob them of this perceived control, however, and they may vehemently resist higher prices. Coca-Cola once proposed the idea of varying prices at vending machines according to changes in the air temperature on hot days. It scrapped the plan after encountering widespread resistance. The temperature is a condition that customers can’t control.
+
+### Progressive pricing
+
+[BCG@Why Progressive Pricing Is Becoming a Competitive Necessity]
+
+Imagine if your company could measure, customize, and charge for—in real time—the value your products or services create for each customer. Seized to its fullest extent, such an opportunity would enable you to provide more value to more customers and still earn more money.
+
+Progressive pricing is turning that idea into reality, one that more sensibly aligns with today’s digital products and services than traditional industrial-era pricing models could ever do. This innovative approach—already embedded in the sharing economy and in other sectors such as financial services—scales prices up or down on the basis of the value an individual customer derives.
+
+The levels of prices under progressive pricing are value-based, not means-based. Think of the price that a customer pays as an investment in a desired level of value. Each paying customer receives a proportional return on that investment. The prices align properly to value without penalizing customers—by denying access to some customers because of an artificially high price barrier or by charging some customers their maximum willingness to pay while others enjoy a big surplus (the difference between the value they derive and the price they pay).
+
+Firms now can and do differentiate their products and services by individual customer and differentiate their prices accordingly. Progressive pricing enables that differentiation by pushing the logic of discrete price points to its practical limit, offering each customer a fair, personalized product and price point.
+
+What makes this possible are the properties of digital economics, built on the idea that added value is customizable at zero marginal cost. Instead of optimizing a small number of price points, the firm optimizes a continuum of prices. The key element is a value-sharing algorithm that dynamically sets prices specific to the value an individual customer derives based on time, location, and occasion.
+
+Ride-sharing companies already use a version of such pricing in their day-to-day operations. For example, at the end of a concert or sports event, when hundreds of customers are requesting pickups at the same time at the same location, the cost of a ride goes up in line with that demand. Customers who group together, walk to a different location, or wait even half an hour to request a ride will likely see the price change based on how those conditions changed. But this kind of pricing logic is not unique to ride-sharing. China’s Meituan Dianping, which operates the world’s largest on-demand food delivery service, used its “proprietary real-time intelligent dispatch system” to make more than 14 million food deliveries per day in an average time of 30 minutes. When a surge occurs, Meituan offers its drivers higher commissions to ensure there is enough capacity to keep the service running.
+
+The exhibit reveals the four most important differences between progressive and traditional pricing approaches:
+
+- Market expansion
+- More consumer surplus
+- More profit
+- A renewed sense of fairness - Progressive pricing is a fairer way to determine prices, because customers pay a price proportional to the value they receive, rather than paying the same fixed price others pay. But the firm must make the case for this perceived fairness. Google AdWords has done an excellent job of that by using an auction system where advertisers bid on keywords to get their ads placed in Google search results. The advertisers effectively set the prices.
+
+### Consumer price sensitivity
+
+[BCG@Understanding the Global Price-Sensitive Consumer](https://www.bcg.com/publications/2021/consumer-price-sensitivity)
+
+- The ratio of price-sensitive consumers differs substantially across categories and markets.
+- Most consumers indicate they are value conscious, but far fewer are price sensitive.
+- Context is a substantial driver of price sensitivity.
+
+## Extrapolation problem
+
+There would be not much data in terms of completed transactions in price variants. Those completed transactions are the results of agreed prices. Those dissatisfied price associated with products or services would not be recorded in completed transactions because there is no deal. So it is inherently imbalanced. If we want to find the optimal price, the historical data would be sparse and insufficient.
+
+## Exploration and exploitation
+
+One way to solve it is to frame it as a reinforcement learning problem to explore the action space while minimizing the regrets, such as multi-armed bandit to solve the extrapolation problem in pricing with exploration and exploitation trade-off. In its simplest form, just do a market experiment with a small group of customers, and then use the result to optimize the price. [Ferreira, 2016](https://www.hbs.edu/ris/Publication%20Files/kris%20Analytics%20for%20an%20Online%20Retailer_6ef5f3e6-48e7-4923-a2d4-607d3a3d943c.pdf) [The New Frontier of Price Optimization](https://sloanreview.mit.edu/article/the-new-frontier-of-price-optimization/) [Jacob, 2017](https://www.gsb.stanford.edu/sites/gsb/files/mkt_10_17_misra.pdf) [Game Theory Models of Pricing](https://www.google.com/search?client=firefox-b-d&q=Game+Theory+Models+of+Pricing) [BCG@The Unified Theory of Pricing](https://www.bcg.com/publications/2023/the-unified-theory-of-pricing)
+
+## Non-completed transactions
+
+Another way is to utilize non-completed transactions or interactions, which could be reviewed to identify interests of customers with hesitation to purchase, which might be due to the price. If it is a online settings, some pattern tracking could be used to identify it. For example, if there is a interaction sequence that the customer added the product to the cart, but then replaced it with a cheaper product, it is a strong signal that the original product might be sold with a lower price.
+
+## Life and non-life business
+
+Pricing is completely different from life to non-life business. Most of the time it is a bit out of the scope of the purely statistician job in life business because the time span would be tens of years which involves financial and actuarial aspects. While non-life business would be far more interesting from a statistical perspective that we could have much more data and features to play with, and with a much shorter time span. The price would solely depend on these characteristics instead of other external uncertainties. The industry standard in non-life business would be [GLM](generalized-linear-models.md), but some companies are switching to neural networks. [ref](https://www.reddit.com/r/datascience/comments/13bwhkv/comment/jjdrzqr/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button)
+
+## Pricing strategies
+
+Must read [BCG@The Unified Theory of Pricing](https://www.bcg.com/publications/2023/the-unified-theory-of-pricing)
+
+The academic and business literature is vague about what constitutes a pricing strategy. Business leaders therefore tend to describe their pricing strategies in terms of:
+
+- Pricing models
+  - discounts
+  - subscriptions
+- Pricing methods
+  - value-based
+  - cost-plus
+  - customizing to win
+
+But BCG redefine pricing strategy as a business leader’s conscious decisions on how to shape their market by determining the amount of money available, how that money flows, and to whom. This definition of pricing strategy recognizes the fact that the size of any market—-and especially how that pie gets divvied up—is the direct result of the countless pricing decisions that companies and customers make every day. This new definition expands the pricing conversation beyond the quest for better price points and enables pricing to inform and determine corporate strategy.
+
+Developing the unified theory of pricing starts with cost, competition, and customer value, which are the three fundamental information sources for the development of any business strategy.
+
+The traditional pricing perspective, however, treats these information sources as inputs into price calculations. From this tactical perspective, customer value sets a price ceiling or a maximum price, while costs define the floor or the minimum price. To calibrate the range in between, leaders take competitor prices into account before deciding on the price they will charge for a product or service.
+
+But costs, competitor prices, and customer value can generate important and more powerful strategic insights when leaders look at their interactions rather than how they behave in isolation. Cost and customer value lead to price elasticity, customer value and competitor prices lead to price differentiation, while costs and competitor prices lead to game theory. Combining all three interactions leads to supply and demand. A market’s supply curve is based on the costs, capacities, and prices of every competitor, while the demand curve is a function of either the aggregated willingness to pay of individual customers or the value that those customers derive.
+
+### The Strategic Pricing Hexagon
+
+Most markets fit very well to one of the games, but some may fit to more than one game. This is not a flaw, but rather an opportunity for leaders to decide which game to play, depending on their competitive advantages.
+
+- Value Game - high-tech, luxury goods, and pharmaceutical companies. The goal is to defend their values and shape demands from unique solutions. A value-based pricing approach is most helpful in this context when an offering’s economic and emotional value far exceeds what competitors offer and when the buyers are so numerous and fragmented that no individual customer or group holds significant purchasing power.
+- Uniform Game - consumer goods companies and retailers. The goal is to optimize the same prices for all customers by carefully weighing the volume and margin tradeoffs. The price elasticity framework is the best approach when markets have a very large number of buyers with relatively homogeneous needs, served by numerous and comparable sellers.
+- Cost Game - industrial suppliers, distributors, and government contractors. The goal is to optimize the efficiency by minimizing the cost. The cost-plus pricing approach is most helpful.
+- Power Game - high-tech suppliers. Rely on slim advantages to negotiate high-stakes deals that preserve the market's balance of power. Game theory would be the best approach when a market is concentrated on both the buyer and seller sides and offers show limited differentiation, often because buyers impose technical standards that only a few sophisticated sellers can fulfill.
+- Custom Game - B2B suppliers. Win by customizing offerings to meet the unique needs of individual customers amidst heavy competition. The negotiated terms, conditions, and supplemental offerings make each deal unique, even when the underlying products from each supplier seem similar. Pricing to competition is the recommended approach when market characteristics prevent a convergence toward large customer segments, common price structures, and similar product configurations.
+- Choice Game - software suppliers and some restaurant chains. Rely on behavioral economics to help their customers self-select from a well-structured lineup of offerings. How prices compare to each other matters far more than the individual prices themselves. Price differentiation is especially important when offers have limited or no marginal costs.
+- Dynamic Game - airlines, hotels, sports teams, e-commerce retailers, and logistics firms. Rely on real time adjustments in response to supply and demand signals. This need can arise when a company has adjustable capacity, perishable inventory of relatively undifferentiated products, or constantly fluctuating demand from a broad base of customers. The AI with the aid of human judgment approach is the best approach.
+
+The Strategy Hex also prevents leaders from acting on incomplete information, falling prey to pricing misconceptions, or applying frameworks or techniques that are ineffective or inefficient for a particular game. Elasticity, for example, is a core framework for the Uniform Game, but it is significantly less important for business leaders playing the Power, Custom, or Choice Games.
+
+Each game is also subject to six well-defined forces—innovation, commoditization, customization, digitalization, fragmentation, and concentration—that can cause a market or company to shift toward a different part of the Strategy Hex.
+
+Business leaders can harness these forces to help their companies reshape their business and their market. Digitalization, for example, tends to reduce marginal costs and allow a broader set of offers, thus pushing companies toward the Choice Game. Developing an innovative solution can enable a company to move from the Cost Game to the Value Game or Choice Game, depending on their existing market characteristics. Rapid consolidation in a market on the buyer or seller side can confront a company with a fundamental strategic decision: reorganize to play the Power Game or make another move that will allow them to enter another game.
+
+Read the blog post for more hexagons and solutions.
+
+## Factors
+
+- Cost of production should be the lower bound of the price, unless it is a startup, a new product, or a new service to a new market, which you may want to acquire customers first even with a loss, like Keeta, Uber, etc. You can always raise the price later when you have a large customer base.
+- Inventory, due to the cost of storage, cash flow, or perishable goods like food or fashions
+- Demand, due to price elasticity of demand
+- Competition, due to cross price elasticity of demand
+- Macro-economic factors, such as inflation, interest rate, etc, people would have less money to spend, or hesitate to spend money on unnecessary goods or services if the inflation is high, or the interest rate is high, which would affect the demand
 
 ## Terms
 

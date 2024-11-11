@@ -33,17 +33,23 @@ A 2-element feature vector is enough to provide a unique mapping for a vocabular
 
 However, modern machine learning algorithms don't require their inputs to be linearly independent, and use methods such as L1 regularization to prune redundant inputs. Moreover, the additional degree of freedom allows the framework to transparently handle a missing input or any unknown vocabularies in production as all zeros (Lakshmanan, 2020). Therefore, many machine learning frameworks often support only one-hot encoding.
 
+Note that if we use linear regression, we should avoid one-hot encoding because it would introduce multicollinearity, which would make the model unstable.
+
+## Think twice before applying log transformation
+
+For 1 though you don’t just log transform just cause the histogram is skewed. Its about the conditional distribution for Y|X, not the marginal.
+
+And for the Xs in a regression its not even about the distribution at all, its about linearity/functional form. Its perfectly possible for X ro be non-normal but linearly related to Y or normal but nonlinearly related and then you may consider transforming (by something, not necessarily log but that’s one) to make it linear. [discussion](https://www.reddit.com/r/datascience/comments/vceaxx/comment/icdzjlh/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button)
+
 ## Common techniques
 
+- Feature crosses: combine two or more features to create a new feature, which is useful for capturing interactions between features.
 - Bucketing through histogram equalization: create bins based on quantiles, which would usually guarantee to create uniform distribution, except for repeated values in quantiles. After that, we removed the skewness and therefore can be applied scaling methods.
 - Cyclical features: convert cyclical features, e.g. time, day of the week, month, to sine and cosine functions, so that the distance at the boundary is close to 0, i.e. Monday is close to Sunday. However, it is not necessary for tree-based models since they only consider a single feature at a time.
-- Fourier transformation: convert a time series data to frequency domain, which is useful for detecting periodic patterns, e.g. seasonality, and it is useful for forecasting. [ref](https://www.analyticsvidhya.com/blog/2024/01/xgboost-for-time-series-forecasting/)
 - Aggregation: We can group a noisy feature, e.g. rare or sparse, by bin, or group a noisy feature by another categorical feature, such that the aggregated feature is stable and less noisy.
-- Differencing: it is useful in [forecasting](forecasting.md) when the data is non-stationary, i.e. the mean, variance, and covariance are not constant over time. By taking the difference between the current value and the previous value, it removes the trend and makes the data stationary. [ref](https://people.duke.edu/~rnau/411diff.htm) Apart from that, we can use model differencing, e.g. remove a fitted linear trend, seasonality, or other patterns.
-- Linearization of exponential growth and inflation: commonly in forecasting, by taking logarithm of a variable, it would converts the exponential growth pattern to a linear growth pattern, and it simultaneously converts the multiplicative (proportional-variance) seasonal pattern to additive (constant-variance) seasonal pattern. So it straightens out exponential growth patterns and reduces heteroscedasticity (i.e., stabilizes variance), but it does not eliminate an upward trend in the data. Moreover, it avoid the need of [deflating](https://people.duke.edu/~rnau/411infla.htm) in monetary value. In this setting, trend measured in natural-log units ≈ percentage growth, errors measured in natural-log units ≈ percentage errors, and coefficients in log-log regressions ≈ proportional percentage changes. [ref](https://people.duke.edu/~rnau/411log.htm) [discussion](https://stats.stackexchange.com/questions/244199/why-is-it-that-natural-log-changes-are-percentage-changes-what-is-about-logs-th)
 - Log transformation on skewed data: it is useful when the data is right-skewed, i.e. the right tail is longer than the left tail.
 - Log transformation on small changes: small changes in the natural log of a variable are directly interpretable as percentage changes, to a very close approximation, i.e. $log(1+r) \approx r$. [ref](https://people.duke.edu/~rnau/411log.htm)
-- Lagged features: if it is assumed that a change in X causes a change in Y, we can model this by using both lagged x and current x as features, and then trees-based models would find the interaction term for us, or we could assign a delta x variable one of the covariates manually. It is a common practice for time series forecasting. [ref](https://scikit-learn.org/1.5/auto_examples/applications/plot_time_series_lagged_features.html)
+- [forecasting feature engineering](forecasting.md#feature-engineering)
 
 ## Why normalization?
 

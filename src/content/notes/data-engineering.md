@@ -1,9 +1,20 @@
 ---
-title: Data Processing
+title: Data Engineering
 publishDate: 2024-11-01
 ---
 
-# Data Processing
+# Data Engineering
+
+## Related Notes
+
+- [Data Processing Optimization](data-processing-optimization.md)
+
+## Resources
+
+- [DataTalksClub/data-engineering-zoomcamp](https://github.com/DataTalksClub/data-engineering-zoomcamp) - end-to-end hands-on project
+- [data-engineer-handbook@github](https://github.com/DataExpert-io/data-engineer-handbook)
+- [Data Engineering Course for Beginners](https://www.youtube.com/watch?v=PHsC_t0j1dU) - teach dbt and airflow.
+- [How Data Engineering Works](https://www.youtube.com/watch?v=qWru-b6m030)
 
 ## ETL vs ELT
 
@@ -46,6 +57,19 @@ ELT has fewer systems than ETL, as all transformations occur within the target d
 
 [How tf do you even get experience with Snowflake , dbt, databricks.](https://www.reddit.com/r/dataengineering/comments/1fipc2a/how_tf_do_you_even_get_experience_with_snowflake/)
 
+## Certifications
+
+- AWS Certified Big Data - Specialty: $300
+- AWS Certified Data Engineer - Associate: $150
+- AWS Certified Machine Learning Engineer - Associate: $150
+- GCP Professional Data Engineer Certification: $200
+- SnowPro Core Certification
+  - snowflake university
+  - udemy Ultimate SnowPro Core Certification Course & Exam
+  - SkillCertPro for preparation
+- Databricks lakehouse fundamentals
+- Databricks Certified Data Engineer Associate: $200
+
 ## Data lake vs Data warehouse
 
 A Data Warehouse would traditionally run on a database. A database offers both compute and storage. A data lake typically runs on blob storage and does not offer compute.
@@ -56,7 +80,7 @@ A data warehouse can be built on anything really, even CSV files if you want to 
 
 A data lake is also not something physical. A data lake is a term that is used to describe a place where you can store many different types of data, at scale in a distributed and redundant way. These days, data lakes are typically built on blob storage - S3, Azure blob storage etc.
 
-[data warehouses](/data-warehouses.md)
+[data warehouses](data-warehouses.md)
 
 ## S3 as a NoSQL database
 
@@ -169,7 +193,7 @@ You've described a classic ETL process where data is extracted from source syste
 >
 > e.g 2Gb worth of data being transformed on Python using pandas probably won’t be too much hassle. You go up to 20gb and depending on your machine you’ve got problems now you need to switch to polars or something and the syntax of transforms changes annoyingly because it’s not all identical.
 >
-> Meanwhile 2Gb of data on [duckdb](/duckdb.md) or any other database is fine, 20gb is fine again without changing your sql. If your data gets too big to be handled on a laptop you’ve got other solutions like cloud warehouses or dbt or whatever but your sql remains the same wherever you go. [discussion](https://www.reddit.com/r/dataengineering/comments/1enhqlb/where_should_data_build_tool_dbt_be_used_and_why/)
+> Meanwhile 2Gb of data on [duckdb](duckdb.md) or any other database is fine, 20gb is fine again without changing your sql. If your data gets too big to be handled on a laptop you’ve got other solutions like cloud warehouses or dbt or whatever but your sql remains the same wherever you go. [discussion](https://www.reddit.com/r/dataengineering/comments/1enhqlb/where_should_data_build_tool_dbt_be_used_and_why/)
 >
 > The issue is that you would have to spin up a node with sufficient memory to manipulate the data if done in Python with pandas or polars. With dbt the existing infrastructure from data warehouse takes care of this.
 
@@ -226,12 +250,3 @@ Spark is more efficient and cost effective, but it needs programming skills. It 
 > DBT is mostly run alongside a DWH like Snowflake which is the one who does the compute for you which also has an opaque policy for pricing and makes it very easy to rack up bills with running everything on a large warehouse (mostly analysts are not concerned with the performance of their queries)
 >
 > Someone else: not really true causality here; dbt can be run on a spark engine like deltalake or emr. in addition, one can write dbt logic in "incremental" fashion to reduce costs.
-
-## Related Notes
-
-- [Data Processing Optimization](data-processing-optimization.md)
-
-## Readings
-
-- [Data Engineering Course for Beginners](https://www.youtube.com/watch?v=PHsC_t0j1dU) - teach dbt and airflow.
-- [How Data Engineering Works](https://www.youtube.com/watch?v=qWru-b6m030)

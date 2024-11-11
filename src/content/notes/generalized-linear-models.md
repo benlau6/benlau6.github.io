@@ -31,6 +31,25 @@ The choice of the distribution can be referred to the [distributions](distributi
 2. **Distribution function**: It models the conditional distribution of the response variable given the predictors.
 3. **Variance function**: It models the variance of the response variable given the predictors.
 
+## Link functions
+
+It links the expectation of target distribution conditional on covariates such that $E(Y|X) = \mu = g^{-1}(X\beta)$. There are some common distributions with typical uses and canonical link function: [table](https://en.wikipedia.org/wiki/Generalized_linear_model#Link_function)
+
+- Identity: Normal
+- Negative inverse: Gamma, exponential
+- Log: Poisson
+- Logit: Bernoulli, Binomial, Categorical, Multinomial
+
+In the cases of the exponential and gamma distributions, the domain of the canonical link function is not the same as the permitted range of the mean. In particular, the linear predictor may be positive, which would give an impossible negative mean. When maximizing the likelihood, precautions must be taken to avoid this. An alternative is to use a noncanonical link function.
+
+In the case of the Bernoulli, binomial, categorical and multinomial distributions, the support of the distributions is not the same type of data as the parameter being predicted. In all of these cases, the predicted parameter is one or more probabilities, i.e. real numbers in the range $[0,1]$. The resulting model is known as logistic regression or multinomial logistic regression.
+
+## Loss functions
+
+- [Blog](https://dafriedman97.github.io/mlbook/content/c2/s1/GLMs.html)
+- [Logistic regression](https://medium.com/analytics-vidhya/derivative-of-log-loss-function-for-logistic-regression-9b832f025c2d)
+- [Poisson Regression@stanford](https://web.stanford.edu/class/stats200/Lecture27.pdf)
+
 ## Readings
 
 - [wangcc notes](https://wangcc.me/LSHTMlearningnote/intro-GLM.html)

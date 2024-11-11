@@ -8,6 +8,7 @@ publishDate: 2024-10-02
 ## Must Read
 
 - [Wanted: Data Scientists with Technical Brilliance AND Business Sense](https://careers.doordash.com/blog/data-scientists-technical-skill-business-impact/)
+- [Get Knowledge from Best Ever Data Science Discussions on Reddit](https://www.analyticsvidhya.com/blog/2015/08/best-ever-data-science-discussions-reddit/)
 
 ## Problem framing
 

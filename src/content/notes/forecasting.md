@@ -11,22 +11,34 @@ Autocorrelation could be handled by fitting AR model, finding the autocorrelatio
 
 ## Readings
 
+- [Discussion | How to know that your machine learning problem is hopeless?](https://stats.stackexchange.com/questions/222179/how-to-know-that-your-machine-learning-problem-is-hopeless): There is a good answer talking about forecastability
+- [Skforecast: time series forecasting with Python, Machine Learning and Scikit-learn](https://cienciadedatos.net/documentos/py27-time-series-forecasting-python-scikitlearn.html)
 - [Statistical forecasting: notes on regression and time series analysis](https://people.duke.edu/~rnau/411home.htm)
 - [How to use XGBoost for time series forecasting](https://www.analyticsvidhya.com/blog/2024/01/xgboost-for-time-series-forecasting/)
+- [Modeling Variable Seasonal Features with the Fourier Transform](https://towardsdatascience.com/modeling-variable-seasonal-features-with-the-fourier-transform-18c792102047) - Great read on modeling seasonality
+- [Fourier Series as a Function of Approximation for Seasonality Modeling - Exploring Facebook Prophet's Architecture](https://gowrishankar.info/blog/fourier-series-as-a-function-of-approximation-for-seasonality-modeling-exploring-facebook-prophets-architecture/)
+- [M5 Forecasting - Accuracy Simple 4th place solution](https://www.kaggle.com/competitions/m5-forecasting-accuracy/discussion/163216) - The task is to estimate the point forecasts of the unit sales of various products sold in the USA by Walmart. This solution fitted 40 LightBGM models to 10 stores times 4 weeks of daily predictions. The key is to split the models by store and week, and use [tweedie](https://www.kaggle.com/competitions/m5-forecasting-accuracy/discussion/150614) loss to deal with right-skewed data with most of the data distribution concentrated around 0.
+  - It used sales features which includes lagged sales, rolling mean, rolling standard deviation and released
+  - Calendar features which includes day of year, day of week, week of year, weekend, week of month, month of year, and year
+  - Any special events with binary features
+  - Price features, most of which are summary statistics
+  - Id features including item_id, cat_id, dept_id, and group mean, standard deviation of those features
+  - [model architecture](https://www.kaggle.com/competitions/m5-forecasting-accuracy/discussion/163216#924779)
 
 ## Considerations
 
-- number of observations vs number of features
+- Number of observations vs number of features
 - Assumed relationship between the features and the target
+- While using exogenous variables, it is important that future values of the exogenous variables are known at the target forecast time. Usually, they should be time-invariant for this to be true. Otherwise, we need to forecast the exogenous variables with another model such that the forecasted exogenous values are available at the target forecast time.
 - Time granularity: daily, weekly, monthly or yearly? How are the data collected in time? How should the forecast be presented?
 - How many years of data?
 - How many features that are considered to be important?
-- lagged features
-- Seasonality
-- Trend
-- Sudden events
-- stationary
-- autocorrelation
+- Non-stationary: it is a time series whose statistical properties change over time, e.g. trend, seasonality, sudden events, autocorrelation, and heteroscedasticity
+- Heteroscedasticity: it is a situation in which the variance of the error term is not constant, could be handled by transforming the data, e.g. log transformation, which turn multiplicative components to additive components, i.e. from proportional variance to constant variance.
+- Trend: could be handled by differencing, or detrending
+- Seasonality: could be handled by Fourier transformation, or one-hot encoding of day of year, month of year, or week of year
+- Sudden events: could be handled by adding a binary feature, e.g. 1 for the event, 0 for the rest, or despiking by handling the outliers through imputation, clipping, or removing.
+- Autocorrelation: could be handled by lagged features
 
 ## Applications
 
@@ -55,7 +67,26 @@ Autocorrelation could be handled by fitting AR model, finding the autocorrelatio
   - We’ve analyzed project requirements and prepared a proof of concept (PoC) to validate the client’s idea. After collecting and analyzing the feedback from the client, our team has developed a minimum viable product (MVP). We’ve released the MVP and supplemented it with new features that were released incrementally.
   - The developed solution gathers data from shop floor sensors and analyzes it using AI. Insights delivered by the systems help spot anomalies and detect trends. The system builds predictive models that help understand when exactly the piece of equipment will reach the point of failure. Also, we’ve enabled users to create custom dashboards. Hence, different user roles can compose personalized dashboards to access crucial information in an easy-to-digest way.
 
+## Feature engineering
+
+- Differencing: it is useful in forecasting when the data is non-stationary, i.e. the mean, variance, and covariance are not constant over time. By taking the difference between the current value and the previous value, it removes the trend and makes the data stationary. [ref](https://people.duke.edu/~rnau/411diff.htm) Apart from that, we can use model differencing, e.g. remove a fitted linear trend, seasonality, or other patterns.
+- Linearization of exponential growth and inflation: commonly in forecasting, by taking logarithm of a variable, it would converts the exponential growth pattern to a linear growth pattern, and it simultaneously converts the multiplicative (proportional-variance) seasonal pattern to additive (constant-variance) seasonal pattern. So it straightens out exponential growth patterns and reduces heteroscedasticity (i.e., stabilizes variance), but it does not eliminate an upward trend in the data. Moreover, it avoid the need of [deflating](https://people.duke.edu/~rnau/411infla.htm) in monetary value. In this setting, trend measured in natural-log units ≈ percentage growth, errors measured in natural-log units ≈ percentage errors, and coefficients in log-log regressions ≈ proportional percentage changes. [ref](https://people.duke.edu/~rnau/411log.htm) [discussion](https://stats.stackexchange.com/questions/244199/why-is-it-that-natural-log-changes-are-percentage-changes-what-is-about-logs-th)
+- Lagged features: if it is assumed that a change in X causes a change in Y, we can model this by using both lagged x and current x as features, and then trees-based models would find the interaction term for us, or we could assign a delta x variable one of the covariates manually. It is a common practice for time series forecasting dealing with autocorrelation. [ref](https://scikit-learn.org/1.5/auto_examples/applications/plot_time_series_lagged_features.html)
+- Fourier transformation: convert a time series data to frequency domain, which is useful for detecting periodic patterns, e.g. seasonality, and it is useful for forecasting. [ref](https://www.analyticsvidhya.com/blog/2024/01/xgboost-for-time-series-forecasting/) Applying one-hot encoding to day of year, month of year, or week of year are actually performing the same task as Fourier series time features, but with different implementation.
+  - Fourier series are concise and can express arbitrarily large periods P — they are well-suited for large-period seasonality. On the other hand, if the waveform is very complex, it may not be learned well without creating many sine/cosine pairs.
+  - Never create Fourier components with a period shorter than twice the sampling period of your time series. If your time series has a daily sampling period, then the shortest seasonality you will ever be able to model is 2 days. The Nyquist-Shannon theorem places a hard limit there, like a brick wall.
+  - A periodogram plot would be a great reference to determine the series, which will highlight all spectral components, i.e. seasonality, in the signal.
+  - The periodogram will highlight all spectral components in the signal (all seasonal components in the data), and will provide an overview of their overall “strength”, but it’s an aggregate of the “strength” of any component over the whole time interval. It says nothing about how the “strength” of each seasonal component may vary in time across the dataset. To capture that variation, you have to use the Fourier spectrogram instead. [good read](https://towardsdatascience.com/modeling-variable-seasonal-features-with-the-fourier-transform-18c792102047)
+
 ## Methods
+
+Normally it is a multi-step forecasting, which could be implemented in several ways:
+
+- Recursive forecasting: predict one step ahead, then use the prediction as input for the next step
+- Direct forecasting: predict multiple steps ahead at once
+- Multi-output forecasting: predict multiple outputs at once while accounting for the correlation between them, i.e. predicting multiple values of a sequence.
+
+Concrete methods:
 
 - Since $y_t$ can be explained by the previous $y_{t-k}$ values, add lagged response value $y_{t-1}, y_{t-2}, ..., y_{t-k}$ to the feature set, or add the rolling mean, then fit it as usual
 - Discrete GLM

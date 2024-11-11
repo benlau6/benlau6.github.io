@@ -5,7 +5,7 @@ publishDate: 2024-09-30
 
 # Anomaly Detection
 
-Basically anomalies equal to outliers. There is a special interpretation that anomalies are unusual patterns, which need not to be as extreme as outliers. Usually the anomalies are the minority class in the dataset, so unsupervised learning algorithms are key methods to detect them, such as [clustering](clustering.md). Otherwise, careful examination as described in [imbalanced data](/src/content/notes/imbalanced-data.md) might be needed to perform supervised learning. Another approach could be to model the data generation process, for example by Bayesian structural time series modeling, and detect the anomalies by comparing the model's prediction with the actual data.
+Basically anomalies equal to outliers. There is a special interpretation that anomalies are unusual patterns, which need not to be as extreme as outliers. Usually the anomalies are the minority class in the dataset, so unsupervised learning algorithms are key methods to detect them, such as [clustering](clustering.md). Otherwise, careful examination as described in [imbalanced data](imbalanced-data.md) might be needed to perform supervised learning. Another approach could be to model the data generation process, for example by Bayesian structural time series modeling, and detect the anomalies by comparing the model's prediction with the actual data.
 
 ## Some algorithms other than machine learning
 
