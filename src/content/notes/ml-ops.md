@@ -11,6 +11,7 @@ publishDate: 2024-11-12
 - [Andrew Ng - Machine Learning in Production](https://www.deeplearning.ai/courses/machine-learning-in-production/) - High level, conceptual
 - [MLSys-NYU-2022@github] - Hands on, in depth tutorial
 - [hands-on-train-and-deploy-ml@github](https://github.com/Paulescu/hands-on-train-and-deploy-ml) - new
+- [Real-time Clickstream Anomaly Detection with Amazon Kinesis Analytics](https://aws.amazon.com/tw/blogs/big-data/real-time-clickstream-anomaly-detection-with-amazon-kinesis-analytics/)
 
 ## End-to-end
 

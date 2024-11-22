@@ -8,6 +8,8 @@ updatedDate: 2024-10-17
 
 ## Readings
 
+- [Netflix | Best Practices for Building and Deploying Recommender Systems](https://docs.nvidia.com/deeplearning/performance/recsys-best-practices/index.html)
+- [TF recommenders | Guide & Tutorials](https://www.tensorflow.org/recommenders/examples/quickstart)
 - [Recommendation systems: Principles, methods and evaluation](https://www.sciencedirect.com/science/article/pii/S1110866515000341)
 - [System Design for Recommendations and Search](https://eugeneyan.com/writing/system-design-for-discovery/)
 - [Patterns for Personalization in Recommendations and Search](https://eugeneyan.com/writing/patterns-for-personalization/)
@@ -16,9 +18,16 @@ updatedDate: 2024-10-17
 - [21. Recommender Systems | d2l.ai](https://d2l.ai/chapter_recommender-systems/index.html)
 - [Deep Learning for Recommender Systems (Nick Pentreath)](https://www.youtube.com/watch?v=y_TzOOCJqxI)
 
+## Tools
+
+- [TF Recommenders](https://www.tensorflow.org/recommenders?hl=zh-tw)
+- [LibRecommender](https://librecommender.readthedocs.io/en/latest/index.html)
+
 ## Cast Studies
 
 - [Machine Learning for Better User-Experience: A Reddit Case Study](https://www.youtube.com/watch?v=8ekhcN3hL3g): Removing posts that users have already seen, Boosting subreddits that users have interacted with previously, etc. Aim go maximize interaction rate, likelihood to comment, time on subreddit, etc. It uses simple linear regression model at the end and have a great success.
+- [Innovative Recommendation Applications Using Two Tower Embeddings at Uber](https://www.uber.com/en-HK/blog/innovative-recommendation-applications-using-two-tower-embeddings/)
+- [Scaling deep retrieval with TensorFlow Recommenders and Vertex AI Matching Engine](https://cloud.google.com/blog/products/ai-machine-learning/scaling-deep-retrieval-tensorflow-two-towers-architecture)
 
 ## User journey
 
@@ -43,7 +52,7 @@ At 2017, Facebook and Netflix had done A/B tests of the five-star system against
 
 ### Not only the choices can be personalized, but also the content
 
-Look at Netflix, the thumbnails are personalized based on the user's behavior, e.g. the user's favorite actor, genre, etc. So when considering recommendation systems, we might also think of personalized visuals, e.g. thumbnails, titles, descriptions, etc. [Blog: Artwork Personalization at Netflix](https://netflixtechblog.com/artwork-personalization-c589f074ad76)
+Look at Netflix, the thumbnails are personalized based on the user's behavior, e.g. the user's favorite actor, genre, etc. So when considering recommendation systems, we might also think of personalized visuals, e.g. thumbnails, titles, descriptions, etc. Note that they modeled it as a [multil-armed bandit problem](multi-armed-bandit.md), and used contextual bandit to solve it. [Blog: Artwork Personalization at Netflix](https://netflixtechblog.com/artwork-personalization-c589f074ad76) [Thumbnail Artwork: How It’s Helping Million Dollar Businesses](https://govisually.com/blog/thumbnail-artwork/) [How Netflix Uses Matching To Pick The Best Thumbnail For You](https://blogs.cornell.edu/info2040/2022/09/28/how-netflix-uses-matching-to-pick-the-best-thumbnail-for-you/)
 
 ## Content-based filtering
 
@@ -75,7 +84,7 @@ In small sample size, we could first classify users into groups, then calculate 
 
 ## Collaborative filtering
 
-The idea is to use the wisdom of the crowd to recommend items. Recommend items based on the similarity of the users who have interacted with the items, aka training on embeddings. In this framework, we don't need user profiles or item profiles, we only need the user-item interaction matrix. The interactions could be explicit, e.g. ratings, or implicit, e.g. clicks, views, etc. But it suffers from the cold start problem that a new user or a new item has no interaction history.
+The idea is to use the wisdom of the crowd to recommend items. Recommend items based on the similarity of the users who have interacted with the items, aka training on embeddings. In this framework, we don't need user profiles or item profiles, we only need the user-item interaction matrix. The interactions could be explicit, e.g. ratings, or implicit, e.g. clicks, views, etc. The good thing of using implicit feedback is that we could learn the revealed preference, which might be different from what they admit. But it suffers from the cold start problem that a new user or a new item has no interaction history.
 
 For example, if user A is similar to user B and user B likes a certain video, then this video is recommended to user A.
 
@@ -97,9 +106,15 @@ Model-based approaches assume a generative model that explains user-item interac
 
 #### Matrix Factorization
 
+- [Matrix factorization objective function](https://developers.google.com/machine-learning/recommendation/collaborative/matrix)
 - [Welcome to the Matrix Factorization Jungle](https://nuit-blanche.blogspot.com/2011/08/current-jungle-in-matrix-factorization.html)
 - [Welcome to The Advanced Matrix Factorization Jungle](http://web.archive.org/web/20230321160024/https://sites.google.com/site/igorcarron2/matrixfactorizations)
 - [Welcome to The Advanced Matrix Factorization Jungle Backup](https://www.52cs.com/archives/606)
+
+## Two Tower Model
+
+- [Two Tower Model Architecture: Current State and Promising Extensions](https://blog.reachsumit.com/posts/2023/03/two-tower-model/)
+- [Video Recommendations at Joyn: Two Tower or Not to Tower, That Was Never a Question](https://medium.com/tech-p7s1/video-recommendations-at-joyn-two-tower-or-not-to-tower-that-was-never-a-question-6c6f182ade7c)
 
 ## Data sparsity
 

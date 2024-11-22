@@ -234,6 +234,8 @@ Often called CDT (short for Customer Decision Tree), the Customer Decision Tree 
 
 It is good for assortment optimization. [McKinsey & Company | Analytical assortment optimization](https://www.mckinsey.com/~/media/mckinsey/industries/retail/how%20we%20help%20clients/big%20data%20and%20advanced%20analytics/mck_retail_analytics_brochure_v10.pdf)
 
+Oracle has a implementation guide on it [doc](https://docs.oracle.com/en/industries/retail/ai-foundation-cloud-service/24.1.201.0/aifim/customer-decision-trees.htm#GUID-71B70D3B-2FAD-46EC-933C-CE5887F9915F)
+
 Without an actual implementation given, it is hard to say how industries model it. But I assume it could be done by [hierarchical clustering](clustering.md#hierarchical-clustering) on the product features.
 
 ## How to get a job in marketing data science?

@@ -5,6 +5,14 @@ publishDate: 2024-11-11
 
 # A/B Testing
 
+## Resources
+
+- [udemy | Bayesian Machine Learning in Python: A/B Testing](https://www.udemy.com/course/bayesian-machine-learning-in-python-ab-testing/?couponCode=24T2MT111824)
+- [udemy | A/B Testing and Experimentation for Beginners](https://www.udemy.com/course/ab-testing-and-experimentation-for-websites-and-marketing/?couponCode=24T2MT111824)
+- [udemy | Coding for A/B testing: Run more AB tests, find more winners](https://www.udemy.com/course/abtesting/?couponCode=LETSLEARNNOW)
+
+## Introduction
+
 The idea is to test the behaviour change between two groups. If confidence intervals of the metrics of the treatment group and the control group do not overlap, we can conclude that the treatment group is better than the control group. Or if the confidence interval of the cumulative treatment effects does not overlap with 0, we can conclude that the treatment has a significant effect. We could use the following methods:
 
 - t-test

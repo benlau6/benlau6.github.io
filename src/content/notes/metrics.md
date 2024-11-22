@@ -8,7 +8,8 @@ publishDate: 2024-09-28
 ## Classification
 
 - AUC cares about model overall performance, used for model comparison
-- ROC describes the trade-off between TPR and FPR, used for model tuning for business needs
+- ROC Curves summarize the trade-off between the true positive rate and false positive rate for a predictive model using different probability thresholds. It is good for balanced dataset but bad for imbalanced dataset because when we predict a binary outcome, it is either a correct prediction (TP) or not (FP). So the worst model would be a 50/50. The baseline AUC is 0.5. It would not catch the bad models that perform bad in imbalanced setting. [ref](https://machinelearningmastery.com/roc-curves-and-precision-recall-curves-for-classification-in-python/)
+- Precision-Recall curves summarize the trade-off between the true positive rate and the positive predictive value, i.e. recall and precision, for a predictive model using different probability thresholds, which is great for imbalanced dataset, because it replaces the FPR with precision, such that if there are a few positive cases, models can no longer blindly guessing positive to obtain good performance evaluation, because doing which will lead to many false positive cases, therefore low precision. As a result, the baseline AUC is no longer 0.5. It would catch the bad models. A no-skill classifier is one that cannot discriminate between the classes and would predict a random class or a constant class in all cases. The no-skill line changes based on the distribution of the positive to negative classes. It is a horizontal line with the value of the ratio of positive cases in the dataset. For a balanced dataset, this is 0.5.
 - Recall cares about false negatives (sensitivity)
 - Precision cares about false positives
 - F1 score is the harmonic mean of precision and recall

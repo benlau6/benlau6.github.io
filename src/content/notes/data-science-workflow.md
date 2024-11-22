@@ -9,10 +9,14 @@ publishDate: 2024-10-02
 
 - [Wanted: Data Scientists with Technical Brilliance AND Business Sense](https://careers.doordash.com/blog/data-scientists-technical-skill-business-impact/)
 - [Get Knowledge from Best Ever Data Science Discussions on Reddit](https://www.analyticsvidhya.com/blog/2015/08/best-ever-data-science-discussions-reddit/)
+- [case-studies notes](case-studies.md)
+- [Grokking the Machine Learning Interview](https://www.educative.io/courses/grokking-the-machine-learning-interview)
 
 ## Problem framing
 
 ### Business wise
+
+[case-studies](case-studies.md#framework)
 
 ### Data wise
 

@@ -9,12 +9,19 @@ A stationary time series is one whose statistical properties do not change over 
 
 Autocorrelation could be handled by fitting AR model, finding the autocorrelation parts, then subtracting it from the original data.
 
+## Tools
+
+- [XGBoost | Do We Really Need Deep Learning Models for Time Series Forecasting?](https://arxiv.org/pdf/2101.02118)
+- [Skforecast: time series forecasting with Python, Machine Learning and Scikit-learn](https://cienciadedatos.net/documentos/py27-time-series-forecasting-python-scikitlearn.html)
+- [Prophet](https://facebook.github.io/prophet/docs/quick_start.html#python-api)
+- [Uber Orbit](https://orbit-ml.readthedocs.io/en/stable/index.html)
+
 ## Readings
 
+- [Forecasting: Principles and Practice](https://otexts.com/fpp3/) - Must read
 - [Discussion | How to know that your machine learning problem is hopeless?](https://stats.stackexchange.com/questions/222179/how-to-know-that-your-machine-learning-problem-is-hopeless): There is a good answer talking about forecastability
-- [Skforecast: time series forecasting with Python, Machine Learning and Scikit-learn](https://cienciadedatos.net/documentos/py27-time-series-forecasting-python-scikitlearn.html)
-- [Statistical forecasting: notes on regression and time series analysis](https://people.duke.edu/~rnau/411home.htm)
-- [How to use XGBoost for time series forecasting](https://www.analyticsvidhya.com/blog/2024/01/xgboost-for-time-series-forecasting/)
+- [Duke | Statistical forecasting: notes on regression and time series analysis](https://people.duke.edu/~rnau/411home.htm)
+- [Analytics Vidhya | How to use XGBoost for time series forecasting](https://www.analyticsvidhya.com/blog/2024/01/xgboost-for-time-series-forecasting/)
 - [Modeling Variable Seasonal Features with the Fourier Transform](https://towardsdatascience.com/modeling-variable-seasonal-features-with-the-fourier-transform-18c792102047) - Great read on modeling seasonality
 - [Fourier Series as a Function of Approximation for Seasonality Modeling - Exploring Facebook Prophet's Architecture](https://gowrishankar.info/blog/fourier-series-as-a-function-of-approximation-for-seasonality-modeling-exploring-facebook-prophets-architecture/)
 - [M5 Forecasting - Accuracy Simple 4th place solution](https://www.kaggle.com/competitions/m5-forecasting-accuracy/discussion/163216) - The task is to estimate the point forecasts of the unit sales of various products sold in the USA by Walmart. This solution fitted 40 LightBGM models to 10 stores times 4 weeks of daily predictions. The key is to split the models by store and week, and use [tweedie](https://www.kaggle.com/competitions/m5-forecasting-accuracy/discussion/150614) loss to deal with right-skewed data with most of the data distribution concentrated around 0.

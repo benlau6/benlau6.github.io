@@ -9,6 +9,14 @@ publishDate: 2024-09-20
 
 It uses [decision trees](decision-trees.md) as building blocks, each of which constructed very deep and hence with high variance, it then averages them to reduce variance. It also utilizes the [bootstrapping](bootstrapping.md) and randomization to decorrelate the trees. It involves three key steps, which are data sampling, parallel training, and aggregation. Its key benefit is to reduce variance, and improve accuracy due to ensemble learning. [ref](https://www.analyticsvidhya.com/blog/2023/01/ensemble-learning-methods-bagging-boosting-and-stacking/)
 
+## Parameters to tune
+
+[Analytics Vidhya | Tuning random forecast model](https://www.analyticsvidhya.com/blog/2015/06/tuning-random-forest-model/):
+
+- max_features: number of features in each tree
+- n_estimators: number of trues, due to the mechanism of bagging, it should not be set to too low, and it has no harm to set it high apart from computational cost
+- min_samples_leaf: number of samples in leaf node to prevent splitting, prevent overfitting, and prevent underfitting while working with imbalanced data, but normally imbalanced data should be handled by gradient boosting due to the mechanism of boosting
+
 ## Randomization
 
 In order to benefit from averaging, the individual trees should not be too correlated. This is achieved by injecting some randomness into the tree-growing process, which could be achieved in two ways.

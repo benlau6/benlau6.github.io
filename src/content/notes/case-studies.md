@@ -5,6 +5,21 @@ publishDate: 2024-09-20
 
 # Case Studies
 
+## Framework
+
+1. Root cause analysis, avoid XY problem, segment the problem into sub problems. For example, if profit dropped, is it dropped in price or dropped in demand, or increased in cost?
+2. Be aware of any unrealistic expectations, e.g. "I want to predict the stock price", "I want to predict the weather in 10 years", etc. Adjust the expectation to a more realistic one to avoid disappointment.
+3. If there are user, who are the users? Walk through the user journey. Create a user funnel to help segment the problem.
+4. Define and clarify any terms. If there are any communication or explanation difficulties in the following stages, it is either the terms or the solution logic is unclear. Re-clarify the terms, provides some examples. If it is the logic, walk through the logic again.
+5. Clarify business objectives and constraints
+6. Define metrics and target variable, quantify the business problem, what does it mean by "not done well", "users have gone down" in quantitative terms, etc.
+7. Be aware of imbalanced target. If any, all the following might have to be tailor made, e.g. weighted cross-entropy, stratified cross validation, stratified a/b testing, etc.
+8. Start with simplest model, segment the model. If it could be done in 2 step models, try it.
+9. Think creative on the feature selection / engineering, think of any external factors like marco-economics or competitors information could be brought in
+10. Think creative on the loss function, e.g. Gamma distribution on delivery time from Doordash, Tweedie distribution on sales forecasting from Walmart
+11. Always do offline and online evaluation
+12. Business result oriented. What is the business impact? Does it handle / provide a good insight on the business objective?
+
 ## Analytics
 
 ### Problem set
@@ -82,3 +97,8 @@ The usual procedure of Bayesian search theory is as follows: [ref](https://en.wi
 - [LinkedIn Engineering Blog](https://engineering.linkedin.com/blog)
 - [Pinterest Engineering Blog](https://medium.com/pinterest-engineering)
 - [Slack Engineering Blog](https://slack.engineering/)
+
+## Books
+
+- [Case In Point: Complete Case Interview Preparation](https://www.amazon.com/Case-Point-Complete-Interview-Preparation/dp/0971015880)
+- [The Ultimate Case Interview Workbook: Exclusive Cases and Problems for Interviews at Top Consulting Firms](https://www.amazon.com/Ultimate-Case-Interview-Workbook-Interviews/dp/1733338101)

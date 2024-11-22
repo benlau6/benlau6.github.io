@@ -45,7 +45,16 @@ As a side note, KL divergence $D_{KL}(P||Q)=H(P, Q) - H(P)$ is the difference be
 - F1 score: The harmonic mean of precision and recall.
 - ROC-AUC plot: It plots TPR against FPR under varying thresholds. Which allows us to select the best model based on what we needs. It has one interpretation in terms of the concordance statistic, which is the probability that a randomly chosen positive instance is ranked higher than a randomly chosen negative instance in terms of predicted risk. So AUC is all about rank ordering the predictions, telling how well your prediction discriminates between the two classes. [ref](https://andrewpwheeler.com/2021/05/12/roc-and-calibration-plots-for-binary-predictions-in-python/)
   - Most of the time we are only interested in the far left side of the ROC curve, i.e. how well we can identify high risk cases without a ton of false positives.
-- Calibration plot: It plots the fractions of positives given each bin of predicted probability against the predicted probability, which is a graphical equivalent of the Hosmer-Lemeshow test, which assesses whether or not the observed event rates match expected event rates in subgroups of the population. It is great for production models, as it tells you how well your model is calibrated. A degraded calibration curve tells you that the model is at risk of making poor decisions, e.g. data drift, before the predictive performance starts to degrade. It can be plotted even if the response variable is not probabilities. `CalibratedClassifierCV` in sklearn can be used to calibrate the probabilities of a model, which maps the output of the classifier to a calibrated probability in \[0, 1\].
+- Calibration plot: It plots the fractions of positives given each bin of predicted probability against the predicted probability, which is a graphical equivalent of the Hosmer-Lemeshow test, which assesses whether or not the observed event rates match expected event rates in subgroups of the population. It is great for production models, as it tells you how well your model is calibrated. A degraded calibration curve tells you that the model is at risk of making poor decisions, e.g. data drift, before the predictive performance starts to degrade. It can be plotted even if the response variable is not probabilities. `CalibratedClassifierCV` in sklearn can be used to calibrate the probabilities of a model, which maps the output of the classifier to a calibrated probability in \[0, 1\]. [good blog explaining calibration plot](https://axk51013.medium.com/%E6%A8%A1%E5%9E%8B%E4%BF%A1%E5%BF%83%E7%9A%84%E6%9C%AC%E8%B3%AA-probability-calibration-cbc680a44efa)
+
+## Calibration
+
+When performing classification you often want not only to predict the class label, but also obtain a probability of the respective label. This probability gives you some kind of confidence on the prediction. Some models can give you poor estimates of the class probabilities and some even do not support probability prediction. Well calibrated classifiers are probabilistic classifiers for which the output of the predict_proba method can be directly interpreted as a confidence level. Meanwhile, the probabilities predicted from a poor calibrated model shall not be used to interpret anything.
+
+- [sklearn | Probability calibration](https://scikit-learn.org/1.5/modules/calibration.html)
+- [Transforming classifier scores into accurate multiclass probability estimates](https://dl.acm.org/doi/10.1145/775047.775151)
+- [Beta calibration: a well-founded and easily implemented improvement on logistic calibration for binary classifiers](http://proceedings.mlr.press/v54/kull17a.html)
+- [Cost-sensitive boosting algorithms: Do we really need them?](https://link.springer.com/article/10.1007/s10994-016-5572-x)
 
 ## Logistic regression
 
@@ -55,6 +64,7 @@ In a binary target case, even though only the actual binary outcome 0 or 1 is ob
 
 - [Standford notes on logistic regression](https://web.stanford.edu/~jurafsky/slp3/5.pdf)
 - [Hypothesis, cost function, regularization, and optimization of logistic regression](https://towardsdatascience.com/optimization-loss-function-under-the-hood-part-ii-d20a239cde11)
+- [The equivalence of logistic regression and maximum entropy](https://raw.githubusercontent.com/WinVector/Examples/main/dfiles/LogisticRegressionMaxEnt.pdf)
 
 ### Is logistic regression a regression or a classification?
 

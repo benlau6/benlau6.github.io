@@ -42,8 +42,11 @@ publishDate: 2024-09-20
 
 - [Why I Prefer Exceptions To Errors - Primeagen](https://www.youtube.com/watch?v=sS6u5UU3t3c)
 - [Assertions detect programmer errors. Unlike operating errors, which are expected and which must be handled, assertion failures are unexpected. The only correct way to handle corrupt code is to crash. Assertions downgrade catastrophic correctness bugs into liveness bugs. Assertions are a force multiplier for discovering bugs by fuzzing.](https://github.com/tigerbeetle/tigerbeetle/blob/main/docs/TIGER-STYLE.md#safety)
+- [Notes on error handling](error-handling.md)
 
-  [Notes on error handling](error-handling.md)
+## Logging
+
+- [12 Logging BEST Practices in 12 minutes](https://www.youtube.com/watch?v=I2mWnh66Bkg)
 
 ## Tools
 

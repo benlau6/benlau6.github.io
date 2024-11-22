@@ -28,6 +28,18 @@ where $\alpha_i$ is the weight of the weak hypothesis $h_i$.
 - Boosting is fundamentally sequential, which cannot be parallelized. However, if all features were truly uncorrelated, then we could probably boost multiple features in parallel at a time, but in practice there's often quite a bit of correlation between features [Question: Parallel boosting? #519](https://github.com/interpretml/interpret/issues/519)[The Impossibility of Parallelizing Boosting](https://arxiv.org/pdf/2301.09627).
 - Boosting: More sensitive to noisy data and outliers, as the focus on misclassified instances might lead to overfitting on these instances [Bagging v/s Boosting](https://medium.com/@roshmitadey/bagging-v-s-boosting-be765c970fd1).
 
+## Parameters
+
+[Analytics Vidhya | Tuning Gradient Boosting model](https://www.analyticsvidhya.com/blog/2016/02/complete-guide-parameter-tuning-gradient-boosting-gbm-python/):
+
+- max_features: number of features in each tree
+- max_depth: maximum depth of the tree, controls the interaction order of the model, very important to tune in boosting due to its mechanism. It shall not be too high.
+- min_samples_split: minimum number of samples required to split an internal node, prevent overfitting. Too high would lead to underfitting.
+- min_samples_leaf: number of samples in leaf node to prevent splitting, prevent overfitting. It shall be lower while working with imbalanced data to prevent underfitting because the regions in which minority class would be in majority will be very small.
+- n_estimators: fairly robust, but too high might lead to overfitting.
+- subsample: fraction of samples to be used for fitting each tree.
+- learning_rate: impact of each tree on the final outcome. Lower values are generally preferred as they make the model robust to the specific characteristics of tree and thus allowing it to generalize well. However, it might be computationally expensive.
+
 ## Algorithms
 
 ### Regression boosting

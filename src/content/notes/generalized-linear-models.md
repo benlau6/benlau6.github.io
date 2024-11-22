@@ -44,6 +44,21 @@ In the cases of the exponential and gamma distributions, the domain of the canon
 
 In the case of the Bernoulli, binomial, categorical and multinomial distributions, the support of the distributions is not the same type of data as the parameter being predicted. In all of these cases, the predicted parameter is one or more probabilities, i.e. real numbers in the range $[0,1]$. The resulting model is known as logistic regression or multinomial logistic regression.
 
+Note that the link function is applying on the mean of Y, not to Y itself, i.e. it is not a log-transformation of Y. So we can back-transform to estimate the mean of Y, while it is not the case in [log transformation](log-transformation.md) due to Jensen's inequality.
+
+### Why link functions
+
+From (Dobson and Barnett, An Introduction to Generalized Linear Models, 2018, p.227)
+
+- It maps the $\beta X$ input space $R$ to the required $Y$ space, e.g. $R$ to $[0,1]$ for logistic regression.
+- It models the non-linear relationship between the predictors and the response variable.
+
+Note that the specified distribution for the error term $\epsilon$ does not constraint the output space of $\beta X$ since $Y=\beta X + \epsilon$, which is why the link function is sometimes needed for mapping purpose.
+
+## Why it models the mean of Y instead of directly modeling Y?
+
+- [Why GLMs predict the mean and not the mode?](https://stats.stackexchange.com/questions/174390/why-glms-predict-the-mean-and-not-the-mode)
+
 ## Loss functions
 
 - [Blog](https://dafriedman97.github.io/mlbook/content/c2/s1/GLMs.html)

@@ -9,6 +9,10 @@ Pricing, aka price optimization, is complicated because of non-linear price elas
 
 Other than that, it could more be seen as a econometric problem or psychological problem. If we really want to approach it in statistical sense, we should first model it using the simplest log-log linear regression model such as GLM to estimate the price elasticity of demand, with a acknowledgement that there might be a large room to improve [ref](https://www.reddit.com/r/analytics/comments/l9itrx/comment/glifkkv/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button). Note that Conjoint analysis, Van Westendorp's Price Sensitivity Meter or Gabor–Granger method from market research might also be a good direction. [ref](https://www.reddit.com/r/datascience/comments/147qx9o/resourcesmodels_on_price_elasticity/) [forbes](https://www.forbes.com/sites/rebeccasadwick/2020/06/22/how-to-price-products/)
 
+## Elements
+
+- [Demand Estimation](https://matteocourthoud.github.io/course/empirical-io/02_demand_estimation/)
+
 ## Parties
 
 - Buyers (customers, consumers, clients) - It’s crucial to know what matters to them, and what influences them to trade up or come back. The goal for B2C pricing is to understand purchasing behavior and preferences, and use that insight to inform pricing.

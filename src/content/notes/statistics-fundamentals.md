@@ -40,3 +40,7 @@ n is only ever able to reach N if we sample without replacement, meaning the sam
 ## Why usually we use mean instead of median?
 
 It is because mean is more efficient than median in terms of variance, i.e. it has smaller variance, due to [asymptotic efficiency](<https://en.wikipedia.org/wiki/Efficiency_(statistics)#Asymptotic_efficiency>). However, the median is far more robust to outliers, so if the Gaussian assumption is questionable, median might be preferred. [robust statistics](https://en.wikipedia.org/wiki/Robust_statistics)
+
+## Brain Teasers
+
+- [How to Get Fair Results from a Biased Coin](http://yilinmo.github.io/fair-results-from-a-biased-coin)

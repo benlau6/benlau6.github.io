@@ -49,24 +49,22 @@ Bad properties:
 - Large trees are hard to interpret.
 - Generally don't have good predictive performance.
 
-## Feature importances in decision trees are tricky
-
-Standard feature importances simply tell you which features were more useful when building the model. They are not to be interpreted as a direct dependence between predictor and target.
-
-1. They are completely useless if the model has bad predictive power.
-2. They are strongly influenced by correlated features.
-3. They are biased towards numerical and high cardinality features.
-
-However, permutation importances are computed on validation stage, and therefore solve first overfitting issue. Moreover, as they are computed on a metric of your choice, they are easier to interpret and can in some sense be seen as a "strength coefficient", since they answer the question: "How much does the performance of my model degrade if I shuffle this predictor?". [ref](https://stats.stackexchange.com/questions/450703/is-feature-importance-in-random-forest-useless)
-
-Nevertheless, features that are deemed of low importance for a bad model could be very important for a good model. it is always important to evaluate the predictive power of a model prior to interpreting feature importances. Permutation importance does not reflect to the intrinsic predictive value of a feature by itself but how important this feature is for a particular model. [ref](https://scikit-learn.org/stable/modules/permutation_importance.html)
-
-The second issue still exists in a way that when two features are correlated and one of the features is permuted, the model still has access to the latter through its correlated feature. This results in a lower reported importance value for both features, though they might actually be important. For example, if two features both strongly related to the target, they will always end up with a feature importance score of about 0.5 each, whereas one would expect that both should score something close to one. One way to handle the issue is to cluster features that are correlated and only keep one feature from each cluster, or simply remove upper triangle of correlation matrix based on a threshold, or use `SelectKBest` with `f_regression` from `sklearn`. [ref](https://scikit-learn.org/stable/modules/permutation_importance.html#misleading-values-on-strongly-correlated-features) [clustering notes](clustering.md/#Hierarchical-clustering-can-improve-interpretability)
-
 ## It is the best tool for tabular data, even better than deep learning
 
 - [Why do tree-based models still outperform deep learning on typical tabular data?](https://openreview.net/forum?id=Fp7__phQszn)
 - [TABULAR DATA: DEEP LEARNING IS NOT ALL YOU NEED](https://arxiv.org/pdf/2106.03253)
+
+## It performs poorly on extrapolation
+
+It is not good at extrapolation, i.e. predicting outside the range of the training data. It is because the tree-based models are piecewise constant approximation, and they can't predict outside the range of the training data. However, it is often possible to reformulate the problem to avoid extrapolation through feature engineering, e.g. including lagged features, differencing, and using multi-output targets.
+
+> When you have a large sample size, you might not need so many assumptions. For example, you can estimate the distribution of Y|X=2 without using any assumption of the classical regression model. You can do this by finding the subset of the data set having X=2, and then by constructing the histogram of the Y variable using only the data in that subset. If there are hundreds of such observations where X=2, enough to obtain a reasonable estimate of $p(y|X=2)$ by using the histogram. (Westfall and Arias, Understanding Regression Analysis, 2020, p.471)
+
+> Tree regression is a technique that uses the subsetting approach to estimate the conditional distributions. When there are no repeats of Y values for given X values, the tree regression algorithm divides the X data into intervals, where there are sufficient data values within the interval ranges to estimate the distributions. (Westfall and Arias, Understanding Regression Analysis, 2020, p.473)
+
+> The conditional distribution $p(y|X=x)$ for every single x in a common range is estimated to be exactly the same distribution. With tree regression, the estimated conditional distributions of Y are identical for all X values within a given subset range. The limitation that regression trees assume identical distributions within X ranges is balanced by the "common sense" appeal of estimating distributions by using actual data values, rather than by imposing some special form (normal, lognormal, T, Poisson, etc.). (Westfall and Arias, Understanding Regression Analysis, 2020, p.474)
+
+When there is not enough data in the subset to obtain an adequate estimate of the distribution, the tree algorithm will perform poorly because the estimated distribution by subsetting method follows the actual data, rather than making any assumptions. So, the tree algorithm is not good at extrapolation.
 
 ## It inherently includes interaction terms
 
@@ -77,10 +75,6 @@ It is believed that tree-based models consider variables sequentially, which mak
 Decision trees divide the feature space into regions, and it divide the features one by one into left and right. Therefore it only cares the ordering of the values, so it will not be affected by the scale of the features, and it is also robust to outliers.
 
 However, it is not the case for the target variable. So all the feature engineering techniques that usually required for the target variable are still needed.
-
-## It performs poorly on extrapolation
-
-It is not good at extrapolation, i.e. predicting outside the range of the training data. It is because the tree-based models are piecewise constant approximation, and they can't predict outside the range of the training data. However, it is often possible to reformulate the problem to avoid extrapolation through feature engineering, e.g. including lagged features, differencing, and using multi-output targets.
 
 ## How to get predictions with uncertainty
 
@@ -105,6 +99,26 @@ It is not good at extrapolation, i.e. predicting outside the range of the traini
 
 Random forest are good when the features are already somewhat informative, while neural nets are good when you have to learn the features while training as well
 
+## Interpretations
+
+- [dtreeviz](https://github.com/parrt/dtreeviz): A python library for decision tree visualization and model interpretation.
+- Permutation importance
+
+### Feature importances in decision trees are tricky
+
+Standard feature importances simply tell you which features were more useful when building the model. They are not to be interpreted as a direct dependence between predictor and target.
+
+1. They are completely useless if the model has bad predictive power.
+2. They are strongly influenced by correlated features.
+3. They are biased towards numerical and high cardinality features.
+
+However, permutation importances are computed on validation stage, and therefore solve first overfitting issue. Moreover, as they are computed on a metric of your choice, they are easier to interpret and can in some sense be seen as a "strength coefficient", since they answer the question: "How much does the performance of my model degrade if I shuffle this predictor?". [ref](https://stats.stackexchange.com/questions/450703/is-feature-importance-in-random-forest-useless)
+
+Nevertheless, features that are deemed of low importance for a bad model could be very important for a good model. it is always important to evaluate the predictive power of a model prior to interpreting feature importances. Permutation importance does not reflect to the intrinsic predictive value of a feature by itself but how important this feature is for a particular model. [ref](https://scikit-learn.org/stable/modules/permutation_importance.html)
+
+The second issue still exists in a way that when two features are correlated and one of the features is permuted, the model still has access to the latter through its correlated feature. This results in a lower reported importance value for both features, though they might actually be important. For example, if two features both strongly related to the target, they will always end up with a feature importance score of about 0.5 each, whereas one would expect that both should score something close to one. One way to handle the issue is to cluster features that are correlated and only keep one feature from each cluster, or simply remove upper triangle of correlation matrix based on a threshold, or use `SelectKBest` with `f_regression` from `sklearn`. [ref](https://scikit-learn.org/stable/modules/permutation_importance.html#misleading-values-on-strongly-correlated-features) [clustering notes](clustering.md/#Hierarchical-clustering-can-improve-interpretability)
+
 ## References
 
 - Efron, B., & Hastie, T. (2021). Computer Age Statistical Inference: Algorithms, Evidence, and Data Science. Cambridge University Press.
+- Westfall, Peter H., and Andrea L. Arias. Understanding Regression Analysis: A Conditional Distribution Approach. Boca Raton: CRC Press, 2020.

@@ -10,6 +10,8 @@ It shall be used only if vertical scaling is not enough or too costly. It is a w
 ## Resources
 
 - [Youtube@Distributed Systems 1.1: Introduction](https://www.youtube.com/watch?v=UEAMfLPZZhE)
+- [Distributed computing with SageMaker best practices](https://docs.aws.amazon.com/sagemaker/latest/dg/distributed-training-options.html)
+- [Distributed training in Amazon SageMaker](https://docs.aws.amazon.com/sagemaker/latest/dg/distributed-training.html)
 
 ## Tools
 

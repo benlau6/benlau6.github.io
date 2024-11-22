@@ -15,6 +15,7 @@ publishDate: 2024-11-01
 - [data-engineer-handbook@github](https://github.com/DataExpert-io/data-engineer-handbook)
 - [Data Engineering Course for Beginners](https://www.youtube.com/watch?v=PHsC_t0j1dU) - teach dbt and airflow.
 - [How Data Engineering Works](https://www.youtube.com/watch?v=qWru-b6m030)
+- [How I would learn Data Engineering (if I could start over)](https://www.youtube.com/watch?v=VSxF0bb-JH4)
 
 ## ETL vs ELT
 

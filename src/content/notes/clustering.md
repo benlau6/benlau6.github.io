@@ -17,9 +17,9 @@ Interpretation of the clusters is the key objective. We can use summary statisti
 
 ## Methods
 
-### DBSCAN does clustering and outlier flagging at the same time
+### DBSCAN
 
-[discussion](https://www.reddit.com/r/datascience/comments/u5kkw6/comment/i531akr/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button)
+DBSCAN does clustering and outlier flagging at the same time. [discussion](https://www.reddit.com/r/datascience/comments/u5kkw6/comment/i531akr/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button)
 
 It first defines two parameters: `eps` and `min_samples`. `eps` is the radius from point A to search for any other point, i.e. maximum distance between two samples for one to be considered as in the neighborhood of the other. `min_samples` is the number of samples in a neighborhood for a point to be considered as a core point.
 
