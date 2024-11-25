@@ -27,6 +27,23 @@ However, there is a paper suggesting that the use of random undersampling, rando
 
 Using accuracy, recall or precision will be problematic when the data is imbalanced because the model can blindly predict a single target label to be 100% accurate. Use F1 score while there is no clear preference between recall and precision, or use F-beta score when there is a preference, with beta being the weight of precision. When beta equals 1, it is the same as F1 score. [Accuracy, precision, and recall in multi-class classification](https://www.evidentlyai.com/classification-metrics/multi-class-metrics)
 
+### Precision-Recall Curve
+
+To evaluate the performance correctly, instead of using ROC curve, we should use PR curve. Since FPR = FP/(FP+FN), we have false negatives as FPR denominator. In the case of imbalanced dataset, i.e. very few fraudulent cases, we can classify a lot of cases wrong, i.e. obtaining many false positives, and still maintain a low FPR because we have a large number of true negatives. [Train, Evaluate, Repeat: Building a Credit Card Fraud Detection System - Leela Senthil Nathan](https://youtu.be/rHSpab1Wi9k?t=1044)
+
+## Threshold moving for imbalanced dataset
+
+[A Gentle Introduction to Threshold-Moving for Imbalanced Classification](https://machinelearningmastery.com/threshold-moving-for-imbalanced-classification/)
+
+- The default threshold for interpreting probabilities to class labels is 0.5, and tuning this hyperparameter is called threshold moving.
+- The optimal threshold depends on the business needs, and the performance under different threshold could be visualized by a ROC curve, or a PR curve if the dataset is imbalanced.
+- The default threshold of 0.5 might not represent an optimal interpretation of the predicted probabilities
+  - If the predicted probabilities are not calibrated, e.g. those predicted by an SVM or decision tree.
+  - If the loss function is different from the metric
+  - If the class distribution is severely skewed.
+  - If the cost of misclassification is not equal between classes.
+- F score or F beta score could be used to determine the optimal threshold, which is just `argmax(score)`
+
 ## We shall consider modeling the probability instead
 
 - [Modeling probabilities is better than discrete outcomes in classification](classification.md#modeling-probabilities-is-better-than-discrete-outcomes-in-classification)

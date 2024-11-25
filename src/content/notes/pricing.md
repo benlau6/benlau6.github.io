@@ -19,6 +19,10 @@ Other than that, it could more be seen as a econometric problem or psychological
 - Sellers
   - Competitors
 - Offers - B2B pricing is all about communicating—and monetizing—the value of your offerings.
+- Economic factors
+  - Inflation: High inflation rates mean consumers' purchasing power decreases, resulting in less consumer spending and lower business sales. This, in turn, can create excess inventory, dead stock, and therefore lost revenue for your business. Apart from that, inflation would increase the cost of raw materials, the increased cost may mean lower profit margins if the prices are not raised, but raising prices could possibly decrease demand due to price elasticity.
+  - Interest rate: If interest rate rises, meaning the cost of borrowing goes up, consumers will be more inclined to save than spend. Companies will also slow their investments.
+  - Interest rate might suppress inflation, but it is lagged and sometimes might not be correlated because the interest rate policy depends on how central bank think, though it is an essential tool to control inflation. The policymaker might be optimistic on the overall economic growth and thus do nothing even if inflation exists.
 
 ## Service Business models
 
