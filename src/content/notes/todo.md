@@ -5,6 +5,13 @@ publishDate: 2024-11-16
 
 # Todo
 
+## 2024-12-04
+
+- [ ] Real-time fraud detection
+- [ ] When is multicollinearity a problem in modeling
+- [ ] When to apply mean centering in regression
+- [ ] How to interpret interaction terms in regression
+
 ## 2024-11-16
 
 - [ ] How to add features into Thompson sampling
@@ -20,4 +27,4 @@ publishDate: 2024-11-16
 - [ ] How to calibrate classification model
 - [ ] Case study video
 - [ ] Case study blog
-- [ ] Case study implmentations kaggle
+- [ ] Case study implementations on kaggle
