@@ -53,3 +53,8 @@ publishDate: 2024-09-20
 - neovim + lazyvim + vim-tmux-navigator
 - zsh + oh-my-zsh + zsh-vi-mode
 - tmux + vim-tmux-navigator
+
+## Fun projects
+
+- [Million checkboxes](https://www.youtube.com/watch?v=0XKYMt5mGpQ)
+- [Display every UUIDs](https://www.youtube.com/watch?v=HhLQi_wZUDc)

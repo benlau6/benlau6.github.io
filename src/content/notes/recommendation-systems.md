@@ -28,6 +28,8 @@ updatedDate: 2024-10-17
 - [Machine Learning for Better User-Experience: A Reddit Case Study](https://www.youtube.com/watch?v=8ekhcN3hL3g): Removing posts that users have already seen, Boosting subreddits that users have interacted with previously, etc. Aim go maximize interaction rate, likelihood to comment, time on subreddit, etc. It uses simple linear regression model at the end and have a great success.
 - [Innovative Recommendation Applications Using Two Tower Embeddings at Uber](https://www.uber.com/en-HK/blog/innovative-recommendation-applications-using-two-tower-embeddings/)
 - [Scaling deep retrieval with TensorFlow Recommenders and Vertex AI Matching Engine](https://cloud.google.com/blog/products/ai-machine-learning/scaling-deep-retrieval-tensorflow-two-towers-architecture)
+- [Machine Learning System Design (YouTube Recommendation System)](https://www.youtube.com/watch?v=0nu83yWqnNQ): It mentioned the position bias, where the recommendations at the top would be more likely to be clicked, no matter what other factors are. It implemented a shallow tower to remove the bias by predicting the conditional probability of engagement given the position at training time, which increased the engagement metric by a lot in live experiment.
+- [47th #ebaytechtalk: Deep Learning for Recommender Systems](https://www.youtube.com/watch?v=qQKMDJI_miU): It compares different architectures of different big companies. It then discussed a case with data sparsity of 0.0046%, while MovieLens 1M data are of 0.0426%.
 
 ## User journey
 
@@ -52,7 +54,16 @@ At 2017, Facebook and Netflix had done A/B tests of the five-star system against
 
 ### Not only the choices can be personalized, but also the content
 
-Look at Netflix, the thumbnails are personalized based on the user's behavior, e.g. the user's favorite actor, genre, etc. So when considering recommendation systems, we might also think of personalized visuals, e.g. thumbnails, titles, descriptions, etc. Note that they modeled it as a [multil-armed bandit problem](multi-armed-bandit.md), and used contextual bandit to solve it. [Blog: Artwork Personalization at Netflix](https://netflixtechblog.com/artwork-personalization-c589f074ad76) [Thumbnail Artwork: How It’s Helping Million Dollar Businesses](https://govisually.com/blog/thumbnail-artwork/) [How Netflix Uses Matching To Pick The Best Thumbnail For You](https://blogs.cornell.edu/info2040/2022/09/28/how-netflix-uses-matching-to-pick-the-best-thumbnail-for-you/)
+Look at Netflix, the thumbnails are personalized based on the user's behavior, e.g. the user's favorite actor, genre, etc. So when considering recommendation systems, we might also think of personalized visuals, e.g. thumbnails, titles, descriptions, etc. Note that they modeled it as a [multil-armed bandit problem](multi-armed-bandit.md), and used contextual bandit to solve it. [Blog: Artwork Personalization at Netflix](https://netflixtechblog.com/artwork-personalization-c589f074ad76)
+
+To create a candidate pool of best moment pictures, Netflix uses [AVA: The Art and Science of Image Discovery at Netflix](https://netflixtechblog.com/ava-the-art-and-science-of-image-discovery-at-netflix-a442f163af6). They considered three types of metadata, which are visual, contextual, and composition. The composition metadata includes know-how from domain expert considering how does a picture look good, such as rule-of-third and depth of field.
+
+#### Resources
+
+- [Thumbnail Artwork: How It’s Helping Million Dollar Businesses](https://govisually.com/blog/thumbnail-artwork/)
+- [How Netflix Uses Matching To Pick The Best Thumbnail For You](https://blogs.cornell.edu/info2040/2022/09/28/how-netflix-uses-matching-to-pick-the-best-thumbnail-for-you/)
+- [Selecting the best artwork for videos through A/B testing](https://netflixtechblog.com/selecting-the-best-artwork-for-videos-through-a-b-testing-f6155c4595f6)
+- [Netflix 如何透過影像處理及深度學習從影集中挑選精緻縮圖來提升點擊?](https://yulongtsai.medium.com/netflix-%E5%A6%82%E4%BD%95%E9%80%8F%E9%81%8E%E5%BD%B1%E5%83%8F%E8%99%95%E7%90%86%E5%8F%8A%E6%B7%B1%E5%BA%A6%E5%AD%B8%E7%BF%92%E5%BE%9E%E5%BD%B1%E9%9B%86%E4%B8%AD%E6%8C%91%E9%81%B8%E7%B2%BE%E7%B7%BB%E7%B8%AE%E5%9C%96%E4%BE%86%E6%8F%90%E5%8D%87%E9%BB%9E%E6%93%8A-902944dde4ab)
 
 ## Content-based filtering
 

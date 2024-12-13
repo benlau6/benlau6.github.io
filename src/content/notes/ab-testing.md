@@ -10,6 +10,7 @@ publishDate: 2024-11-11
 - [udemy | Bayesian Machine Learning in Python: A/B Testing](https://www.udemy.com/course/bayesian-machine-learning-in-python-ab-testing/?couponCode=24T2MT111824)
 - [udemy | A/B Testing and Experimentation for Beginners](https://www.udemy.com/course/ab-testing-and-experimentation-for-websites-and-marketing/?couponCode=24T2MT111824)
 - [udemy | Coding for A/B testing: Run more AB tests, find more winners](https://www.udemy.com/course/abtesting/?couponCode=LETSLEARNNOW)
+- [Selecting the best artwork for videos through A/B testing](https://netflixtechblog.com/selecting-the-best-artwork-for-videos-through-a-b-testing-f6155c4595f6)
 
 ## Introduction
 
