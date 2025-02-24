@@ -27,6 +27,8 @@ publishDate: 2024-09-20
 - [N+1 query problem](https://planetscale.com/blog/what-is-n-1-query-problem-and-how-to-solve-it) - The chief symptom of this problem is that there are many, many queries being performed. Typically, this happens when you structure your code so that you first do a query to get a list of records, then subsequently do another query for each of those records. This type of query execution is often called "N+1 queries" because instead of doing the work in a single query, you are running one query to get the list of categories, then another query for every N categories. Hence the term "N+1 queries".
   - it's possible to perform the exact same job 10× faster by using only one query that uses a JOIN clause.
   - You might expect that many small queries would be fast and one large, complex query will be slow. This is rarely the case. In practice, the opposite is true. Each query has to be sent to the database, the database has to perform the query, then it sends the results back to your app. The more queries you perform, the more time it takes to get the results back, with each trip to the database server taking time and resources. In contrast, a single query, even if it's complex, can be optimized by the database server and only requires one trip to the database, which will usually be much faster than many small queries.
+- [Safety Critical Code -- tigerbeetle, NASA](https://github.com/tigerbeetle/tigerbeetle/blob/main/docs/TIGER-STYLE.md)
+- [Nothing More Permanent Than A Temporary Solution](https://blog.juliobiason.me/books/things-i-learnt/permanent-solution/)
 
 ## Explanations
 
