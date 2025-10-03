@@ -27,6 +27,21 @@ ETL processes load data as a final step, so that reporting tools can use it dire
 
 In the ELT process, you load the extracted raw data from various sources in its natural state into a data warehouse or data lake. You then transform it as needed while in the target system, which usually is a MPP database, that is, massively parallel processing database. With ELT, all data cleansing, transformation, and enrichment occur within the data warehouse. You can interact with and transform the raw data as many times as needed.
 
+[Here are two examples of ELT/ETL in action.](https://www.reddit.com/r/datascience/comments/15hzykv/comment/jurhkft/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button)
+
+- ETL
+  - Your organization is starting to have more questions about about historical trends and patterns of your data.
+  - Currently, the org only has a transactional database (OLTP) for the product, and running these heavy analytical queries runs the risk breaking the transactional database for the product.
+  - Thus, you decide to replicate the data on an database designed specifically for analytics (OLAP) to power these heavy queries while not risking the production transactions database.
+  - You build an ETL pipeline to replicate data from the transactional database to the analytical database, including some data transformations to make it easier to use.
+- ELT
+  - Your organization purchases third party data from a vendor to supplement your organization's data.
+  - While this third party data is useful, the vendor provides extremely messy tables.
+  - Since this data is for R&D purposes, there is no defined business logic available.
+  - Therefore, you deem its okay to dump this data into a data lake and give the data science team access to explore.
+  - You build an ELT pipeline that extracts the raw data from the third party vendor and loads it into the data make.
+  - After a few iterations, the data science team has determined which parts of the data are valuable, and build data transformations on top of the data in the data lake for their workflows.
+
 ### Why ELT becomes the norm?
 
 ETL has been around since the 1970s, becoming especially popular with the rise of data warehouses. However, traditional data warehouses required custom ETL processes for each data source.

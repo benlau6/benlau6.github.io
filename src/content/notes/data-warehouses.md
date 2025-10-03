@@ -28,3 +28,17 @@ RDMS is usually a row oriented storage for OLTP systems (think of real time bank
 Data Warehouse is a column oriented storage (in most of the cases) to perform faster aggregation queries for OLAP (analytical) systems
 
 Data warehouse is a theoretical concept whereas RDBMS is a vendor implementation of a relational database (i. e. SQL Server, Oracle, Postgres). Data warehouses are traditionally built on top of the RDBMSes but with somewhat different design than transactional databases (hence you'll often hear OLTP vs OLAP databases) - it is expectes that data in a data warehouse will be rarely (if ever) updated; instead it is optimized for inserts and reads. Also, data is "denormalized", meaning there is a certain level of redundancy of the data in order to avoid some JOINs (because number of them in an analytical query can be very high).
+
+## Transactional database vs analytical database
+
+- we want to maximize throughput of transactional database
+  - row-based storage are quick for insertion, deletion, update
+  - move analytical queries to analytical database, which requires lots of computation power
+- we want to ensure the integrity of raw transactional data
+  - enforced key relationship for data integrity
+  - atomic change for consistency
+  - removal of redundancy
+- we want to maximize the querying speed of read-only analytical purpose
+  - remove overhead of atomic change in transactional database
+  - columnar
+  - simpler query
