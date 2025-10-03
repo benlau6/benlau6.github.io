@@ -24,76 +24,11 @@ tags:
 
 It is a solver with visualization to solve Pickup Delivery Problem (PDP) with Time Windows, Capacity, Breaks and Priority Constraints for a transport company serving people with disabilities.
 
-## Design Document (Trimmed)
-
-### Introduction
-
-This document describes the design of the routing optimization for a non-profit organization that provides transportation services for people with disabilities.
-
-It does **not** describe the decision making of the business constraints such as maximum working hours and length of break time. Those constraints are assumed to be given by the organization as constants.
-
-It is aimed at the following audiences:
-
-- data scientists
-- software engineers
-- project managers
-
-Prerequisite: It is assumed that you understand python programming and basic concepts of routing optimization. If you are not familiar with the latter concept, please refer to the [recommended readings](#recommended-readings) section.
-
-This app is similar to the Uber app, but it is designed for people with disabilities, and with much earlier scheduling, and much more complex constraints.
-
-After reading this document, you are expected to know the goals, objectives, assumptions, and constraints of the routing optimization. You will also know how to run, maintain, and improve the program.
-
-### Background
-
-The company provides a point-to-point service that allows passengers to book a ride up to 4 days in advance, which allows ride sharing. The company needs to digest 500 daily requests with 200 vehicles. 40 of them are often in stand-by or maintenance modes. The vehicles would be stating or ending at 17 depots, which are spread around Hong Kong. The company also hired around 180 drivers, while some of them are part-time drivers.
-
-### Methodology
-
-It is just a vehicle routing problem (VRP) with pickup and delivery, time windows, capacity, breaks, and priority constraints. It is often termed as the Vehicle Routing Problem (VRP), Pickup and Delivery Problem (PDP), or Dial-a-Ride Problem (DARP) in academic literature. It is a well-known problem with well-established frameworks and tools to solve it. The problem is mainly framed in two paradigms, which are mixed integer linear programming (MILP) and constraint programming (CP). The former is more suitable for small to medium size problems, while the latter is more suitable for medium to large size problems with complex constraints.
-
-The most difficult part is to define the constraints in mathematical terms to be plugged into a mathematical model, and the rest is just a matter of choosing a well-developed optimization algorithm from a [well-established optimization software](https://en.wikipedia.org/wiki/List_of_optimization_software) to get an acceptable solution with low cost according to the objective in **a limited time**.
-
-Since the company has to deal with 500 daily requests in average in a complex setting according to business needs, constraint programming is chosen to solve the problem due to its speed and generality. The optimization software used in this project is [OR-Tools](https://developers.google.com/optimization), a Google's open-source optimization software that is free to use. It also has a dedicated routing module that is designed to solve VRP in constraint programming, with a good documentation, lots of awards, and a great community support. To know more about OR-Tools, please refer to the [recommended readings](#recommended-readings) section.
-
-### Goals and Objectives
-
-Goals
-
-- 檢視固定路線服務的現行路線編訂
-  - 增加固定路線服務用戶和乘客人次
-  - 減少固定路線輪候名單申請人數目
-- 提高點到點電話預約服務的車輛的使用率
-- 檢討載客量低的聯載服務路線
-
-Objectives
-
-- 提高每天總載客量
-- 減少每天總行車距離
-- 減少每天用車數目
-- 減少每天用車要求拒絕率
-
-### Input Data Requirement
-
-Every row of the input data represents a request for a trip. The data includes the following columns:
-
-1. date: date of the trip
-2. boardTime: the time when the passenger boards the vehicle
-3. boardlng: longitude of the boarding location
-4. boardlat: latitude of the boarding location
-5. alightTime: the time when the passenger alights the vehicle
-6. alightlng: longitude of the alighting location
-7. alightlat: latitude of the alighting location
-8. wheelchair: whether the passenger is a wheelchair user
-9. passenger: the number of normal passengers
-10. partner_cnt: the number of partners
-11. purpose: the purpose of the trip
-
-### Technical Details of OR-Tools Model
+## Technical Details of OR-Tools Model
 
 NOTE: Read it only if you are needed to tune the model. Otherwise, you can skip this section.
 
-#### Time Variables
+### Time Variables
 
 Variables
 
@@ -116,7 +51,7 @@ References
 - [Time Windows](https://developers.google.com/maps/documentation/route-optimization/time-windows)
 - [Good read about time constraint and slack consideration](https://github.com/google/or-tools/discussions/4173#discussioncomment-9071219)
 
-#### Objective function
+### Objective function
 
 - Try to minimize the costs
 - It doesn't mean the standard deviation is minimized
@@ -163,11 +98,11 @@ Considering the followings as rewards are good
 - number of served wheelchairs
 - number of served normal passengers
 
-#### First solution strategy
+### First solution strategy
 
 ALL_UNPERFORMED, GLOBAL_CHEAPEST_ARC are good methods for models with many constraints because they will find a feasible solution in seconds, then heuristics could quickly react to remove the penalties. Other methods may struggle to find a feasible solution even in 10 minutes.
 
-#### PDP constraints
+### PDP constraints
 
 It can be done by adding `routing.AddPickupAndDelivery`, with two additional constraints that restrict the vehicle to be the same for both pickup and delivery, and the delivery time to be later than the pickup time. The code snippet is as follows:
 
@@ -194,7 +129,7 @@ Other potential useful constraints that are not yet used
 - routing.[AddPickupAndDeliverySets](https://github.com/google/or-tools/discussions/2974)
 - routing.SetPickupToDeliveryLimitFunctionForPair
 
-#### Break Time
+### Break Time
 
 To impose a break interval, we can do it easily with the following methods:
 
@@ -231,7 +166,7 @@ Some readings to enhance the understanding of break time
   - <https://github.com/google/or-tools/issues/1202>
   - <https://github.com/google/or-tools/discussions/2693>
 
-#### Priority Constraint
+### Priority Constraint
 
 **Current solution**
 
@@ -245,7 +180,7 @@ Alternatives
 3. [Find solution for high priority nodes first](https://groups.google.com/g/or-tools-discuss/c/HsioeGr8DyA/m/7sWkGMSmDAAJ)
 4. [SetCumulVarSoftUpperBOund](https://github.com/google/or-tools/discussions/2274)
 
-#### How to model shift?
+### How to model shift?
 
 - There can only be n (180) vehicles outside the depot simultaneously
 - There are limited vehicles at each depot
@@ -259,7 +194,7 @@ So, using the same vehicle for different drivers will violate the working hours 
 
 Could i reset the duration of the vehicle to 0 after each shift? [ref](https://github.com/google/or-tools/issues/1624)
 
-#### How to add back the dropped disjunct node?
+### How to add back the dropped disjunct node?
 
 > NOTE: if there are unused vehicles and dropped nodes co-existing, it is likely that the imposed assumptions are incorrect, such that the requests are infeasible to be served by any vehicle. E.g. exceeding seat demand, exceeding estimated travel time compared to allowed travel time derived from time window, etc.
 
@@ -270,21 +205,21 @@ Ideas
 - [routing solver dropping nodes, but leaving vehicles unused](https://groups.google.com/g/or-tools-discuss/c/StrnNTcmwig/m/dTD7qByPAQAJ)
 - [Exploring disjunctions](https://activimetrics.com/blog/ortools/exploring_disjunctions/)
 
-#### How to insert new request with existing solution?
+### How to insert new request with existing solution?
 
 - [VRPTW: Routing Problems recalculating a given solution fixing time windows and adding new locations #2142](https://github.com/google/or-tools/issues/2142)
 
-#### Speed Optimization
+### Speed Optimization
 
 - [Need advice with optimizing the running speed of OR-Tools Routing #4172](https://github.com/google/or-tools/discussions/4172)
 
-#### How to make more log?
+### How to make more log?
 
 - trace_search: <https://stackoverflow.com/a/63602540>
 - search monitor: <https://groups.google.com/g/or-tools-discuss/c/oj1YblO9f1o/m/Wk3OkSmXDQAJ>
 - routing.AddAtSolutionCallback()
 
-### Recommended Readings
+## Recommended Readings
 
 - [Model Building in Mathematical Programming](https://www.amazon.com/Model-Building-Mathematical-Programming-Williams/dp/1118443330) -- for understanding the basic concepts of mathematical programming and how to model a real-world problem
 - OR Tools documentations -- for understanding the basic concepts of routing optimization and the tools used in this project
@@ -295,7 +230,7 @@ Ideas
   - [Armbrust et al., 2022 - Case study of Dial-a-Ride Problems arising in Austrian rural regions](https://doi.org/10.1016/j.trpro.2022.02.025)
   - [Hungerländer et al., 2021 - Improving Sharing Rates of a Dial-a-Ride Problem implemented for an Austrian Mobility Provider](https://doi.org/10.1016/j.trpro.2021.01.062)
 
-### References
+## References
 
 - Armbrust, Philipp, Philipp Hungerländer, Kerstin Maier, and Veronika Pachatz. “Case Study of Dial-a-Ride Problems Arising in Austrian Rural Regions.” Transportation Research Procedia 62 (2022): 197–204. <https://doi.org/10.1016/j.trpro.2022.02.025>.
 - Baita, F., R. Pesenti, W. Ukovich, and D. Favaretto. “A Comparison of Different Solution Approaches to the Vehicle Scheduling Problem in a Practical Case.” Computers & Operations Research 27, no. 13 (November 2000): 1249–69. <https://doi.org/10.1016/S0305-0548(99)00073-8>.
